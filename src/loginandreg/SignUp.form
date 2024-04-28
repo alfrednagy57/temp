@@ -144,11 +144,6 @@
                           <Group type="102" alignment="0" attributes="0">
                               <EmptySpace min="-2" pref="31" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" attributes="0">
-                                  <Group type="102" alignment="0" attributes="0">
-                                      <Component id="Password" min="-2" pref="292" max="-2" attributes="0"/>
-                                      <EmptySpace type="separate" max="-2" attributes="0"/>
-                                      <Component id="togbtn1" pref="63" max="32767" attributes="0"/>
-                                  </Group>
                                   <Group type="102" attributes="0">
                                       <Group type="103" groupAlignment="0" attributes="0">
                                           <Component id="ID" min="-2" pref="177" max="-2" attributes="0"/>
@@ -173,9 +168,16 @@
                                               <Component id="Email" alignment="0" pref="296" max="32767" attributes="0"/>
                                           </Group>
                                           <Component id="mess" alignment="0" min="-2" pref="329" max="-2" attributes="0"/>
-                                          <Component id="Bar" alignment="0" min="-2" pref="296" max="-2" attributes="0"/>
                                       </Group>
                                       <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                                  </Group>
+                                  <Group type="102" attributes="0">
+                                      <Group type="103" groupAlignment="1" max="-2" attributes="0">
+                                          <Component id="Bar" alignment="0" max="32767" attributes="0"/>
+                                          <Component id="Password" alignment="0" pref="292" max="32767" attributes="0"/>
+                                      </Group>
+                                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                                      <Component id="togbtn1" pref="63" max="32767" attributes="0"/>
                                   </Group>
                               </Group>
                           </Group>
@@ -345,11 +347,11 @@
             </Component>
             <Component class="javax.swing.JProgressBar" name="Bar">
               <Properties>
-                <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                  <Color blue="ff" green="ff" red="ff" type="rgb"/>
+                <Property name="background" type="java.awt.Color" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
+                  <Connection code="new java.awt.Color(255, 255, 255)" type="code"/>
                 </Property>
-                <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                  <Color blue="66" green="66" red="0" type="rgb"/>
+                <Property name="foreground" type="java.awt.Color" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
+                  <Connection code="new java.awt.Color(0, 102, 102)" type="code"/>
                 </Property>
                 <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
                   <Border info="null"/>
@@ -492,21 +494,20 @@
             </Component>
             <Component class="javax.swing.JPasswordField" name="Password">
               <Properties>
-                <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
-                  <Border info="org.netbeans.modules.form.compat2.border.MatteColorBorderInfo">
-                    <MatteColorBorder bottom="2" left="0" right="0" top="0">
-                      <Color PropertyName="color" blue="66" green="66" red="0" type="rgb"/>
-                    </MatteColorBorder>
-                  </Border>
+                <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
+                  <Connection code="javax.swing.BorderFactory.createMatteBorder(0, 0, 2, 0, new java.awt.Color(0, 102, 102))" type="code"/>
                 </Property>
-                <Property name="selectedTextColor" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                  <Color blue="f2" green="f2" red="f2" type="rgb"/>
+                <Property name="selectedTextColor" type="java.awt.Color" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
+                  <Connection code="new java.awt.Color(242, 242, 242)" type="code"/>
                 </Property>
               </Properties>
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="PasswordActionPerformed"/>
                 <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="PasswordKeyTyped"/>
               </Events>
+              <AuxValues>
+                <AuxValue name="JavaCodeGenerator_CreateCodeCustom" type="java.lang.String" value="new javax.swing.JPasswordField()"/>
+              </AuxValues>
             </Component>
             <Component class="javax.swing.JToggleButton" name="togbtn1">
               <Properties>
@@ -986,9 +987,6 @@
                   <Font name="DialogInput" size="12" style="3"/>
                 </Property>
               </Properties>
-              <AuxValues>
-                <AuxValue name="JavaCodeGenerator_InitCodePre" type="java.lang.String" value="AccountType.add(&quot;Saving Account&quot;);&#xa;AccountType.add(&quot;Fixed Deposit Account&quot;);&#xa;AccountType.add(&quot;Current Account&quot;);&#xa;AccountType.add(&quot;recurring Deposit Account&quot;);"/>
-              </AuxValues>
             </Component>
             <Component class="java.awt.Choice" name="Gender">
               <Properties>

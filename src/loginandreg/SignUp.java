@@ -17,6 +17,9 @@ import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.Statement;
+import java.time.LocalDate;
+import java.time.ZoneId;
+import java.time.format.DateTimeFormatter;
 import java.util.StringTokenizer;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -278,10 +281,6 @@ public class SignUp extends javax.swing.JFrame {
                         .addGap(31, 31, 31)
                         .addGroup(RightLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(RightLayout.createSequentialGroup()
-                                .addComponent(Password, javax.swing.GroupLayout.PREFERRED_SIZE, 292, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(18, 18, 18)
-                                .addComponent(togbtn1, javax.swing.GroupLayout.DEFAULT_SIZE, 63, Short.MAX_VALUE))
-                            .addGroup(RightLayout.createSequentialGroup()
                                 .addGroup(RightLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(ID, javax.swing.GroupLayout.PREFERRED_SIZE, 177, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addGroup(RightLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
@@ -302,9 +301,14 @@ public class SignUp extends javax.swing.JFrame {
                                         .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 76, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addComponent(Lname)
                                         .addComponent(Email, javax.swing.GroupLayout.DEFAULT_SIZE, 296, Short.MAX_VALUE))
-                                    .addComponent(mess, javax.swing.GroupLayout.PREFERRED_SIZE, 329, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(Bar, javax.swing.GroupLayout.PREFERRED_SIZE, 296, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGap(0, 0, Short.MAX_VALUE)))))
+                                    .addComponent(mess, javax.swing.GroupLayout.PREFERRED_SIZE, 329, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(0, 0, Short.MAX_VALUE))
+                            .addGroup(RightLayout.createSequentialGroup()
+                                .addGroup(RightLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                    .addComponent(Bar, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(Password, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 292, Short.MAX_VALUE))
+                                .addGap(18, 18, 18)
+                                .addComponent(togbtn1, javax.swing.GroupLayout.DEFAULT_SIZE, 63, Short.MAX_VALUE)))))
                 .addContainerGap())
             .addGroup(RightLayout.createSequentialGroup()
                 .addGap(97, 97, 97)
@@ -495,10 +499,6 @@ public class SignUp extends javax.swing.JFrame {
             }
         });
 
-        AccountType.add("Saving Account");
-        AccountType.add("Fixed Deposit Account");
-        AccountType.add("Current Account");
-        AccountType.add("recurring Deposit Account");
         AccountType.setFont(new java.awt.Font("DialogInput", 3, 12)); // NOI18N
 
         AccountType.add("Saving Account");
@@ -787,17 +787,9 @@ public class SignUp extends javax.swing.JFrame {
 
     private void signupMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_signupMouseClicked
         // TODO add your handling code here:
-        String Expiredate=new String();
-        java.util.Date selectedDate = expire_date.getDate();
-        if (selectedDate != null) {
-            // selectedDate is not null, so you can safely invoke methods on it
-            Expiredate= selectedDate.toString();
-            // Use dateString as needed
-        } else {
-            // selectedDate is null, handle this case appropriately
-            System.out.println("Error: selectedDate is null");
-            // Display an error message or take other appropriate action
-        }
+        LocalDate selectedDate = expire_date.getDate().toInstant().atZone(ZoneId.systemDefault()).toLocalDate();
+        String expireDateString = selectedDate.format(DateTimeFormatter.ofPattern("yyyy-MM-dd"));
+
         String fname=Fname.getText();
         String lname=Lname.getText();
         String email=Email.getText();
@@ -814,7 +806,7 @@ public class SignUp extends javax.swing.JFrame {
         String Sex=Gender.getSelectedItem();
         
         
-        if(Sex.isEmpty()||Mob_Num.isEmpty()||FullAddress.isEmpty()||AtmPin.isEmpty()||Cvv.isEmpty()||Expiredate.isEmpty()||fname.isEmpty()||Card_no.isEmpty()||lname.isEmpty()||email.isEmpty()||pass.isEmpty()||Nation_no.isEmpty()||Country.isEmpty()||City.isEmpty()||AccType.isEmpty())
+        if(Sex.isEmpty()||Mob_Num.isEmpty()||FullAddress.isEmpty()||AtmPin.isEmpty()||Cvv.isEmpty()||expireDateString.isEmpty()||fname.isEmpty()||Card_no.isEmpty()||lname.isEmpty()||email.isEmpty()||pass.isEmpty()||Nation_no.isEmpty()||Country.isEmpty()||City.isEmpty()||AccType.isEmpty())
         {
             JOptionPane.showMessageDialog(this,"please enter the required fields");
         }
@@ -965,7 +957,7 @@ public class SignUp extends javax.swing.JFrame {
                     Class.forName("com.mysql.cj.jdbc.Driver");
                     Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/BankDatabase?serverTimezone=UTC", "root", "123456");
                     Statement stmt = con.createStatement();
-                    String sqlCommand =sqlCommand="insert into account(card_number,cvv,national_no,acc_pass,atm_pin,acc_category,expire_date,balance) VALUES(?,?,?,?,?,?,?,?,?);";
+                    String sqlCommand = "INSERT INTO account (card_number, cvv, national_no, acc_pass, atm_pin, acc_category, expire_date, balance) VALUES (?, ?, ?, ?, ?, ?, ?, ?);";
                     PreparedStatement pstmt = con.prepareStatement(sqlCommand); 
                     
                     String accType=new String();
@@ -993,11 +985,15 @@ public class SignUp extends javax.swing.JFrame {
                     pstmt.setString(4, pass);
                     pstmt.setString(5, AtmPin);
                     pstmt.setString(6, accType);
-                    pstmt.setString(7, Expiredate);
+                    pstmt.setString(7,expireDateString);
                     pstmt.setString(8, "0");
         
         
-                    int rs = pstmt.executeUpdate();
+                    pstmt.executeUpdate();
+
+                    // Close resources
+                    pstmt.close();
+                    con.close();
                     
                     
                     JOptionPane.showMessageDialog(this,"Signed up successfully");
@@ -1012,8 +1008,8 @@ public class SignUp extends javax.swing.JFrame {
                     System.out.println("second");
                 }
 
-
-                  this.dispose();
+                
+//                       this.dispose();
 //                       SignUp2 SignUp2Frame = new SignUp2();
 //                       SignUp2Frame.setVisible(true);
 //                       SignUp2Frame.pack();
