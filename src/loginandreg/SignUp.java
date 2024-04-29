@@ -35,6 +35,11 @@ import org.jdesktop.swingx.JXDatePicker;
  */
 public class SignUp extends javax.swing.JFrame {
 
+    boolean VerifiedEmail=false;
+    String RandomCode=ValMail.generateRandomCode(6);
+    int Cou=0;
+
+
     /**
      * Creates new form SignUp
      */
@@ -51,11 +56,6 @@ public class SignUp extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        Password5 = new javax.swing.JTextField();
-        jRadioButton2 = new javax.swing.JRadioButton();
-        jRadioButton1 = new javax.swing.JRadioButton();
-        jRadioButton3 = new javax.swing.JRadioButton();
-        jRadioButton4 = new javax.swing.JRadioButton();
         Left = new javax.swing.JPanel();
         Right = new javax.swing.JPanel();
         jLabel6 = new javax.swing.JLabel();
@@ -78,6 +78,10 @@ public class SignUp extends javax.swing.JFrame {
         Password = new javax.swing.JPasswordField();
         togbtn1 = new javax.swing.JToggleButton();
         mess = new javax.swing.JLabel();
+        Verify = new com.k33ptoo.components.KButton();
+        verifo = new javax.swing.JTextField();
+        Verify1 = new com.k33ptoo.components.KButton();
+        mess1 = new javax.swing.JLabel();
         lefttt = new javax.swing.JPanel();
         jLabel4 = new javax.swing.JLabel();
         jXHyperlink1 = new org.jdesktop.swingx.JXHyperlink();
@@ -100,43 +104,6 @@ public class SignUp extends javax.swing.JFrame {
         add = new javax.swing.JTextField();
         AccountType = new java.awt.Choice();
         Gender = new java.awt.Choice();
-
-        Password5.setBackground(new Color(0,0,0,0));
-        Password5.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 2, 0, new java.awt.Color(0, 102, 102)));
-        Password5.setDisabledTextColor(new java.awt.Color(204, 204, 0));
-        Password5.setSelectedTextColor(new java.awt.Color(242, 242, 242));
-        Password5.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                Password5ActionPerformed(evt);
-            }
-        });
-
-        jRadioButton2.setForeground(new java.awt.Color(255, 255, 255));
-        jRadioButton2.setText("Fixed Deposit Account");
-        jRadioButton2.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jRadioButton2ActionPerformed(evt);
-            }
-        });
-
-        jRadioButton1.setForeground(new java.awt.Color(255, 255, 255));
-        jRadioButton1.setText("Saving Account");
-        jRadioButton1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jRadioButton1ActionPerformed(evt);
-            }
-        });
-
-        jRadioButton3.setForeground(new java.awt.Color(255, 255, 255));
-        jRadioButton3.setText("Current Account");
-        jRadioButton3.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jRadioButton3ActionPerformed(evt);
-            }
-        });
-
-        jRadioButton4.setForeground(new java.awt.Color(255, 255, 255));
-        jRadioButton4.setText("Recurring Deposit Account");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Sign Up");
@@ -278,6 +245,24 @@ public class SignUp extends javax.swing.JFrame {
 
         mess.setForeground(new java.awt.Color(153, 153, 153));
 
+        Verify.setText("Verify");
+        Verify.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                VerifyMouseClicked(evt);
+            }
+        });
+
+        verifo.setText("Verification Code");
+
+        Verify1.setText("Confirm");
+        Verify1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                Verify1MouseClicked(evt);
+            }
+        });
+
+        mess1.setForeground(new java.awt.Color(153, 153, 153));
+
         javax.swing.GroupLayout RightLayout = new javax.swing.GroupLayout(Right);
         Right.setLayout(RightLayout);
         RightLayout.setHorizontalGroup(
@@ -288,41 +273,48 @@ public class SignUp extends javax.swing.JFrame {
                         .addGap(122, 122, 122)
                         .addComponent(jLabel1))
                     .addGroup(RightLayout.createSequentialGroup()
-                        .addGap(31, 31, 31)
+                        .addGap(103, 103, 103)
                         .addGroup(RightLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel6)
+                            .addGroup(RightLayout.createSequentialGroup()
+                                .addGap(23, 23, 23)
+                                .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 145, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                    .addGroup(RightLayout.createSequentialGroup()
+                        .addGap(30, 30, 30)
+                        .addGroup(RightLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(RightLayout.createSequentialGroup()
+                                .addGroup(RightLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                    .addComponent(mess1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(verifo, javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(Fname, javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel9, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 76, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jLabel2, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 76, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jLabel8, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 76, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(Lname, javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(Email, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 296, Short.MAX_VALUE))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addGroup(RightLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(Verify, javax.swing.GroupLayout.PREFERRED_SIZE, 61, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(Verify1, javax.swing.GroupLayout.PREFERRED_SIZE, 61, javax.swing.GroupLayout.PREFERRED_SIZE)))
                             .addGroup(RightLayout.createSequentialGroup()
                                 .addComponent(Password, javax.swing.GroupLayout.PREFERRED_SIZE, 292, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(togbtn1, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(ID, javax.swing.GroupLayout.PREFERRED_SIZE, 177, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(RightLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                .addComponent(Fname)
-                                .addComponent(jLabel18)
-                                .addGroup(RightLayout.createSequentialGroup()
-                                    .addComponent(jLabel13)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                    .addComponent(country, javax.swing.GroupLayout.PREFERRED_SIZE, 83, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(jLabel12)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                    .addComponent(city, javax.swing.GroupLayout.PREFERRED_SIZE, 83, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addGap(1, 1, 1))
-                                .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 76, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 76, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(jLabel10, javax.swing.GroupLayout.PREFERRED_SIZE, 76, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 76, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(Lname)
-                                .addComponent(Email, javax.swing.GroupLayout.DEFAULT_SIZE, 296, Short.MAX_VALUE))
-                            .addComponent(Bar, javax.swing.GroupLayout.PREFERRED_SIZE, 288, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(mess, javax.swing.GroupLayout.PREFERRED_SIZE, 292, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGroup(RightLayout.createSequentialGroup()
-                        .addGap(112, 112, 112)
-                        .addGroup(RightLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel6)
+                            .addComponent(jLabel18)
                             .addGroup(RightLayout.createSequentialGroup()
-                                .addGap(17, 17, 17)
-                                .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 145, javax.swing.GroupLayout.PREFERRED_SIZE)))))
-                .addContainerGap(9, Short.MAX_VALUE))
+                                .addComponent(jLabel13)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(country, javax.swing.GroupLayout.PREFERRED_SIZE, 83, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jLabel12)
+                                .addGap(12, 12, 12)
+                                .addComponent(city, javax.swing.GroupLayout.PREFERRED_SIZE, 83, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(jLabel10, javax.swing.GroupLayout.PREFERRED_SIZE, 76, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(ID, javax.swing.GroupLayout.PREFERRED_SIZE, 210, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(RightLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                .addComponent(mess, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(Bar, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 288, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                .addContainerGap(10, Short.MAX_VALUE))
         );
         RightLayout.setVerticalGroup(
             RightLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -333,43 +325,51 @@ public class SignUp extends javax.swing.JFrame {
                 .addComponent(jLabel2)
                 .addGap(0, 0, 0)
                 .addComponent(Fname, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jLabel8)
                 .addGap(0, 0, 0)
                 .addComponent(Lname, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGap(24, 24, 24)
                 .addComponent(jLabel9)
                 .addGap(0, 0, 0)
-                .addComponent(Email, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(RightLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(Email, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(Verify, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(RightLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(verifo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(Verify1, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(mess1, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(3, 3, 3)
                 .addComponent(jLabel18)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGap(0, 0, 0)
                 .addComponent(ID, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(12, 12, 12)
+                .addGap(0, 0, 0)
                 .addGroup(RightLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel13)
-                    .addComponent(jLabel12)
                     .addComponent(city, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(country, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                    .addComponent(country, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel12))
+                .addGap(0, 0, 0)
                 .addComponent(jLabel10)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGap(0, 0, 0)
                 .addGroup(RightLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(Password, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(togbtn1))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(Bar, javax.swing.GroupLayout.PREFERRED_SIZE, 12, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(11, 11, 11)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(mess, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel6)
-                .addContainerGap(77, Short.MAX_VALUE))
+                .addGap(67, 67, 67))
         );
 
         Left.add(Right);
-        Right.setBounds(0, 0, 410, 570);
+        Right.setBounds(0, 0, 410, 720);
 
         lefttt.setPreferredSize(new java.awt.Dimension(400, 500));
 
@@ -637,11 +637,11 @@ public class SignUp extends javax.swing.JFrame {
                     .addGroup(leftttLayout.createSequentialGroup()
                         .addGap(50, 50, 50)
                         .addComponent(signup, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(101, Short.MAX_VALUE))
+                .addContainerGap(251, Short.MAX_VALUE))
         );
 
         Left.add(lefttt);
-        lefttt.setBounds(410, -30, 390, 600);
+        lefttt.setBounds(410, -30, 390, 750);
 
         getContentPane().add(Left);
         Left.setBounds(0, 0, 800, 570);
@@ -654,23 +654,11 @@ public class SignUp extends javax.swing.JFrame {
         // TODO add your handling code here:  Login LoginFrame = new Login();
         Login LoginFrame = new Login();
         LoginFrame.setVisible(true);
-      
+
         LoginFrame.pack();
         LoginFrame.setLocationRelativeTo(null);
         this.dispose();
     }//GEN-LAST:event_jXHyperlink1ActionPerformed
-
-    private void jRadioButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButton1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jRadioButton1ActionPerformed
-
-    private void jRadioButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButton3ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jRadioButton3ActionPerformed
-
-    private void jRadioButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButton2ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jRadioButton2ActionPerformed
 
     private void expire_dateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_expire_dateActionPerformed
         // TODO add your handling code here:
@@ -686,12 +674,12 @@ public class SignUp extends javax.swing.JFrame {
 //            // Display an error message or take other appropriate action
 //        }
 //         Expiredate=Expiredate.substring(0,5)
-//          
+//
 //        expire_date.set
     }//GEN-LAST:event_expire_dateActionPerformed
 
     private void signupActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_signupActionPerformed
-        
+
     }//GEN-LAST:event_signupActionPerformed
 
     private void jLabel22MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel22MouseClicked
@@ -739,10 +727,6 @@ public class SignUp extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_mob_noActionPerformed
 
-    private void Password5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Password5ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_Password5ActionPerformed
-
     private void addActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_addActionPerformed
@@ -755,7 +739,7 @@ public class SignUp extends javax.swing.JFrame {
         // TODO add your handling code here:
              char[] passChars = Password.getPassword();
              String pass = new String(passChars);
-            
+
             if(PatternChecker.MatchPattern(pass))
             {
                 mess.setText("password accepted");
@@ -778,7 +762,7 @@ public class SignUp extends javax.swing.JFrame {
 //                nums.setBackground(new java.awt.Color(204, 0, 0));
                  mess.setText("password must contain 8 numbers");
             }
-            else 
+            else
             {
                 mess.setText("password accepted");
                 Bar.setValue(100);
@@ -812,8 +796,8 @@ public class SignUp extends javax.swing.JFrame {
         String FullAddress=add.getText();
         String Mob_Num=mob_no.getText();
         String Sex=Gender.getSelectedItem();
-        
-        
+
+
         if(Sex.isEmpty()||Mob_Num.isEmpty()||FullAddress.isEmpty()||AtmPin.isEmpty()||Cvv.isEmpty()||expireDateString.isEmpty()||fname.isEmpty()||Card_no.isEmpty()||lname.isEmpty()||email.isEmpty()||pass.isEmpty()||Nation_no.isEmpty()||Country.isEmpty()||City.isEmpty()||AccType.isEmpty())
         {
             JOptionPane.showMessageDialog(this,"please enter the required fields");
@@ -871,13 +855,13 @@ public class SignUp extends javax.swing.JFrame {
             Password.setText(" ");
         }
         else
-        {   
+        {
                 StringTokenizer token =new StringTokenizer(email,"@");
-                String username=new String();
+                String fullmail=Email.getText();
                 String domain = new String();
                 if(token.hasMoreTokens())
                 {
-                    username=(String)token.nextElement();//user ie before @
+                    email=(String)token.nextElement();//user ie before @
                 }
                 while(token.hasMoreTokens())
                 {
@@ -888,16 +872,16 @@ public class SignUp extends javax.swing.JFrame {
                 {
                     domain=token2.nextToken();
                 }
-                
+
                 /***************************************************************************/
-                
+
                 domain=domain.toLowerCase();
-                
+
             if(fname.length()<4||lname.length()<4)
             {
                 JOptionPane.showMessageDialog(this,"Name is too short");
             }
-            else if(!ValMail.EmailVal(email))
+            else if(!ValMail.EmailVal(fullmail))
             {
                 JOptionPane.showMessageDialog(this,"email does not meet our standards");
             }
@@ -905,18 +889,23 @@ public class SignUp extends javax.swing.JFrame {
             {
                 JOptionPane.showMessageDialog(this,"we accept gmail only");
             }
+            else if(!VerifiedEmail)
+            {
+                JOptionPane.showMessageDialog(this,"please verify you email");
+            }
             else
             {
 
+
                 int rs=0;
                 boolean fq=false;
-                try 
+                try
                 {
                     Class.forName("com.mysql.cj.jdbc.Driver");
                     Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/BankDatabase?serverTimezone=UTC", "root", "123456");
                     Statement stmt = con.createStatement();
                     String sqlCommand ="insert into customers(fname,lname,national_id,mobile_no,email,Address,country,city,sex) VALUES(?,?,?,?,?,?,?,?,?);";
-                    PreparedStatement pstmt = con.prepareStatement(sqlCommand);        
+                    PreparedStatement pstmt = con.prepareStatement(sqlCommand);
                     Mob_Num=Mob_Num.substring(2,Mob_Num.length());
                     Mob_Num=Mob_Num.trim();
                     if(Sex.equals("Female"))
@@ -946,12 +935,12 @@ public class SignUp extends javax.swing.JFrame {
                     pstmt.setString(9, Sex);
 
                     rs = pstmt.executeUpdate();
-                    
-                    
+
+
                     fq=true;
                 // Close the ResultSet, Statement, and Connection
-                } 
-                catch (Exception e) 
+                }
+                catch (Exception e)
                 {
                     JOptionPane.showMessageDialog(this,e);
                     System.out.println(e.getMessage());
@@ -963,13 +952,13 @@ public class SignUp extends javax.swing.JFrame {
                 /************************************************************************************************/
                 if(fq)
                 {
-                    try 
+                    try
                     {
                         Class.forName("com.mysql.cj.jdbc.Driver");
                         Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/BankDatabase?serverTimezone=UTC", "root", "123456");
                         Statement stmt = con.createStatement();
                         String sqlCommand = "INSERT INTO account (card_number, cvv, national_no, acc_pass, atm_pin, acc_category, expire_date, balance) VALUES (?, ?, ?, ?, ?, ?, ?, ?);";
-                        PreparedStatement pstmt = con.prepareStatement(sqlCommand); 
+                        PreparedStatement pstmt = con.prepareStatement(sqlCommand);
 
                         String accType=new String();
 
@@ -1011,15 +1000,15 @@ public class SignUp extends javax.swing.JFrame {
 
 
                     // Close the ResultSet, Statement, and Connection
-                    } 
-                    catch (Exception e) 
+                    }
+                    catch (Exception e)
                     {
                         JOptionPane.showMessageDialog(this,e);
                         System.out.println(e.getMessage());
                         System.out.println("second");
                     }
                 }
-                
+
 //                       this.dispose();
 //                       SignUp2 SignUp2Frame = new SignUp2();
 //                       SignUp2Frame.setVisible(true);
@@ -1048,6 +1037,33 @@ public class SignUp extends javax.swing.JFrame {
         mess.setText(" ");
     }//GEN-LAST:event_PasswordMouseClicked
 
+    private void VerifyMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_VerifyMouseClicked
+        // TODO add your handling code here:
+        ValMail.sendEmail(Email.getText(),"Verification",RandomCode);
+    }//GEN-LAST:event_VerifyMouseClicked
+
+    private void Verify1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Verify1MouseClicked
+        // TODO add your handling code here:
+        String EnteredCode=verifo.getText();
+        if(Cou<3)
+        {
+            if(!EnteredCode.equals(RandomCode))
+            {
+                mess1.setText("wrong code");
+                Cou++;
+            }
+            else
+            {
+                mess1.setText("right code");
+                VerifiedEmail=true;
+            }
+        }
+        else
+        {
+            mess1.setText("Please enter a different mail as you entered the code worng for 3 times");
+        }
+    }//GEN-LAST:event_Verify1MouseClicked
+
     /**
      * @param args the command line arguments
      */
@@ -1055,7 +1071,7 @@ public class SignUp extends javax.swing.JFrame {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
         /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
+         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html
          */
         try {
             for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
@@ -1093,8 +1109,9 @@ public class SignUp extends javax.swing.JFrame {
     private javax.swing.JPanel Left;
     private javax.swing.JTextField Lname;
     private javax.swing.JPasswordField Password;
-    private javax.swing.JTextField Password5;
     private javax.swing.JPanel Right;
+    private com.k33ptoo.components.KButton Verify;
+    private com.k33ptoo.components.KButton Verify1;
     private javax.swing.JTextField add;
     private javax.swing.JTextField atm_pin;
     private javax.swing.JTextField card_no;
@@ -1123,15 +1140,13 @@ public class SignUp extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
-    private javax.swing.JRadioButton jRadioButton1;
-    private javax.swing.JRadioButton jRadioButton2;
-    private javax.swing.JRadioButton jRadioButton3;
-    private javax.swing.JRadioButton jRadioButton4;
     private org.jdesktop.swingx.JXHyperlink jXHyperlink1;
     private javax.swing.JPanel lefttt;
     private javax.swing.JLabel mess;
+    private javax.swing.JLabel mess1;
     private javax.swing.JTextField mob_no;
     private com.k33ptoo.components.KButton signup;
     private javax.swing.JToggleButton togbtn1;
+    private javax.swing.JTextField verifo;
     // End of variables declaration//GEN-END:variables
 }
