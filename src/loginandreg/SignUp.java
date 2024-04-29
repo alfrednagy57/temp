@@ -24,6 +24,10 @@ import java.util.StringTokenizer;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
+import java.text.SimpleDateFormat;
+import org.jdesktop.swingx.JXDatePicker;
+
+
 
 /**
  *
@@ -71,9 +75,9 @@ public class SignUp extends javax.swing.JFrame {
         Email = new javax.swing.JTextField();
         ID = new javax.swing.JTextField();
         country = new javax.swing.JTextField();
-        mess = new javax.swing.JLabel();
         Password = new javax.swing.JPasswordField();
         togbtn1 = new javax.swing.JToggleButton();
+        mess = new javax.swing.JLabel();
         lefttt = new javax.swing.JPanel();
         jLabel4 = new javax.swing.JLabel();
         jXHyperlink1 = new org.jdesktop.swingx.JXHyperlink();
@@ -249,6 +253,11 @@ public class SignUp extends javax.swing.JFrame {
 
         Password.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 2, 0, new java.awt.Color(0, 102, 102)));
         Password.setSelectedTextColor(new java.awt.Color(242, 242, 242));
+        Password.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                PasswordMouseClicked(evt);
+            }
+        });
         Password.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 PasswordActionPerformed(evt);
@@ -267,6 +276,8 @@ public class SignUp extends javax.swing.JFrame {
             }
         });
 
+        mess.setForeground(new java.awt.Color(153, 153, 153));
+
         javax.swing.GroupLayout RightLayout = new javax.swing.GroupLayout(Right);
         Right.setLayout(RightLayout);
         RightLayout.setHorizontalGroup(
@@ -275,49 +286,43 @@ public class SignUp extends javax.swing.JFrame {
                 .addGroup(RightLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(RightLayout.createSequentialGroup()
                         .addGap(122, 122, 122)
-                        .addComponent(jLabel1)
-                        .addGap(0, 0, Short.MAX_VALUE))
+                        .addComponent(jLabel1))
                     .addGroup(RightLayout.createSequentialGroup()
                         .addGap(31, 31, 31)
                         .addGroup(RightLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(RightLayout.createSequentialGroup()
-                                .addGroup(RightLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(ID, javax.swing.GroupLayout.PREFERRED_SIZE, 177, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addGroup(RightLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                        .addComponent(Fname)
-                                        .addComponent(jLabel18)
-                                        .addGroup(RightLayout.createSequentialGroup()
-                                            .addComponent(jLabel13)
-                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                            .addComponent(country, javax.swing.GroupLayout.PREFERRED_SIZE, 83, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                            .addComponent(jLabel12)
-                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                            .addComponent(city, javax.swing.GroupLayout.PREFERRED_SIZE, 83, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addGap(1, 1, 1))
-                                        .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 76, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 76, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addComponent(jLabel10, javax.swing.GroupLayout.PREFERRED_SIZE, 76, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 76, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addComponent(Lname)
-                                        .addComponent(Email, javax.swing.GroupLayout.DEFAULT_SIZE, 296, Short.MAX_VALUE))
-                                    .addComponent(mess, javax.swing.GroupLayout.PREFERRED_SIZE, 329, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGap(0, 0, Short.MAX_VALUE))
-                            .addGroup(RightLayout.createSequentialGroup()
-                                .addGroup(RightLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                    .addComponent(Bar, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(Password, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 292, Short.MAX_VALUE))
-                                .addGap(18, 18, 18)
-                                .addComponent(togbtn1, javax.swing.GroupLayout.DEFAULT_SIZE, 63, Short.MAX_VALUE)))))
-                .addContainerGap())
-            .addGroup(RightLayout.createSequentialGroup()
-                .addGap(97, 97, 97)
-                .addGroup(RightLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel6)
+                                .addComponent(Password, javax.swing.GroupLayout.PREFERRED_SIZE, 292, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(togbtn1, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(ID, javax.swing.GroupLayout.PREFERRED_SIZE, 177, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(RightLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                .addComponent(Fname)
+                                .addComponent(jLabel18)
+                                .addGroup(RightLayout.createSequentialGroup()
+                                    .addComponent(jLabel13)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                    .addComponent(country, javax.swing.GroupLayout.PREFERRED_SIZE, 83, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(jLabel12)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                    .addComponent(city, javax.swing.GroupLayout.PREFERRED_SIZE, 83, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addGap(1, 1, 1))
+                                .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 76, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 76, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(jLabel10, javax.swing.GroupLayout.PREFERRED_SIZE, 76, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 76, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(Lname)
+                                .addComponent(Email, javax.swing.GroupLayout.DEFAULT_SIZE, 296, Short.MAX_VALUE))
+                            .addComponent(Bar, javax.swing.GroupLayout.PREFERRED_SIZE, 288, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(mess, javax.swing.GroupLayout.PREFERRED_SIZE, 292, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(RightLayout.createSequentialGroup()
-                        .addGap(17, 17, 17)
-                        .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 145, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addGap(112, 112, 112)
+                        .addGroup(RightLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel6)
+                            .addGroup(RightLayout.createSequentialGroup()
+                                .addGap(17, 17, 17)
+                                .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 145, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                .addContainerGap(9, Short.MAX_VALUE))
         );
         RightLayout.setVerticalGroup(
             RightLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -354,13 +359,13 @@ public class SignUp extends javax.swing.JFrame {
                     .addComponent(togbtn1))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(Bar, javax.swing.GroupLayout.PREFERRED_SIZE, 12, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGap(11, 11, 11)
                 .addComponent(mess, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel6)
-                .addContainerGap(82, Short.MAX_VALUE))
+                .addContainerGap(77, Short.MAX_VALUE))
         );
 
         Left.add(Right);
@@ -394,7 +399,9 @@ public class SignUp extends javax.swing.JFrame {
         jLabel15.setForeground(new java.awt.Color(0, 102, 102));
         jLabel15.setText("Expiry Date:");
 
-        expire_date.setToolTipText("");
+        expire_date.setToolTipText("Cvv");
+        SimpleDateFormat dateFormat = new SimpleDateFormat("MM/yy");
+        expire_date.setFormats(dateFormat);
         expire_date.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 expire_dateActionPerformed(evt);
@@ -552,11 +559,10 @@ public class SignUp extends javax.swing.JFrame {
                                             .addComponent(jLabel17)
                                             .addComponent(jLabel16))
                                         .addGap(62, 62, 62)
-                                        .addGroup(leftttLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(expire_date, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addGroup(leftttLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                                .addComponent(cvv, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                .addComponent(atm_pin, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE))))))))
+                                        .addGroup(leftttLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                            .addComponent(cvv, javax.swing.GroupLayout.DEFAULT_SIZE, 190, Short.MAX_VALUE)
+                                            .addComponent(atm_pin, javax.swing.GroupLayout.DEFAULT_SIZE, 190, Short.MAX_VALUE)
+                                            .addComponent(expire_date, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))))))
                     .addGroup(leftttLayout.createSequentialGroup()
                         .addGap(6, 6, 6)
                         .addGroup(leftttLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -747,7 +753,8 @@ public class SignUp extends javax.swing.JFrame {
 
     private void PasswordKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_PasswordKeyTyped
         // TODO add your handling code here:
-             String pass =Password.getText();
+             char[] passChars = Password.getPassword();
+             String pass = new String(passChars);
             
             if(PatternChecker.MatchPattern(pass))
             {
@@ -793,7 +800,8 @@ public class SignUp extends javax.swing.JFrame {
         String fname=Fname.getText();
         String lname=Lname.getText();
         String email=Email.getText();
-        String pass =Password.getText();
+        char[] passChars = Password.getPassword();
+        String pass = new String(passChars);
         String Nation_no=ID.getText();
         String Country =country.getText();
         String City=city.getText();
@@ -900,8 +908,8 @@ public class SignUp extends javax.swing.JFrame {
             else
             {
 
-               
-                
+                int rs=0;
+                boolean fq=false;
                 try 
                 {
                     Class.forName("com.mysql.cj.jdbc.Driver");
@@ -937,8 +945,10 @@ public class SignUp extends javax.swing.JFrame {
                     pstmt.setString(8, City);
                     pstmt.setString(9, Sex);
 
-                    int rs = pstmt.executeUpdate();
+                    rs = pstmt.executeUpdate();
                     
+                    
+                    fq=true;
                 // Close the ResultSet, Statement, and Connection
                 } 
                 catch (Exception e) 
@@ -951,63 +961,64 @@ public class SignUp extends javax.swing.JFrame {
 
 
                 /************************************************************************************************/
-                
-                try 
+                if(fq)
                 {
-                    Class.forName("com.mysql.cj.jdbc.Driver");
-                    Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/BankDatabase?serverTimezone=UTC", "root", "123456");
-                    Statement stmt = con.createStatement();
-                    String sqlCommand = "INSERT INTO account (card_number, cvv, national_no, acc_pass, atm_pin, acc_category, expire_date, balance) VALUES (?, ?, ?, ?, ?, ?, ?, ?);";
-                    PreparedStatement pstmt = con.prepareStatement(sqlCommand); 
-                    
-                    String accType=new String();
-                    
-                    if(AccType.equals("Saving Account"))
+                    try 
                     {
-                        accType="s";
-                    }
-                    else if(AccType.equals("Fixed Deposit Account"))
-                    {
-                        accType="f";
-                    }
-                    else if(AccType.equals("Current Account"))
-                    {
-                        accType="c";
-                    }
-                    else if(AccType.equals("recurring Deposit Account"))
-                    {
-                        accType="r";
-                    }
-                    
-                    pstmt.setString(1, Card_no);
-                    pstmt.setString(2, Cvv);
-                    pstmt.setString(3, Nation_no);
-                    pstmt.setString(4, pass);
-                    pstmt.setString(5, AtmPin);
-                    pstmt.setString(6, accType);
-                    pstmt.setString(7,expireDateString);
-                    pstmt.setString(8, "0");
-        
-        
-                    pstmt.executeUpdate();
+                        Class.forName("com.mysql.cj.jdbc.Driver");
+                        Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/BankDatabase?serverTimezone=UTC", "root", "123456");
+                        Statement stmt = con.createStatement();
+                        String sqlCommand = "INSERT INTO account (card_number, cvv, national_no, acc_pass, atm_pin, acc_category, expire_date, balance) VALUES (?, ?, ?, ?, ?, ?, ?, ?);";
+                        PreparedStatement pstmt = con.prepareStatement(sqlCommand); 
 
-                    // Close resources
-                    pstmt.close();
-                    con.close();
-                    
-                    
-                    JOptionPane.showMessageDialog(this,"Signed up successfully");
-                    
+                        String accType=new String();
 
-                // Close the ResultSet, Statement, and Connection
-                } 
-                catch (Exception e) 
-                {
-                    JOptionPane.showMessageDialog(this,e);
-                    System.out.println(e.getMessage());
-                    System.out.println("second");
+                        if(AccType.equals("Saving Account"))
+                        {
+                            accType="s";
+                        }
+                        else if(AccType.equals("Fixed Deposit Account"))
+                        {
+                            accType="f";
+                        }
+                        else if(AccType.equals("Current Account"))
+                        {
+                            accType="c";
+                        }
+                        else if(AccType.equals("recurring Deposit Account"))
+                        {
+                            accType="r";
+                        }
+
+                        pstmt.setString(1, Card_no);
+                        pstmt.setString(2, Cvv);
+                        pstmt.setString(3, Nation_no);
+                        pstmt.setString(4, pass);
+                        pstmt.setString(5, AtmPin);
+                        pstmt.setString(6, accType);
+                        pstmt.setString(7,expireDateString);
+                        pstmt.setString(8, "0");
+
+
+                        pstmt.executeUpdate();
+
+                        // Close resources
+                        pstmt.close();
+                        con.close();
+
+
+                        JOptionPane.showMessageDialog(this,"Signed up successfully");
+
+
+                    // Close the ResultSet, Statement, and Connection
+                    } 
+                    catch (Exception e) 
+                    {
+                        JOptionPane.showMessageDialog(this,e);
+                        System.out.println(e.getMessage());
+                        System.out.println("second");
+                    }
                 }
-
                 
 //                       this.dispose();
 //                       SignUp2 SignUp2Frame = new SignUp2();
@@ -1027,10 +1038,15 @@ public class SignUp extends javax.swing.JFrame {
         }
         else
         {
-            Password.setEchoChar('\u25cf');
+            Password.setEchoChar('*');
             togbtn1.setText("Show");
         }
     }//GEN-LAST:event_togbtn1MouseClicked
+
+    private void PasswordMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_PasswordMouseClicked
+        // TODO add your handling code here:
+        mess.setText(" ");
+    }//GEN-LAST:event_PasswordMouseClicked
 
     /**
      * @param args the command line arguments
