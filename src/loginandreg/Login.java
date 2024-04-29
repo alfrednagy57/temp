@@ -10,13 +10,10 @@ import loginandreg.SignUp;
 import loginandreg.ValMail;
 
 
-/**
- *
- * @author OmarKandeel
- */
 public class Login extends javax.swing.JFrame {
 
-   
+    int Cou = 0;
+
     /**
      * Creates new form Login
      */
@@ -339,50 +336,52 @@ public class Login extends javax.swing.JFrame {
         char[] passChars = Pass.getPassword();
         String pass = new String(passChars);
         StringTokenizer token =new StringTokenizer(email,"@");
+        if(token.hasMoreElements())
+        {
+            email=token.nextToken();
+//            JOptionPane.showMessageDialog(this, email);
+        }
          
         try
         {
             Class.forName("com.mysql.cj.jdbc.Driver");
             Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/BankDatabase?serverTimezone=UTC", "root", "123456");
-            Statement stmt = con.createStatement();
-            String sqlCommand ="select email,national_id from customers where email=?;";
+            Statement stmt = con.createStatement();  
+            String sqlCommand = "SELECT email, national_id, acc_pass FROM customers JOIN account ON customers.national_id = account.national_no WHERE email = ?";
             PreparedStatement pstmt = con.prepareStatement(sqlCommand);   
-            pstmt.setString(1,email);
-            ResultSet rs=pstmt.executeQuery();
-            if (rs.next())
-            {
+            pstmt.setString(1, email);
+            ResultSet rs = pstmt.executeQuery();
 
-                sqlCommand ="select acc_pass from account where national_no=?;";
-                pstmt = con.prepareStatement(sqlCommand);   
-                pstmt.setString(1,rs.getString("national_id"));
-                rs=pstmt.executeQuery();
-
-                int Cou=0;
-                while(!pass.equals(rs.getString("password"))&&Cou<3)
-                {
-                    JOptionPane.showMessageDialog(this,"Password Wrong \nYou have "+Integer.toString(Cou+1)+" try");
+            if (rs.next()) {
+           
+            do {
+                if (pass.equals(rs.getString("acc_pass"))) {
+                    JOptionPane.showMessageDialog(this, "Welcome!");
+                    new SignUp().setVisible(true);
+                    this.setVisible(false);
+                    this.dispose();
+                    break;
+                } else {
                     Cou++;
+                    if (Cou < 3) {
+                        JOptionPane.showMessageDialog(this, "Password Wrong \nYou have " + (3 - Cou) + " try");
+                    } else {
+                        JOptionPane.showMessageDialog(this, "You have exceeded the maximum number of attempts.\nThe app is going to close");
+                        Thread.sleep(3000);
+                        this.setVisible(false);
+                        dispose();
+                    }
                 }
-                if(pass.equals(rs.getString("password")))
-                {
-                   JOptionPane.showMessageDialog(this,"Welcome !");
-                   new SignUp().setVisible(true);
-                   this.setVisible(false);
-                   this.dispose();
-                }
-
+            } while (Cou < 3 && rs.next());
+            } else {
+                JOptionPane.showMessageDialog(this, "Email not found.");
             }
-            else
+
+            }   
+            catch (Exception e)
             {
-                JOptionPane.showMessageDialog(this,"email does not exist please check your email and re-type it");
-                Email.setText(" ");
+             JOptionPane.showMessageDialog(this,e.getMessage());
             }
-
-        }   
-        catch (Exception e)
-        {
-         JOptionPane.showMessageDialog(this,e.getMessage());
-        }
 
     }//GEN-LAST:event_kButton1MouseClicked
 
