@@ -4,6 +4,7 @@
  */
 package loginandreg;
 
+import com.mysql.cj.protocol.Resultset;
 import java.awt.Color;
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -26,7 +27,11 @@ import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 import java.text.SimpleDateFormat;
 import org.jdesktop.swingx.JXDatePicker;
-
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 
 
 /**
@@ -1039,12 +1044,66 @@ public class SignUp extends javax.swing.JFrame {
 
     private void VerifyMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_VerifyMouseClicked
         // TODO add your handling code here:
-        ValMail.sendEmail(Email.getText(),"Verification",RandomCode);
+        boolean flag=true;
+        StringTokenizer email = new StringTokenizer(Email.getText().trim(),"@");
+        String emailo=new String();
+        if(email.hasMoreElements())
+        {
+            emailo=(String)email.nextToken();
+        }
+        try{
+           // Load the MySQL JDBC driver
+            Class.forName("com.mysql.cj.jdbc.Driver");
+
+            // Establish a connection to the database
+            Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/BankDatabase?serverTimezone=UTC", "root", "123456");
+
+            // Prepare SQL statement
+            String sqlCommand = "SELECT email FROM customers;";
+            PreparedStatement pstmt = con.prepareStatement(sqlCommand);
+
+            // Execute the query
+            ResultSet rs = pstmt.executeQuery();
+
+            // Process the result set
+            while (rs.next()) {
+                // Retrieve the email from the ResultSet
+                String emailFromDB = rs.getString("email");
+
+                // Perform the comparison
+                if (emailFromDB.equals(emailo)) {
+                    // If the email from the database matches emailo, set flag to false and exit the loop
+                    flag = false;
+                    break;
+                }
+            }
+
+            // Close resources
+            rs.close();
+            pstmt.close();
+            con.close();
+        }
+        catch(ClassNotFoundException | SQLException e)
+        {
+            e.printStackTrace();
+        }
+        catch(Exception e)
+        {
+            JOptionPane.showMessageDialog(this,e.getMessage());
+        }
+        if(flag){
+            ValMail.sendEmail(Email.getText().trim(),"Verification",RandomCode);
+        }
+        else
+        {
+            JOptionPane.showMessageDialog(this,"please enter a different email as this email is already used");
+        }
     }//GEN-LAST:event_VerifyMouseClicked
 
     private void Verify1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Verify1MouseClicked
         // TODO add your handling code here:
-        String EnteredCode=verifo.getText();
+        String EnteredCode=verifo.getText().trim();
+        
         if(Cou<3)
         {
             if(!EnteredCode.equals(RandomCode))
