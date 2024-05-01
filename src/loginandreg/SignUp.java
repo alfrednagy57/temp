@@ -4,6 +4,8 @@
  */
 package loginandreg;
 
+import java.awt.Graphics;
+import java.awt.Insets;
 import com.mysql.cj.protocol.Resultset;
 import java.awt.Color;
 import java.sql.Connection;
@@ -13,6 +15,8 @@ import java.sql.ResultSet;
 import java.sql.Statement;
 import javax.swing.JOptionPane;
 import java.awt.Color;
+import java.awt.Graphics;
+import java.awt.Insets;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
@@ -32,6 +36,7 @@ import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import javax.swing.plaf.basic.BasicProgressBarUI;
 
 
 /**
@@ -72,7 +77,6 @@ public class SignUp extends javax.swing.JFrame {
         jLabel12 = new javax.swing.JLabel();
         jLabel13 = new javax.swing.JLabel();
         jLabel18 = new javax.swing.JLabel();
-        Bar = new javax.swing.JProgressBar();
         jLabel10 = new javax.swing.JLabel();
         Lname = new javax.swing.JTextField();
         Fname = new javax.swing.JTextField();
@@ -87,6 +91,7 @@ public class SignUp extends javax.swing.JFrame {
         verifo = new javax.swing.JTextField();
         Verify1 = new com.k33ptoo.components.KButton();
         mess1 = new javax.swing.JLabel();
+        Bar = new loginandreg.ProgressBarCustom();
         lefttt = new javax.swing.JPanel();
         jLabel4 = new javax.swing.JLabel();
         jXHyperlink1 = new org.jdesktop.swingx.JXHyperlink();
@@ -159,11 +164,6 @@ public class SignUp extends javax.swing.JFrame {
         jLabel18.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jLabel18.setForeground(new java.awt.Color(255, 255, 255));
         jLabel18.setText("National ID:");
-
-        Bar.setBackground(new java.awt.Color(255, 255, 255));
-        Bar.setForeground(new java.awt.Color(0, 102, 102));
-        Bar.setBorder(null);
-        Bar.setBorderPainted(false);
 
         jLabel10.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jLabel10.setForeground(new java.awt.Color(255, 255, 255));
@@ -268,6 +268,8 @@ public class SignUp extends javax.swing.JFrame {
 
         mess1.setForeground(new java.awt.Color(153, 153, 153));
 
+        Bar.setForeground(new java.awt.Color(255, 0, 51));
+
         javax.swing.GroupLayout RightLayout = new javax.swing.GroupLayout(Right);
         Right.setLayout(RightLayout);
         RightLayout.setHorizontalGroup(
@@ -301,10 +303,6 @@ public class SignUp extends javax.swing.JFrame {
                                 .addGroup(RightLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(Verify, javax.swing.GroupLayout.PREFERRED_SIZE, 61, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(Verify1, javax.swing.GroupLayout.PREFERRED_SIZE, 61, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                            .addGroup(RightLayout.createSequentialGroup()
-                                .addComponent(Password, javax.swing.GroupLayout.PREFERRED_SIZE, 292, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(togbtn1, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addComponent(jLabel18)
                             .addGroup(RightLayout.createSequentialGroup()
                                 .addComponent(jLabel13)
@@ -316,9 +314,13 @@ public class SignUp extends javax.swing.JFrame {
                                 .addComponent(city, javax.swing.GroupLayout.PREFERRED_SIZE, 83, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addComponent(jLabel10, javax.swing.GroupLayout.PREFERRED_SIZE, 76, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(ID, javax.swing.GroupLayout.PREFERRED_SIZE, 210, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(RightLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                .addComponent(mess, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(Bar, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 288, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                            .addComponent(mess, javax.swing.GroupLayout.PREFERRED_SIZE, 288, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(RightLayout.createSequentialGroup()
+                                .addGroup(RightLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                    .addComponent(Bar, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(Password, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 292, Short.MAX_VALUE))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(togbtn1, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE)))))
                 .addContainerGap(10, Short.MAX_VALUE))
         );
         RightLayout.setVerticalGroup(
@@ -363,8 +365,8 @@ public class SignUp extends javax.swing.JFrame {
                     .addComponent(Password, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(togbtn1))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(Bar, javax.swing.GroupLayout.PREFERRED_SIZE, 12, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(Bar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(3, 3, 3)
                 .addComponent(mess, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -747,38 +749,39 @@ public class SignUp extends javax.swing.JFrame {
 
             if(PatternChecker.MatchPattern(pass))
             {
+                Bar.setColor(Color.GREEN); // Set the color of the progress bar
                 mess.setText("password accepted");
                 Bar.setValue(100);
-                Bar.setBackground(Color.green);
-                Bar.repaint();
             }
             else if(!PatternChecker.MatchPatternSchars(pass)&&PatternChecker.MatchPatternchars(pass)&&PatternChecker.MatchPattern8Num(pass))
             {
+                Bar.setColor(new java.awt.Color(255, 0, 51));
                 mess.setText("password must contain 1 special char");
                 Bar.setValue(68);
             }
             else if(!PatternChecker.MatchPatternSchars(pass)&&!PatternChecker.MatchPatternchars(pass)&&PatternChecker.MatchPattern8Num(pass))
             {
                 mess.setText("password must contain 1 upper case and 1 lower case");
+                Bar.setColor(new java.awt.Color(255, 0, 51));
                 Bar.setValue(34);
             }
             else if(!PatternChecker.MatchPatternSchars(pass)&&!PatternChecker.MatchPatternchars(pass)&&!PatternChecker.MatchPattern8Num(pass))
             {
 //                nums.setBackground(new java.awt.Color(204, 0, 0));
+                 Bar.setColor(new java.awt.Color(255, 0, 51));
                  mess.setText("password must contain 8 numbers");
             }
-            else
-            {
+            else {
+//                System.out.println("color changed");
+                Bar.setColor(Color.GREEN); // Set the color of the progress bar
                 mess.setText("password accepted");
                 Bar.setValue(100);
-                Bar.setBackground(Color.green);
-                Bar.repaint();
             }
+
             if(pass.isEmpty())
             {
                 Bar.setValue(0);
             }
-            //nums.repaint();
     }//GEN-LAST:event_PasswordKeyTyped
 
     private void signupMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_signupMouseClicked
@@ -1160,7 +1163,7 @@ public class SignUp extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private java.awt.Choice AccountType;
-    private javax.swing.JProgressBar Bar;
+    private loginandreg.ProgressBarCustom Bar;
     private javax.swing.JTextField Email;
     private javax.swing.JTextField Fname;
     private java.awt.Choice Gender;
