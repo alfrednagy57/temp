@@ -247,6 +247,11 @@ public class SignUp extends javax.swing.JFrame {
                 togbtn1MouseClicked(evt);
             }
         });
+        togbtn1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                togbtn1ActionPerformed(evt);
+            }
+        });
 
         mess.setForeground(new java.awt.Color(153, 153, 153));
 
@@ -268,8 +273,6 @@ public class SignUp extends javax.swing.JFrame {
 
         mess1.setForeground(new java.awt.Color(153, 153, 153));
 
-        Bar.setForeground(new java.awt.Color(255, 0, 51));
-
         javax.swing.GroupLayout RightLayout = new javax.swing.GroupLayout(Right);
         Right.setLayout(RightLayout);
         RightLayout.setHorizontalGroup(
@@ -288,7 +291,7 @@ public class SignUp extends javax.swing.JFrame {
                                 .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 145, javax.swing.GroupLayout.PREFERRED_SIZE))))
                     .addGroup(RightLayout.createSequentialGroup()
                         .addGap(30, 30, 30)
-                        .addGroup(RightLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(RightLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addGroup(RightLayout.createSequentialGroup()
                                 .addGroup(RightLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                                     .addComponent(mess1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -316,11 +319,10 @@ public class SignUp extends javax.swing.JFrame {
                             .addComponent(ID, javax.swing.GroupLayout.PREFERRED_SIZE, 210, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(mess, javax.swing.GroupLayout.PREFERRED_SIZE, 288, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(RightLayout.createSequentialGroup()
-                                .addGroup(RightLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                    .addComponent(Bar, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(Password, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 292, Short.MAX_VALUE))
+                                .addComponent(Password, javax.swing.GroupLayout.PREFERRED_SIZE, 292, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(togbtn1, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                                .addComponent(togbtn1, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(Bar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
                 .addContainerGap(10, Short.MAX_VALUE))
         );
         RightLayout.setVerticalGroup(
@@ -366,7 +368,7 @@ public class SignUp extends javax.swing.JFrame {
                     .addComponent(togbtn1))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(Bar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(3, 3, 3)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(mess, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -1125,6 +1127,10 @@ public class SignUp extends javax.swing.JFrame {
             mess1.setText("Please enter a different mail as you entered the code worng for 3 times");
         }
     }//GEN-LAST:event_Verify1MouseClicked
+
+    private void togbtn1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_togbtn1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_togbtn1ActionPerformed
 
     /**
      * @param args the command line arguments
