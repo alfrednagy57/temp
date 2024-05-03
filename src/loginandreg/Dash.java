@@ -58,7 +58,6 @@ public class Dash extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         jPanel_Transaction = new javax.swing.JPanel();
         WELCOMING = new javax.swing.JLabel();
-        jLabel8 = new javax.swing.JLabel();
         jPanel_Cards = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
         jPanel_Settings = new javax.swing.JPanel();
@@ -237,15 +236,6 @@ public class Dash extends javax.swing.JFrame {
         WELCOMING.setFont(new java.awt.Font("Segoe UI Historic", 0, 48)); // NOI18N
         WELCOMING.setText("Welcome to Transactions");
 
-        jLabel8.setFont(new java.awt.Font("Forte", 0, 24)); // NOI18N
-        jLabel8.setForeground(new java.awt.Color(0, 102, 102));
-        jLabel8.setText("X");
-        jLabel8.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jLabel8MouseClicked(evt);
-            }
-        });
-
         javax.swing.GroupLayout jPanel_TransactionLayout = new javax.swing.GroupLayout(jPanel_Transaction);
         jPanel_Transaction.setLayout(jPanel_TransactionLayout);
         jPanel_TransactionLayout.setHorizontalGroup(
@@ -253,19 +243,13 @@ public class Dash extends javax.swing.JFrame {
             .addGroup(jPanel_TransactionLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(WELCOMING, javax.swing.GroupLayout.PREFERRED_SIZE, 549, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 346, Short.MAX_VALUE)
-                .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
+                .addContainerGap(372, Short.MAX_VALUE))
         );
         jPanel_TransactionLayout.setVerticalGroup(
             jPanel_TransactionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel_TransactionLayout.createSequentialGroup()
                 .addComponent(WELCOMING, javax.swing.GroupLayout.PREFERRED_SIZE, 182, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 538, Short.MAX_VALUE))
-            .addGroup(jPanel_TransactionLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         jPanel_Cards.setBackground(new java.awt.Color(0, 204, 51));
@@ -418,11 +402,6 @@ public class Dash extends javax.swing.JFrame {
 //        loginFrame.setLocationRelativeTo(null);
     }//GEN-LAST:event_jButton_LogoutActionPerformed
 
-    private void jLabel8MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel8MouseClicked
-        // TODO add your handling code here:
-        System.exit(0);
-    }//GEN-LAST:event_jLabel8MouseClicked
-
     /**
      * @param args the command line arguments
      */
@@ -471,7 +450,6 @@ public class Dash extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel7;
-    private javax.swing.JLabel jLabel8;
     private javax.swing.JPanel jPanel_Cards;
     private javax.swing.JPanel jPanel_Dash;
     private javax.swing.JPanel jPanel_Settings;
