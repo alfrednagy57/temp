@@ -36,6 +36,8 @@ public class Dash extends javax.swing.JFrame {
             //show only this panel
             panel.setVisible(true);
     }
+  private boolean isDarkMode = false;
+
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -54,6 +56,7 @@ public class Dash extends javax.swing.JFrame {
         jButton4 = new javax.swing.JButton();
         jButton5 = new javax.swing.JButton();
         jButton_Logout = new javax.swing.JButton();
+        jButton_Mode = new javax.swing.JButton();
         jPanel_Dash = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         jPanel_Transaction = new javax.swing.JPanel();
@@ -168,6 +171,21 @@ public class Dash extends javax.swing.JFrame {
             }
         });
 
+        jButton_Mode.setBackground(new java.awt.Color(0, 102, 102));
+        jButton_Mode.setFont(new java.awt.Font("Segoe UI Historic", 0, 16)); // NOI18N
+        jButton_Mode.setForeground(new java.awt.Color(242, 242, 242));
+        jButton_Mode.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Logo/icons8-dark-mode-24.png"))); // NOI18N
+        jButton_Mode.setText("Mode");
+        jButton_Mode.setToolTipText("Click here to go to the Settigns ;)");
+        jButton_Mode.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
+        jButton_Mode.setContentAreaFilled(false);
+        jButton_Mode.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jButton_Mode.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton_ModeActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout leftLayout = new javax.swing.GroupLayout(left);
         left.setLayout(leftLayout);
         leftLayout.setHorizontalGroup(
@@ -186,7 +204,8 @@ public class Dash extends javax.swing.JFrame {
                             .addGroup(leftLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                                 .addComponent(jButton2)
                                 .addComponent(jButton5))
-                            .addComponent(jButton_Logout))))
+                            .addComponent(jButton_Logout)
+                            .addComponent(jButton_Mode))))
                 .addContainerGap(16, Short.MAX_VALUE))
         );
         leftLayout.setVerticalGroup(
@@ -203,8 +222,10 @@ public class Dash extends javax.swing.JFrame {
                 .addGap(30, 30, 30)
                 .addComponent(jButton2)
                 .addGap(30, 30, 30)
+                .addComponent(jButton_Mode, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(30, 30, 30)
                 .addComponent(jButton_Logout, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 332, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 276, Short.MAX_VALUE)
                 .addComponent(jButton5)
                 .addGap(27, 27, 27))
         );
@@ -227,7 +248,7 @@ public class Dash extends javax.swing.JFrame {
             .addGroup(jPanel_DashLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jLabel1)
-                .addContainerGap(637, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         jPanel_Transaction.setBackground(new java.awt.Color(0, 153, 153));
@@ -402,6 +423,36 @@ public class Dash extends javax.swing.JFrame {
 //        loginFrame.setLocationRelativeTo(null);
     }//GEN-LAST:event_jButton_LogoutActionPerformed
 
+    private void jButton_ModeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_ModeActionPerformed
+        // TODO add your handling code here:
+         javax.swing.JPanel myPanel1 = this.jPanel_Dash; 
+         javax.swing.JPanel myPanel2 = this.jPanel_Cards; 
+         javax.swing.JPanel myPanel3 = this.jPanel_Settings; 
+         javax.swing.JPanel myPanel4 = this.jPanel_Transaction;
+         javax.swing.JPanel myPanel5 = this.jPanel_Transfer; 
+
+    if (isDarkMode) {
+        // Switch to light mode
+        myPanel1.setBackground(java.awt.Color.WHITE); // Light mode color
+        myPanel2.setBackground(java.awt.Color.WHITE); // Light mode color
+        myPanel3.setBackground(java.awt.Color.WHITE); // Light mode color
+        myPanel4.setBackground(java.awt.Color.WHITE); // Light mode color
+        myPanel5.setBackground(java.awt.Color.WHITE); // Light mode color
+        isDarkMode = false; // Update the mode
+    } else {
+        // Switch to dark mode
+        myPanel1.setBackground(java.awt.Color.DARK_GRAY); // Dark mode color
+        myPanel2.setBackground(java.awt.Color.DARK_GRAY); // Dark mode color
+        myPanel3.setBackground(java.awt.Color.DARK_GRAY); // Dark mode color
+        myPanel4.setBackground(java.awt.Color.DARK_GRAY); // Dark mode color
+        myPanel5.setBackground(java.awt.Color.DARK_GRAY); // Dark mode color
+        isDarkMode = true; // Update the mode
+    }
+
+    // You may also change button text to indicate the current mode
+    //toggleButton.setText(isDarkMode ? "Switch to Light Mode" : "Switch to Dark Mode");
+    }//GEN-LAST:event_jButton_ModeActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -445,6 +496,7 @@ public class Dash extends javax.swing.JFrame {
     private javax.swing.JButton jButton4;
     private javax.swing.JButton jButton5;
     private javax.swing.JButton jButton_Logout;
+    private javax.swing.JButton jButton_Mode;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel4;
