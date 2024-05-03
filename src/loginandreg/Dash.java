@@ -416,9 +416,10 @@ public class Dash extends javax.swing.JFrame {
 
     private void jButton_LogoutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_LogoutActionPerformed
         // TODO add your handling code here:
-                this.dispose();
+        this.dispose();
         Login loginFrame = new Login();
-         loginFrame.setVisible(true);
+        loginFrame.setVisible(true);
+        Login.WelcomeUserName=" ";
 //        loginFrame.pack();
 //        loginFrame.setLocationRelativeTo(null);
     }//GEN-LAST:event_jButton_LogoutActionPerformed

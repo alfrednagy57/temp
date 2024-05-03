@@ -360,7 +360,7 @@ public class Login extends javax.swing.JFrame {
                     JOptionPane.showMessageDialog(this, "Correct password \nWelcome "+WelcomeUserName+" !");
                     this.setVisible(false);
                     this.dispose();
-                     Dash DashFrame= new Dash();
+                    Dash DashFrame= new Dash();
                     DashFrame.setVisible(true);
                     DashFrame.WELCOMING.setText(WelcomeUserName);
                     
