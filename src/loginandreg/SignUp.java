@@ -118,7 +118,7 @@ public class SignUp extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Sign Up");
         setUndecorated(true);
-        setPreferredSize(new java.awt.Dimension(800, 500));
+        setPreferredSize(new java.awt.Dimension(780, 560));
         setResizable(false);
         getContentPane().setLayout(null);
 
@@ -670,21 +670,7 @@ public class SignUp extends javax.swing.JFrame {
     }//GEN-LAST:event_jXHyperlink1ActionPerformed
 
     private void expire_dateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_expire_dateActionPerformed
-        // TODO add your handling code here:
-//        String Expiredate=new String();
-//        java.util.Date selectedDate = expire_date.getDate();
-//        if (selectedDate != null) {
-//            // selectedDate is not null, so you can safely invoke methods on it
-//            Expiredate= selectedDate.toString();
-//            // Use dateString as needed
-//        } else {
-//            // selectedDate is null, handle this case appropriately
-//            System.out.println("Error: selectedDate is null");
-//            // Display an error message or take other appropriate action
-//        }
-//         Expiredate=Expiredate.substring(0,5)
-//
-//        expire_date.set
+
     }//GEN-LAST:event_expire_dateActionPerformed
 
     private void signupActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_signupActionPerformed
