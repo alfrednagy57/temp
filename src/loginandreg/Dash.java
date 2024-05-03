@@ -53,6 +53,7 @@ public class Dash extends javax.swing.JFrame {
         jButton3 = new javax.swing.JButton();
         jButton4 = new javax.swing.JButton();
         jButton5 = new javax.swing.JButton();
+        jButton_Logout = new javax.swing.JButton();
         jPanel_Dash = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         jPanel_Transaction = new javax.swing.JPanel();
@@ -77,10 +78,15 @@ public class Dash extends javax.swing.JFrame {
 
         jButton1.setBackground(new java.awt.Color(0, 102, 102));
         jButton1.setFont(new java.awt.Font("Segoe UI Historic", 0, 16)); // NOI18N
-        jButton1.setForeground(new java.awt.Color(242, 242, 242));
+        jButton1.setForeground(new java.awt.Color(255, 255, 255));
         jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Logo/icons8-menu-24.png"))); // NOI18N
         jButton1.setText("DashBoard");
+        jButton1.setToolTipText("Click here to go to the Dashboard;)");
+        jButton1.setAutoscrolls(true);
         jButton1.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
+        jButton1.setContentAreaFilled(false);
+        jButton1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jButton1.setDoubleBuffered(true);
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton1ActionPerformed(evt);
@@ -92,7 +98,10 @@ public class Dash extends javax.swing.JFrame {
         jButton2.setForeground(new java.awt.Color(242, 242, 242));
         jButton2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Logo/icons8-transfer-24 (1).png"))); // NOI18N
         jButton2.setText("Transfer");
+        jButton2.setToolTipText("Click here to go to the Transfer ;)");
         jButton2.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
+        jButton2.setContentAreaFilled(false);
+        jButton2.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jButton2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton2ActionPerformed(evt);
@@ -104,7 +113,10 @@ public class Dash extends javax.swing.JFrame {
         jButton3.setForeground(new java.awt.Color(242, 242, 242));
         jButton3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Logo/icons8-cards-24 (3).png"))); // NOI18N
         jButton3.setText("Cards");
+        jButton3.setToolTipText("Click here to go to the Cards ;)");
         jButton3.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
+        jButton3.setContentAreaFilled(false);
+        jButton3.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jButton3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton3ActionPerformed(evt);
@@ -116,7 +128,10 @@ public class Dash extends javax.swing.JFrame {
         jButton4.setForeground(new java.awt.Color(242, 242, 242));
         jButton4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Logo/icons8-transaction-24 (1).png"))); // NOI18N
         jButton4.setText("Transactions");
+        jButton4.setToolTipText("Click here to go to the Transactions ;)");
         jButton4.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
+        jButton4.setContentAreaFilled(false);
+        jButton4.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jButton4.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton4ActionPerformed(evt);
@@ -128,10 +143,28 @@ public class Dash extends javax.swing.JFrame {
         jButton5.setForeground(new java.awt.Color(242, 242, 242));
         jButton5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Logo/icons8-settings-24.png"))); // NOI18N
         jButton5.setText("Settigns");
+        jButton5.setToolTipText("Click here to go to the Settigns ;)");
         jButton5.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
+        jButton5.setContentAreaFilled(false);
+        jButton5.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jButton5.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton5ActionPerformed(evt);
+            }
+        });
+
+        jButton_Logout.setBackground(new java.awt.Color(0, 102, 102));
+        jButton_Logout.setFont(new java.awt.Font("Segoe UI Historic", 0, 16)); // NOI18N
+        jButton_Logout.setForeground(new java.awt.Color(242, 242, 242));
+        jButton_Logout.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Logo/icons8-logout-24.png"))); // NOI18N
+        jButton_Logout.setText("Logout");
+        jButton_Logout.setToolTipText("Click here to go to the Settigns ;)");
+        jButton_Logout.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
+        jButton_Logout.setContentAreaFilled(false);
+        jButton_Logout.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jButton_Logout.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton_LogoutActionPerformed(evt);
             }
         });
 
@@ -143,16 +176,17 @@ public class Dash extends javax.swing.JFrame {
                 .addGroup(leftLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(leftLayout.createSequentialGroup()
                         .addGap(33, 33, 33)
-                        .addComponent(jLabel7)
-                        .addGap(11, 11, 11))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, leftLayout.createSequentialGroup()
+                        .addComponent(jLabel7))
+                    .addGroup(leftLayout.createSequentialGroup()
                         .addGap(27, 27, 27)
                         .addGroup(leftLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jButton3)
                             .addComponent(jButton1)
-                            .addComponent(jButton2)
                             .addComponent(jButton4)
-                            .addComponent(jButton5))))
+                            .addGroup(leftLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                .addComponent(jButton2)
+                                .addComponent(jButton5))
+                            .addComponent(jButton_Logout))))
                 .addContainerGap(16, Short.MAX_VALUE))
         );
         leftLayout.setVerticalGroup(
@@ -166,14 +200,15 @@ public class Dash extends javax.swing.JFrame {
                 .addComponent(jButton3)
                 .addGap(30, 30, 30)
                 .addComponent(jButton4)
-                .addGap(28, 28, 28)
+                .addGap(30, 30, 30)
                 .addComponent(jButton2)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 389, Short.MAX_VALUE)
+                .addGap(30, 30, 30)
+                .addComponent(jButton_Logout, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 332, Short.MAX_VALUE)
                 .addComponent(jButton5)
-                .addGap(28, 28, 28))
+                .addGap(27, 27, 27))
         );
 
-        jPanel_Dash.setBackground(new java.awt.Color(153, 153, 0));
         jPanel_Dash.setPreferredSize(new java.awt.Dimension(934, 510));
 
         jLabel1.setFont(new java.awt.Font("Sitka Text", 0, 48)); // NOI18N
@@ -192,7 +227,7 @@ public class Dash extends javax.swing.JFrame {
             .addGroup(jPanel_DashLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jLabel1)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(637, Short.MAX_VALUE))
         );
 
         jPanel_Transaction.setBackground(new java.awt.Color(0, 153, 153));
@@ -357,6 +392,15 @@ public class Dash extends javax.swing.JFrame {
         showPanel(jPanel_Settings);
     }//GEN-LAST:event_jButton5ActionPerformed
 
+    private void jButton_LogoutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_LogoutActionPerformed
+        // TODO add your handling code here:
+        Login loginFrame = new Login();
+         loginFrame.setVisible(true);
+        loginFrame.pack();
+        loginFrame.setLocationRelativeTo(null);
+        this.dispose();
+    }//GEN-LAST:event_jButton_LogoutActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -398,6 +442,7 @@ public class Dash extends javax.swing.JFrame {
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
     private javax.swing.JButton jButton5;
+    private javax.swing.JButton jButton_Logout;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
