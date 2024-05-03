@@ -13,7 +13,7 @@ import loginandreg.ValMail;
 public class Login extends javax.swing.JFrame {
 
     int Cou = 0;
-
+    public static String WelcomeUserName=new String();
     /**
      * Creates new form Login
      */
@@ -347,7 +347,7 @@ public class Login extends javax.swing.JFrame {
             Class.forName("com.mysql.cj.jdbc.Driver");
             Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/BankDatabase?serverTimezone=UTC", "root", "123456");
             Statement stmt = con.createStatement();  
-            String sqlCommand = "SELECT email, national_id, acc_pass FROM customers JOIN account ON customers.national_id = account.national_no WHERE email = ?";
+            String sqlCommand = "SELECT email, national_id,fname, acc_pass FROM customers JOIN account ON customers.national_id = account.national_no WHERE email = ?";
             PreparedStatement pstmt = con.prepareStatement(sqlCommand);   
             pstmt.setString(1, email);
             ResultSet rs = pstmt.executeQuery();
@@ -356,10 +356,14 @@ public class Login extends javax.swing.JFrame {
            
             do {
                 if (pass.equals(rs.getString("acc_pass"))) {
-                    JOptionPane.showMessageDialog(this, "Welcome!");
-                    new SignUp().setVisible(true);
+                    WelcomeUserName=rs.getString("fname");
+                    JOptionPane.showMessageDialog(this, "Correct password \nWelcome "+WelcomeUserName+" !");
                     this.setVisible(false);
                     this.dispose();
+                     Dash DashFrame= new Dash();
+                    DashFrame.setVisible(true);
+                    DashFrame.WELCOMING.setText(WelcomeUserName);
+                    
                     break;
                 } else {
                     Cou++;
@@ -381,6 +385,7 @@ public class Login extends javax.swing.JFrame {
             catch (Exception e)
             {
              JOptionPane.showMessageDialog(this,e.getMessage());
+             System.out.println(e.getMessage());
             }
 
     }//GEN-LAST:event_kButton1MouseClicked

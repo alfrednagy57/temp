@@ -57,7 +57,8 @@ public class Dash extends javax.swing.JFrame {
         jPanel_Dash = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         jPanel_Transaction = new javax.swing.JPanel();
-        jLabel3 = new javax.swing.JLabel();
+        WELCOMING = new javax.swing.JLabel();
+        jLabel8 = new javax.swing.JLabel();
         jPanel_Cards = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
         jPanel_Settings = new javax.swing.JPanel();
@@ -67,7 +68,7 @@ public class Dash extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
-        setPreferredSize(new java.awt.Dimension(1080, 720));
+        setResizable(false);
 
         left.setBackground(new java.awt.Color(0, 102, 102));
         left.setForeground(new java.awt.Color(0, 102, 102));
@@ -233,8 +234,17 @@ public class Dash extends javax.swing.JFrame {
         jPanel_Transaction.setBackground(new java.awt.Color(0, 153, 153));
         jPanel_Transaction.setPreferredSize(new java.awt.Dimension(934, 510));
 
-        jLabel3.setFont(new java.awt.Font("Segoe UI Historic", 0, 48)); // NOI18N
-        jLabel3.setText("Welcome to Transactions");
+        WELCOMING.setFont(new java.awt.Font("Segoe UI Historic", 0, 48)); // NOI18N
+        WELCOMING.setText("Welcome to Transactions");
+
+        jLabel8.setFont(new java.awt.Font("Forte", 0, 24)); // NOI18N
+        jLabel8.setForeground(new java.awt.Color(0, 102, 102));
+        jLabel8.setText("X");
+        jLabel8.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel8MouseClicked(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel_TransactionLayout = new javax.swing.GroupLayout(jPanel_Transaction);
         jPanel_Transaction.setLayout(jPanel_TransactionLayout);
@@ -242,14 +252,20 @@ public class Dash extends javax.swing.JFrame {
             jPanel_TransactionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel_TransactionLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 549, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(372, Short.MAX_VALUE))
+                .addComponent(WELCOMING, javax.swing.GroupLayout.PREFERRED_SIZE, 549, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 346, Short.MAX_VALUE)
+                .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
         );
         jPanel_TransactionLayout.setVerticalGroup(
             jPanel_TransactionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel_TransactionLayout.createSequentialGroup()
-                .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 182, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
+                .addComponent(WELCOMING, javax.swing.GroupLayout.PREFERRED_SIZE, 182, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 538, Short.MAX_VALUE))
+            .addGroup(jPanel_TransactionLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         jPanel_Cards.setBackground(new java.awt.Color(0, 204, 51));
@@ -361,6 +377,7 @@ public class Dash extends javax.swing.JFrame {
         );
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
@@ -394,12 +411,17 @@ public class Dash extends javax.swing.JFrame {
 
     private void jButton_LogoutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_LogoutActionPerformed
         // TODO add your handling code here:
+                this.dispose();
         Login loginFrame = new Login();
          loginFrame.setVisible(true);
-        loginFrame.pack();
-        loginFrame.setLocationRelativeTo(null);
-        this.dispose();
+//        loginFrame.pack();
+//        loginFrame.setLocationRelativeTo(null);
     }//GEN-LAST:event_jButton_LogoutActionPerformed
+
+    private void jLabel8MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel8MouseClicked
+        // TODO add your handling code here:
+        System.exit(0);
+    }//GEN-LAST:event_jLabel8MouseClicked
 
     /**
      * @param args the command line arguments
@@ -437,6 +459,7 @@ public class Dash extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    public javax.swing.JLabel WELCOMING;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
@@ -445,10 +468,10 @@ public class Dash extends javax.swing.JFrame {
     private javax.swing.JButton jButton_Logout;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
     private javax.swing.JPanel jPanel_Cards;
     private javax.swing.JPanel jPanel_Dash;
     private javax.swing.JPanel jPanel_Settings;
