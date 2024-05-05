@@ -36,7 +36,11 @@ import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import javax.swing.event.DocumentEvent;
+import javax.swing.event.DocumentListener;
 import javax.swing.plaf.basic.BasicProgressBarUI;
+import javax.swing.text.Document;
+import loginandreg.PatternChecker;
 
 
 /**
@@ -48,13 +52,78 @@ public class SignUp extends javax.swing.JFrame {
     boolean VerifiedEmail=false;
     String RandomCode=ValMail.generateRandomCode(6);
     int Cou=0;
+    
+    
+     private void addPasswordListener() {
+        Document doc = Password.getDocument();
+        doc.addDocumentListener(new DocumentListener() {
+            @Override
+            public void insertUpdate(DocumentEvent e) {
+                handlePasswordChange();
+            }
 
+            @Override
+            public void removeUpdate(DocumentEvent e) {
+                handlePasswordChange();
+            }
 
+            @Override
+            public void changedUpdate(DocumentEvent e) {
+                handlePasswordChange();
+            }
+        });
+    }
+    
+    private void handlePasswordChange() {
+        char[] passChars = Password.getPassword();
+        String pass = new String(passChars).trim();
+        System.out.println(pass);
+        pass=pass.trim();
+        System.out.println(pass);
+       if(PatternChecker.MatchPattern(pass))
+       {
+           Bar.setColor(Color.GREEN); // Set the color of the progress bar
+           mess.setText("password accepted");
+           Bar.setValue(100);
+       }
+       else if(!PatternChecker.MatchPatternSchars(pass)&&PatternChecker.MatchPatternchars(pass)&&PatternChecker.MatchPattern8Num(pass))
+       {
+           Bar.setColor(new java.awt.Color(255, 0, 51));
+           mess.setText("password must contain 1 special char");
+           Bar.setValue(68);
+       }
+       else if(!PatternChecker.MatchPatternSchars(pass)&&!PatternChecker.MatchPatternchars(pass)&&PatternChecker.MatchPattern8Num(pass))
+       {
+           mess.setText("password must contain 1 upper case and 1 lower case");
+           Bar.setColor(new java.awt.Color(255, 0, 51));
+           Bar.setValue(34);
+       }
+       else if(!PatternChecker.MatchPatternSchars(pass)&&!PatternChecker.MatchPatternchars(pass)&&!PatternChecker.MatchPattern8Num(pass))
+       {
+    //                nums.setBackground(new java.awt.Color(204, 0, 0));
+            Bar.setColor(new java.awt.Color(255, 0, 51));
+            mess.setText("password must contain 8 numbers");
+       }
+       else {
+    //                System.out.println("color changed");
+           Bar.setColor(Color.GREEN); // Set the color of the progress bar
+           mess.setText("password accepted");
+           Bar.setValue(100);
+       }
+
+       if(pass.isEmpty())
+       {
+           Bar.setValue(0);
+       }
+    }
     /**
      * Creates new form SignUp
      */
     public SignUp() {
         initComponents();
+
+
+        addPasswordListener();
     }
 
     /**
@@ -119,7 +188,6 @@ public class SignUp extends javax.swing.JFrame {
         setTitle("Sign Up");
         setMinimumSize(new java.awt.Dimension(800, 570));
         setUndecorated(true);
-        setPreferredSize(new java.awt.Dimension(800, 570));
         setResizable(false);
         getContentPane().setLayout(null);
 
@@ -237,6 +305,9 @@ public class SignUp extends javax.swing.JFrame {
             }
         });
         Password.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                PasswordKeyPressed(evt);
+            }
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 PasswordKeyTyped(evt);
             }
@@ -292,7 +363,7 @@ public class SignUp extends javax.swing.JFrame {
                                 .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 145, javax.swing.GroupLayout.PREFERRED_SIZE))))
                     .addGroup(RightLayout.createSequentialGroup()
                         .addGap(30, 30, 30)
-                        .addGroup(RightLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addGroup(RightLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(RightLayout.createSequentialGroup()
                                 .addGroup(RightLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                                     .addComponent(mess1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -320,10 +391,11 @@ public class SignUp extends javax.swing.JFrame {
                             .addComponent(ID, javax.swing.GroupLayout.PREFERRED_SIZE, 210, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(mess, javax.swing.GroupLayout.PREFERRED_SIZE, 288, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(RightLayout.createSequentialGroup()
-                                .addComponent(Password, javax.swing.GroupLayout.PREFERRED_SIZE, 292, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGroup(RightLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                    .addComponent(Bar, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(Password, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 292, Short.MAX_VALUE))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(togbtn1, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(Bar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                                .addComponent(togbtn1, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE)))))
                 .addContainerGap(10, Short.MAX_VALUE))
         );
         RightLayout.setVerticalGroup(
@@ -747,44 +819,46 @@ public class SignUp extends javax.swing.JFrame {
 
     private void PasswordKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_PasswordKeyTyped
         // TODO add your handling code here:
-             char[] passChars = Password.getPassword();
-             String pass = new String(passChars);
-
-            if(PatternChecker.MatchPattern(pass))
-            {
-                Bar.setColor(Color.GREEN); // Set the color of the progress bar
-                mess.setText("password accepted");
-                Bar.setValue(100);
-            }
-            else if(!PatternChecker.MatchPatternSchars(pass)&&PatternChecker.MatchPatternchars(pass)&&PatternChecker.MatchPattern8Num(pass))
-            {
-                Bar.setColor(new java.awt.Color(255, 0, 51));
-                mess.setText("password must contain 1 special char");
-                Bar.setValue(68);
-            }
-            else if(!PatternChecker.MatchPatternSchars(pass)&&!PatternChecker.MatchPatternchars(pass)&&PatternChecker.MatchPattern8Num(pass))
-            {
-                mess.setText("password must contain 1 upper case and 1 lower case");
-                Bar.setColor(new java.awt.Color(255, 0, 51));
-                Bar.setValue(34);
-            }
-            else if(!PatternChecker.MatchPatternSchars(pass)&&!PatternChecker.MatchPatternchars(pass)&&!PatternChecker.MatchPattern8Num(pass))
-            {
-//                nums.setBackground(new java.awt.Color(204, 0, 0));
-                 Bar.setColor(new java.awt.Color(255, 0, 51));
-                 mess.setText("password must contain 8 numbers");
-            }
-            else {
-//                System.out.println("color changed");
-                Bar.setColor(Color.GREEN); // Set the color of the progress bar
-                mess.setText("password accepted");
-                Bar.setValue(100);
-            }
-
-            if(pass.isEmpty())
-            {
-                Bar.setValue(0);
-            }
+//        char[] passChars = Password.getPassword();
+//        String pass = new String(passChars).trim();
+//        System.out.println(pass);
+//        pass=pass.trim();
+//        System.out.println(pass);
+//       if(PatternChecker.MatchPattern(pass))
+//       {
+//           Bar.setColor(Color.GREEN); // Set the color of the progress bar
+//           mess.setText("password accepted");
+//           Bar.setValue(100);
+//       }
+//       else if(!PatternChecker.MatchPatternSchars(pass)&&PatternChecker.MatchPatternchars(pass)&&PatternChecker.MatchPattern8Num(pass))
+//       {
+//           Bar.setColor(new java.awt.Color(255, 0, 51));
+//           mess.setText("password must contain 1 special char");
+//           Bar.setValue(68);
+//       }
+//       else if(!PatternChecker.MatchPatternSchars(pass)&&!PatternChecker.MatchPatternchars(pass)&&PatternChecker.MatchPattern8Num(pass))
+//       {
+//           mess.setText("password must contain 1 upper case and 1 lower case");
+//           Bar.setColor(new java.awt.Color(255, 0, 51));
+//           Bar.setValue(34);
+//       }
+//       else if(!PatternChecker.MatchPatternSchars(pass)&&!PatternChecker.MatchPatternchars(pass)&&!PatternChecker.MatchPattern8Num(pass))
+//       {
+//    //                nums.setBackground(new java.awt.Color(204, 0, 0));
+//            Bar.setColor(new java.awt.Color(255, 0, 51));
+//            mess.setText("password must contain 8 numbers");
+//       }
+//       else {
+//    //                System.out.println("color changed");
+//           Bar.setColor(Color.GREEN); // Set the color of the progress bar
+//           mess.setText("password accepted");
+//           Bar.setValue(100);
+//       }
+//
+//       if(pass.isEmpty())
+//       {
+//           Bar.setValue(0);
+//       }
     }//GEN-LAST:event_PasswordKeyTyped
 
     private void signupMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_signupMouseClicked
@@ -1138,6 +1212,10 @@ public class SignUp extends javax.swing.JFrame {
     private void togbtn1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_togbtn1ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_togbtn1ActionPerformed
+
+    private void PasswordKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_PasswordKeyPressed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_PasswordKeyPressed
 
     /**
      * @param args the command line arguments

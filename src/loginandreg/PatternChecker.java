@@ -20,11 +20,11 @@ public class PatternChecker {
             {
                 CouNums++;
             }
-            else if(q<='a'&&q>='z')
+            else if(q>='a'&&q<='z')
             {
                 CouChars++;
             }
-            else if(q<='A'&&q>='Z')
+            else if(q>='A'&&q<='Z')
             {
                 CouCChars++;
             }
@@ -80,11 +80,11 @@ public class PatternChecker {
         for(i=0;i<EnteredPattern.length();i++)
         {
             char q=EnteredPattern.charAt(i);
-            if(q<='a'&&q>='z')
+            if(q>='a'&&q<='z')
             {
                 CouChars++;
             }
-            else if(q<='A'&&q>='Z')
+            else if(q>='A'&&q<='Z')
             {
                 CouCChars++;
             }
