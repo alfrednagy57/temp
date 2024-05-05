@@ -336,7 +336,6 @@ public class Dash extends javax.swing.JFrame {
         jPanel_Transfer.setPreferredSize(new java.awt.Dimension(934, 510));
 
         logo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Logo/transferLogo.v1.png"))); // NOI18N
-        logo.setPreferredSize(new java.awt.Dimension(150, 150));
         logo.setRequestFocusEnabled(false);
 
         jPanel1.setBackground(new java.awt.Color(0, 102, 102));
@@ -375,7 +374,6 @@ public class Dash extends javax.swing.JFrame {
 
         jLabel8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Logo/icons8-user-50.png"))); // NOI18N
         jLabel8.setMaximumSize(new java.awt.Dimension(25, 16));
-        jLabel8.setPreferredSize(new java.awt.Dimension(50, 50));
 
         jLabel9.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
         jLabel9.setForeground(new java.awt.Color(0, 102, 102));
@@ -462,7 +460,7 @@ public class Dash extends javax.swing.JFrame {
         jPanel_Transfer.setLayout(jPanel_TransferLayout);
         jPanel_TransferLayout.setHorizontalGroup(
             jPanel_TransferLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 991, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 983, Short.MAX_VALUE)
             .addGroup(jPanel_TransferLayout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel_TransferLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -518,9 +516,9 @@ public class Dash extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel_TransferLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(Email1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel12, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(jPanel_TransferLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel12, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(Email1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(20, 20, 20)
                 .addGroup(jPanel_TransferLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(jLabel13, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -558,7 +556,7 @@ public class Dash extends javax.swing.JFrame {
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                     .addGap(0, 150, Short.MAX_VALUE)
-                    .addComponent(jPanel_Transfer, javax.swing.GroupLayout.PREFERRED_SIZE, 934, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addComponent(jPanel_Transfer, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -720,13 +718,10 @@ public class Dash extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-<<<<<<< HEAD
     private javax.swing.JTextField Email1;
     private javax.swing.JTextField Email2;
     private javax.swing.JPasswordField Pass;
-=======
     public javax.swing.JLabel WELCOMING;
->>>>>>> master_temp
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
