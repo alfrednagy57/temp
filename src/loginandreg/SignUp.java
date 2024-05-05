@@ -282,69 +282,26 @@ public class SignUp extends javax.swing.JFrame {
         Lname.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 2, 0, new java.awt.Color(0, 102, 102)));
         Lname.setDisabledTextColor(new java.awt.Color(204, 204, 0));
         Lname.setSelectedTextColor(new java.awt.Color(242, 242, 242));
-        Lname.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                LnameActionPerformed(evt);
-            }
-        });
 
         Fname.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 2, 0, new java.awt.Color(0, 102, 102)));
         Fname.setDisabledTextColor(new java.awt.Color(204, 204, 0));
         Fname.setSelectedTextColor(new java.awt.Color(242, 242, 242));
-        Fname.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                FnameActionPerformed(evt);
-            }
-        });
 
         Email.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 2, 0, new java.awt.Color(0, 102, 102)));
         Email.setDisabledTextColor(new java.awt.Color(204, 204, 0));
         Email.setSelectedTextColor(new java.awt.Color(242, 242, 242));
-        Email.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                EmailActionPerformed(evt);
-            }
-        });
 
         ID.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 2, 0, new java.awt.Color(0, 102, 102)));
         ID.setDisabledTextColor(new java.awt.Color(204, 204, 0));
         ID.setSelectedTextColor(new java.awt.Color(242, 242, 242));
-        ID.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                IDActionPerformed(evt);
-            }
-        });
 
         Password.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 2, 0, new java.awt.Color(0, 102, 102)));
         Password.setSelectedTextColor(new java.awt.Color(242, 242, 242));
-        Password.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                PasswordMouseClicked(evt);
-            }
-        });
-        Password.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                PasswordActionPerformed(evt);
-            }
-        });
-        Password.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyPressed(java.awt.event.KeyEvent evt) {
-                PasswordKeyPressed(evt);
-            }
-            public void keyTyped(java.awt.event.KeyEvent evt) {
-                PasswordKeyTyped(evt);
-            }
-        });
 
         togbtn1.setText("Show");
         togbtn1.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 togbtn1MouseClicked(evt);
-            }
-        });
-        togbtn1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                togbtn1ActionPerformed(evt);
             }
         });
 
@@ -378,34 +335,11 @@ public class SignUp extends javax.swing.JFrame {
 
         Password2.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 2, 0, new java.awt.Color(0, 102, 102)));
         Password2.setSelectedTextColor(new java.awt.Color(242, 242, 242));
-        Password2.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                Password2MouseClicked(evt);
-            }
-        });
-        Password2.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                Password2ActionPerformed(evt);
-            }
-        });
-        Password2.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyPressed(java.awt.event.KeyEvent evt) {
-                Password2KeyPressed(evt);
-            }
-            public void keyTyped(java.awt.event.KeyEvent evt) {
-                Password2KeyTyped(evt);
-            }
-        });
 
         togbtn2.setText("Show");
         togbtn2.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 togbtn2MouseClicked(evt);
-            }
-        });
-        togbtn2.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                togbtn2ActionPerformed(evt);
             }
         });
 
@@ -548,11 +482,6 @@ public class SignUp extends javax.swing.JFrame {
         expire_date.setToolTipText("Cvv");
         SimpleDateFormat dateFormat = new SimpleDateFormat("MM/yy");
         expire_date.setFormats(dateFormat);
-        expire_date.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                expire_dateActionPerformed(evt);
-            }
-        });
 
         jLabel16.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jLabel16.setForeground(new java.awt.Color(0, 102, 102));
@@ -587,11 +516,6 @@ public class SignUp extends javax.swing.JFrame {
                 signupMouseClicked(evt);
             }
         });
-        signup.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                signupActionPerformed(evt);
-            }
-        });
 
         jLabel22.setFont(new java.awt.Font("Forte", 0, 24)); // NOI18N
         jLabel22.setForeground(new java.awt.Color(0, 102, 102));
@@ -606,51 +530,26 @@ public class SignUp extends javax.swing.JFrame {
         atm_pin.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 2, 0, new java.awt.Color(0, 102, 102)));
         atm_pin.setDisabledTextColor(new java.awt.Color(204, 204, 0));
         atm_pin.setSelectedTextColor(new java.awt.Color(242, 242, 242));
-        atm_pin.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                atm_pinActionPerformed(evt);
-            }
-        });
 
         card_no.setBackground(new Color(0,0,0,0));
         card_no.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 2, 0, new java.awt.Color(0, 102, 102)));
         card_no.setDisabledTextColor(new java.awt.Color(204, 204, 0));
         card_no.setSelectedTextColor(new java.awt.Color(242, 242, 242));
-        card_no.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                card_noActionPerformed(evt);
-            }
-        });
 
         cvv.setBackground(new Color(0,0,0,0));
         cvv.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 2, 0, new java.awt.Color(0, 102, 102)));
         cvv.setDisabledTextColor(new java.awt.Color(204, 204, 0));
         cvv.setSelectedTextColor(new java.awt.Color(242, 242, 242));
-        cvv.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                cvvActionPerformed(evt);
-            }
-        });
 
         mob_no.setBackground(new Color(0,0,0,0));
         mob_no.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 2, 0, new java.awt.Color(0, 102, 102)));
         mob_no.setDisabledTextColor(new java.awt.Color(204, 204, 0));
         mob_no.setSelectedTextColor(new java.awt.Color(242, 242, 242));
-        mob_no.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                mob_noActionPerformed(evt);
-            }
-        });
 
         add.setBackground(new Color(0,0,0,0));
         add.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 2, 0, new java.awt.Color(0, 102, 102)));
         add.setDisabledTextColor(new java.awt.Color(204, 204, 0));
         add.setSelectedTextColor(new java.awt.Color(242, 242, 242));
-        add.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                addActionPerformed(evt);
-            }
-        });
 
         AccountType.setFont(new java.awt.Font("DialogInput", 3, 12)); // NOI18N
         AccountType.add("Saving Account");
@@ -672,6 +571,14 @@ public class SignUp extends javax.swing.JFrame {
         jLabel13.setText("Country:");
 
         city.setFont(new java.awt.Font("DialogInput", 3, 12)); // NOI18N
+        city.add("Cairo");
+        city.add("Alexandria");
+        city.add("Aswan");
+        city.add("Giza");
+        city.add("Luxor");
+        city.add("Faiyoum");
+        city.add("Mansoura");
+        city.add("Port saied");
 
         country.setFont(new java.awt.Font("DialogInput", 3, 12)); // NOI18N
         country.add("Egypt");
@@ -845,102 +752,10 @@ public class SignUp extends javax.swing.JFrame {
         this.dispose();
     }//GEN-LAST:event_jXHyperlink1ActionPerformed
 
-    private void expire_dateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_expire_dateActionPerformed
-
-    }//GEN-LAST:event_expire_dateActionPerformed
-
-    private void signupActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_signupActionPerformed
-
-    }//GEN-LAST:event_signupActionPerformed
-
     private void jLabel22MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel22MouseClicked
         // TODO add your handling code here:
         System.exit(0);
     }//GEN-LAST:event_jLabel22MouseClicked
-
-    private void LnameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_LnameActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_LnameActionPerformed
-
-    private void FnameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_FnameActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_FnameActionPerformed
-
-    private void EmailActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EmailActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_EmailActionPerformed
-
-    private void IDActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_IDActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_IDActionPerformed
-
-    private void atm_pinActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_atm_pinActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_atm_pinActionPerformed
-
-    private void card_noActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_card_noActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_card_noActionPerformed
-
-    private void cvvActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cvvActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_cvvActionPerformed
-
-    private void mob_noActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mob_noActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_mob_noActionPerformed
-
-    private void addActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_addActionPerformed
-
-    private void PasswordActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_PasswordActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_PasswordActionPerformed
-
-    private void PasswordKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_PasswordKeyTyped
-        // TODO add your handling code here:
-//        char[] passChars = Password.getPassword();
-//        String pass = new String(passChars).trim();
-//        System.out.println(pass);
-//        pass=pass.trim();
-//        System.out.println(pass);
-//       if(PatternChecker.MatchPattern(pass))
-//       {
-//           Bar.setColor(Color.GREEN); // Set the color of the progress bar
-//           mess.setText("password accepted");
-//           Bar.setValue(100);
-//       }
-//       else if(!PatternChecker.MatchPatternSchars(pass)&&PatternChecker.MatchPatternchars(pass)&&PatternChecker.MatchPattern8Num(pass))
-//       {
-//           Bar.setColor(new java.awt.Color(255, 0, 51));
-//           mess.setText("password must contain 1 special char");
-//           Bar.setValue(68);
-//       }
-//       else if(!PatternChecker.MatchPatternSchars(pass)&&!PatternChecker.MatchPatternchars(pass)&&PatternChecker.MatchPattern8Num(pass))
-//       {
-//           mess.setText("password must contain 1 upper case and 1 lower case");
-//           Bar.setColor(new java.awt.Color(255, 0, 51));
-//           Bar.setValue(34);
-//       }
-//       else if(!PatternChecker.MatchPatternSchars(pass)&&!PatternChecker.MatchPatternchars(pass)&&!PatternChecker.MatchPattern8Num(pass))
-//       {
-//    //                nums.setBackground(new java.awt.Color(204, 0, 0));
-//            Bar.setColor(new java.awt.Color(255, 0, 51));
-//            mess.setText("password must contain 8 numbers");
-//       }
-//       else {
-//    //                System.out.println("color changed");
-//           Bar.setColor(Color.GREEN); // Set the color of the progress bar
-//           mess.setText("password accepted");
-//           Bar.setValue(100);
-//       }
-//
-//       if(pass.isEmpty())
-//       {
-//           Bar.setValue(0);
-//       }
-    }//GEN-LAST:event_PasswordKeyTyped
 
     private void signupMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_signupMouseClicked
         // TODO add your handling code here:
@@ -1196,11 +1011,6 @@ public class SignUp extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_togbtn1MouseClicked
 
-    private void PasswordMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_PasswordMouseClicked
-        // TODO add your handling code here:
-        mess.setText(" ");
-    }//GEN-LAST:event_PasswordMouseClicked
-
     private void VerifyMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_VerifyMouseClicked
         // TODO add your handling code here:
         boolean flag=true;
@@ -1288,30 +1098,6 @@ public class SignUp extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_Verify1MouseClicked
 
-    private void togbtn1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_togbtn1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_togbtn1ActionPerformed
-
-    private void PasswordKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_PasswordKeyPressed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_PasswordKeyPressed
-
-    private void Password2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Password2MouseClicked
-        // TODO add your handling code here:
-    }//GEN-LAST:event_Password2MouseClicked
-
-    private void Password2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Password2ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_Password2ActionPerformed
-
-    private void Password2KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_Password2KeyPressed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_Password2KeyPressed
-
-    private void Password2KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_Password2KeyTyped
-        // TODO add your handling code here:
-    }//GEN-LAST:event_Password2KeyTyped
-
     private void togbtn2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_togbtn2MouseClicked
         // TODO add your handling code here:
         if(togbtn2.isSelected())
@@ -1325,10 +1111,6 @@ public class SignUp extends javax.swing.JFrame {
             togbtn2.setText("Show");
         }
     }//GEN-LAST:event_togbtn2MouseClicked
-
-    private void togbtn2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_togbtn2ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_togbtn2ActionPerformed
 
     private void countryItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_countryItemStateChanged
         // TODO add your handling code here:

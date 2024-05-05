@@ -290,9 +290,6 @@
                   <Color blue="f2" green="f2" red="f2" type="rgb"/>
                 </Property>
               </Properties>
-              <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="LnameActionPerformed"/>
-              </Events>
             </Component>
             <Component class="javax.swing.JTextField" name="Fname">
               <Properties>
@@ -310,9 +307,6 @@
                   <Color blue="f2" green="f2" red="f2" type="rgb"/>
                 </Property>
               </Properties>
-              <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="FnameActionPerformed"/>
-              </Events>
             </Component>
             <Component class="javax.swing.JTextField" name="Email">
               <Properties>
@@ -330,9 +324,6 @@
                   <Color blue="f2" green="f2" red="f2" type="rgb"/>
                 </Property>
               </Properties>
-              <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="EmailActionPerformed"/>
-              </Events>
             </Component>
             <Component class="javax.swing.JTextField" name="ID">
               <Properties>
@@ -350,9 +341,6 @@
                   <Color blue="f2" green="f2" red="f2" type="rgb"/>
                 </Property>
               </Properties>
-              <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="IDActionPerformed"/>
-              </Events>
             </Component>
             <Component class="javax.swing.JPasswordField" name="Password">
               <Properties>
@@ -363,12 +351,6 @@
                   <Connection code="new java.awt.Color(242, 242, 242)" type="code"/>
                 </Property>
               </Properties>
-              <Events>
-                <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="PasswordMouseClicked"/>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="PasswordActionPerformed"/>
-                <EventHandler event="keyPressed" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="PasswordKeyPressed"/>
-                <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="PasswordKeyTyped"/>
-              </Events>
               <AuxValues>
                 <AuxValue name="JavaCodeGenerator_CreateCodeCustom" type="java.lang.String" value="new javax.swing.JPasswordField()"/>
               </AuxValues>
@@ -379,7 +361,6 @@
               </Properties>
               <Events>
                 <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="togbtn1MouseClicked"/>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="togbtn1ActionPerformed"/>
               </Events>
             </Component>
             <Component class="javax.swing.JLabel" name="mess">
@@ -432,12 +413,6 @@
                   <Connection code="new java.awt.Color(242, 242, 242)" type="code"/>
                 </Property>
               </Properties>
-              <Events>
-                <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="Password2MouseClicked"/>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="Password2ActionPerformed"/>
-                <EventHandler event="keyPressed" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="Password2KeyPressed"/>
-                <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="Password2KeyTyped"/>
-              </Events>
               <AuxValues>
                 <AuxValue name="JavaCodeGenerator_CreateCodeCustom" type="java.lang.String" value="new javax.swing.JPasswordField()"/>
               </AuxValues>
@@ -448,7 +423,6 @@
               </Properties>
               <Events>
                 <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="togbtn2MouseClicked"/>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="togbtn2ActionPerformed"/>
               </Events>
             </Component>
             <Component class="javax.swing.JLabel" name="jLabel14">
@@ -735,9 +709,6 @@
                   <Connection code="&quot;Cvv&quot;" type="code"/>
                 </Property>
               </Properties>
-              <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="expire_dateActionPerformed"/>
-              </Events>
               <AuxValues>
                 <AuxValue name="JavaCodeGenerator_InitCodePost" type="java.lang.String" value="SimpleDateFormat dateFormat = new SimpleDateFormat(&quot;MM/yy&quot;);&#xa;expire_date.setFormats(dateFormat);"/>
               </AuxValues>
@@ -822,7 +793,6 @@
               </Properties>
               <Events>
                 <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="signupMouseClicked"/>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="signupActionPerformed"/>
               </Events>
             </Component>
             <Component class="javax.swing.JLabel" name="jLabel22">
@@ -858,9 +828,6 @@
                   <Color blue="f2" green="f2" red="f2" type="rgb"/>
                 </Property>
               </Properties>
-              <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="atm_pinActionPerformed"/>
-              </Events>
             </Component>
             <Component class="javax.swing.JTextField" name="card_no">
               <Properties>
@@ -881,9 +848,6 @@
                   <Color blue="f2" green="f2" red="f2" type="rgb"/>
                 </Property>
               </Properties>
-              <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="card_noActionPerformed"/>
-              </Events>
             </Component>
             <Component class="javax.swing.JTextField" name="cvv">
               <Properties>
@@ -904,9 +868,6 @@
                   <Color blue="f2" green="f2" red="f2" type="rgb"/>
                 </Property>
               </Properties>
-              <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="cvvActionPerformed"/>
-              </Events>
             </Component>
             <Component class="javax.swing.JTextField" name="mob_no">
               <Properties>
@@ -927,9 +888,6 @@
                   <Color blue="f2" green="f2" red="f2" type="rgb"/>
                 </Property>
               </Properties>
-              <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="mob_noActionPerformed"/>
-              </Events>
             </Component>
             <Component class="javax.swing.JTextField" name="add">
               <Properties>
@@ -950,9 +908,6 @@
                   <Color blue="f2" green="f2" red="f2" type="rgb"/>
                 </Property>
               </Properties>
-              <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="addActionPerformed"/>
-              </Events>
             </Component>
             <Component class="java.awt.Choice" name="AccountType">
               <Properties>
@@ -1002,6 +957,9 @@
                   <Font name="DialogInput" size="12" style="3"/>
                 </Property>
               </Properties>
+              <AuxValues>
+                <AuxValue name="JavaCodeGenerator_InitCodePost" type="java.lang.String" value="city.add(&quot;Cairo&quot;);&#xa;city.add(&quot;Alexandria&quot;);&#xa;city.add(&quot;Aswan&quot;);&#xa;city.add(&quot;Giza&quot;);&#xa;city.add(&quot;Luxor&quot;);&#xa;city.add(&quot;Faiyoum&quot;);&#xa;city.add(&quot;Mansoura&quot;);&#xa;city.add(&quot;Port saied&quot;);"/>
+              </AuxValues>
             </Component>
             <Component class="java.awt.Choice" name="country">
               <Properties>
