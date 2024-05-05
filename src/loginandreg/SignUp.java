@@ -1099,9 +1099,11 @@ public class SignUp extends javax.swing.JFrame {
         }
         if(flag){
             ValMail.sendEmail(Email.getText().trim(),"Verification",RandomCode);
-            if(ReceiveMail.receivemail()==1)
-            {
+            if(ReceiveMail.receivemail()==1){
                 JOptionPane.showMessageDialog(this,"Please enter a valid email because this email is not on gmail database");
+            }
+            else{
+                 JOptionPane.showMessageDialog(this,"Verification code Sent\nCheck your inbox");
             }
         }
         else
