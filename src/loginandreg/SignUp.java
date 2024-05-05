@@ -117,8 +117,9 @@ public class SignUp extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Sign Up");
+        setMinimumSize(new java.awt.Dimension(800, 570));
         setUndecorated(true);
-        setPreferredSize(new java.awt.Dimension(800, 500));
+        setPreferredSize(new java.awt.Dimension(800, 570));
         setResizable(false);
         getContentPane().setLayout(null);
 
@@ -1019,11 +1020,11 @@ public class SignUp extends javax.swing.JFrame {
                     }
                 }
 
-//                       this.dispose();
-//                       SignUp2 SignUp2Frame = new SignUp2();
-//                       SignUp2Frame.setVisible(true);
-//                       SignUp2Frame.pack();
-//                       SignUp2Frame.setLocationRelativeTo(null);
+                       this.dispose();
+                       Login LoginFrame = new Login();
+                       LoginFrame.setVisible(true);
+                       LoginFrame.pack();
+                       LoginFrame.setLocationRelativeTo(null);
             }
         }
     }//GEN-LAST:event_signupMouseClicked
@@ -1098,6 +1099,10 @@ public class SignUp extends javax.swing.JFrame {
         }
         if(flag){
             ValMail.sendEmail(Email.getText().trim(),"Verification",RandomCode);
+            if(ReceiveMail.receivemail()==1)
+            {
+                JOptionPane.showMessageDialog(this,"Please enter a valid email because this email is not on gmail database");
+            }
         }
         else
         {
