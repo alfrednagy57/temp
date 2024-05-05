@@ -117,8 +117,9 @@ public class SignUp extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Sign Up");
+        setMinimumSize(new java.awt.Dimension(800, 570));
         setUndecorated(true);
-        setPreferredSize(new java.awt.Dimension(780, 560));
+        setPreferredSize(new java.awt.Dimension(800, 570));
         setResizable(false);
         getContentPane().setLayout(null);
 
@@ -291,7 +292,7 @@ public class SignUp extends javax.swing.JFrame {
                                 .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 145, javax.swing.GroupLayout.PREFERRED_SIZE))))
                     .addGroup(RightLayout.createSequentialGroup()
                         .addGap(30, 30, 30)
-                        .addGroup(RightLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(RightLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addGroup(RightLayout.createSequentialGroup()
                                 .addGroup(RightLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                                     .addComponent(mess1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -319,11 +320,10 @@ public class SignUp extends javax.swing.JFrame {
                             .addComponent(ID, javax.swing.GroupLayout.PREFERRED_SIZE, 210, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(mess, javax.swing.GroupLayout.PREFERRED_SIZE, 288, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(RightLayout.createSequentialGroup()
-                                .addGroup(RightLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                    .addComponent(Bar, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(Password, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 292, Short.MAX_VALUE))
+                                .addComponent(Password, javax.swing.GroupLayout.PREFERRED_SIZE, 292, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(togbtn1, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                                .addComponent(togbtn1, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(Bar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
                 .addContainerGap(10, Short.MAX_VALUE))
         );
         RightLayout.setVerticalGroup(
@@ -671,7 +671,21 @@ public class SignUp extends javax.swing.JFrame {
     }//GEN-LAST:event_jXHyperlink1ActionPerformed
 
     private void expire_dateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_expire_dateActionPerformed
-
+        // TODO add your handling code here:
+//        String Expiredate=new String();
+//        java.util.Date selectedDate = expire_date.getDate();
+//        if (selectedDate != null) {
+//            // selectedDate is not null, so you can safely invoke methods on it
+//            Expiredate= selectedDate.toString();
+//            // Use dateString as needed
+//        } else {
+//            // selectedDate is null, handle this case appropriately
+//            System.out.println("Error: selectedDate is null");
+//            // Display an error message or take other appropriate action
+//        }
+//         Expiredate=Expiredate.substring(0,5)
+//
+//        expire_date.set
     }//GEN-LAST:event_expire_dateActionPerformed
 
     private void signupActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_signupActionPerformed
@@ -1006,11 +1020,11 @@ public class SignUp extends javax.swing.JFrame {
                     }
                 }
 
-//                       this.dispose();
-//                       SignUp2 SignUp2Frame = new SignUp2();
-//                       SignUp2Frame.setVisible(true);
-//                       SignUp2Frame.pack();
-//                       SignUp2Frame.setLocationRelativeTo(null);
+                       this.dispose();
+                       Login LoginFrame = new Login();
+                       LoginFrame.setVisible(true);
+                       LoginFrame.pack();
+                       LoginFrame.setLocationRelativeTo(null);
             }
         }
     }//GEN-LAST:event_signupMouseClicked
@@ -1085,6 +1099,10 @@ public class SignUp extends javax.swing.JFrame {
         }
         if(flag){
             ValMail.sendEmail(Email.getText().trim(),"Verification",RandomCode);
+            if(ReceiveMail.receivemail()==1)
+            {
+                JOptionPane.showMessageDialog(this,"Please enter a valid email because this email is not on gmail database");
+            }
         }
         else
         {
