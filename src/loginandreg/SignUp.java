@@ -6,7 +6,7 @@ package loginandreg;
 
 import java.awt.Graphics;
 import java.awt.Insets;
-import com.mysql.cj.protocol.Resultset;
+//import com.mysql.cj.protocol.Resultset;
 import java.awt.Color;
 import java.sql.Connection;
 import java.sql.DriverManager;
