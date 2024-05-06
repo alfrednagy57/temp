@@ -57,7 +57,7 @@ public class Dash extends javax.swing.JFrame {
         jButton_Mode = new javax.swing.JButton();
         jLabel14 = new javax.swing.JLabel();
         jPanel_Dash = new javax.swing.JPanel();
-        jLabel1 = new javax.swing.JLabel();
+        WelcomingMess = new javax.swing.JLabel();
         jPanel_Transaction = new javax.swing.JPanel();
         WELCOMING = new javax.swing.JLabel();
         jPanel_Cards = new javax.swing.JPanel();
@@ -221,7 +221,7 @@ public class Dash extends javax.swing.JFrame {
 
         jLabel14.setFont(new java.awt.Font("Forte", 0, 24)); // NOI18N
         jLabel14.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel14.setText("X");
+        jLabel14.setText("EXit");
         jLabel14.setToolTipText("Click here to close the app :(");
         jLabel14.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jLabel14.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -245,12 +245,12 @@ public class Dash extends javax.swing.JFrame {
                             .addComponent(jButton3)
                             .addComponent(jButton1)
                             .addComponent(jButton4)
-                            .addGroup(leftLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                .addComponent(jButton2)
-                                .addComponent(jButton5))
                             .addComponent(jButton_Logout)
                             .addComponent(jButton_Mode)
-                            .addComponent(jLabel14, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                            .addGroup(leftLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                .addComponent(jLabel14, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(jButton2)
+                                .addComponent(jButton5, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         leftLayout.setVerticalGroup(
@@ -279,22 +279,22 @@ public class Dash extends javax.swing.JFrame {
 
         jPanel_Dash.setPreferredSize(new java.awt.Dimension(934, 510));
 
-        jLabel1.setFont(new java.awt.Font("Sitka Text", 0, 48)); // NOI18N
-        jLabel1.setText("Hello to DashBoard");
+        WelcomingMess.setFont(new java.awt.Font("Sitka Text", 0, 48)); // NOI18N
+        WelcomingMess.setText("Hello to DashBoard");
 
         javax.swing.GroupLayout jPanel_DashLayout = new javax.swing.GroupLayout(jPanel_Dash);
         jPanel_Dash.setLayout(jPanel_DashLayout);
         jPanel_DashLayout.setHorizontalGroup(
             jPanel_DashLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel_DashLayout.createSequentialGroup()
-                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 499, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(WelcomingMess, javax.swing.GroupLayout.PREFERRED_SIZE, 499, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 435, Short.MAX_VALUE))
         );
         jPanel_DashLayout.setVerticalGroup(
             jPanel_DashLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel_DashLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jLabel1)
+                .addComponent(WelcomingMess)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -363,7 +363,6 @@ public class Dash extends javax.swing.JFrame {
 
         Settings_logo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Logo/icons8-settings-75.png"))); // NOI18N
         Settings_logo.setMaximumSize(new java.awt.Dimension(30, 30));
-        Settings_logo.setPreferredSize(new java.awt.Dimension(75, 75));
 
         jLabel5.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         jLabel5.setForeground(new java.awt.Color(0, 102, 102));
@@ -483,11 +482,11 @@ public class Dash extends javax.swing.JFrame {
             .addGroup(jPanel_ModeLayout.createSequentialGroup()
                 .addContainerGap(41, Short.MAX_VALUE)
                 .addGroup(jPanel_ModeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel_ModeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(DarkMode, javax.swing.GroupLayout.PREFERRED_SIZE, 360, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGroup(jPanel_ModeLayout.createSequentialGroup()
-                            .addComponent(LightMode, javax.swing.GroupLayout.PREFERRED_SIZE, 360, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGap(21, 21, 21)))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel_ModeLayout.createSequentialGroup()
+                        .addGroup(jPanel_ModeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(DarkMode, javax.swing.GroupLayout.PREFERRED_SIZE, 360, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(LightMode, javax.swing.GroupLayout.PREFERRED_SIZE, 360, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(21, 21, 21))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel_ModeLayout.createSequentialGroup()
                         .addComponent(jLabel21)
                         .addGap(134, 134, 134))))
@@ -594,9 +593,9 @@ public class Dash extends javax.swing.JFrame {
                         .addGap(65, 65, 65)
                         .addComponent(jLabel18, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
-                        .addGroup(jPanel_SettingsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel19)
-                            .addComponent(Pass1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGroup(jPanel_SettingsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(Pass1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel19))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addGroup(jPanel_SettingsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel20)
@@ -1054,6 +1053,7 @@ public class Dash extends javax.swing.JFrame {
     private javax.swing.JLabel Settings_logo;
     private javax.swing.JButton SupportButton;
     public javax.swing.JLabel WELCOMING;
+    public javax.swing.JLabel WelcomingMess;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
@@ -1061,7 +1061,6 @@ public class Dash extends javax.swing.JFrame {
     private javax.swing.JButton jButton5;
     private javax.swing.JButton jButton_Logout;
     private javax.swing.JButton jButton_Mode;
-    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
