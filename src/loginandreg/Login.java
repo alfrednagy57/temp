@@ -7,7 +7,7 @@ import java.awt.Color;
 import java.awt.Cursor;
 import java.util.StringTokenizer;
 import loginandreg.SignUp;
-import loginandreg.ValMail;
+import Classes.ValMail;
 
 
 public class Login extends javax.swing.JFrame {
