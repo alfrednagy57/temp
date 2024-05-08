@@ -308,7 +308,7 @@ public class Login extends javax.swing.JFrame {
                     this.dispose();
                     Dash DashFrame= new Dash();
                     DashFrame.setVisible(true);
-                    DashFrame.WelcomingMess.setText("Welcome "+WelcomeUserName);
+                    DashFrame.WELCOMING.setText(WelcomeUserName);
                     
                     break;
                 } else {

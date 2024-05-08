@@ -106,11 +106,16 @@
                                   <Component id="jButton2" min="-2" max="-2" attributes="0"/>
                                   <Component id="jButton5" alignment="1" min="-2" max="-2" attributes="0"/>
                               </Group>
+<<<<<<< HEAD
                               <Component id="jButton_Mode" alignment="0" min="-2" max="-2" attributes="0"/>
                               <Group type="103" alignment="0" groupAlignment="1" max="-2" attributes="0">
                                   <Component id="jLabel18" alignment="0" max="32767" attributes="0"/>
                                   <Component id="jButton_Logout" alignment="0" max="32767" attributes="0"/>
                               </Group>
+=======
+                              <Component id="jButton_Logout" alignment="0" min="-2" max="-2" attributes="0"/>
+                              <Component id="jButton_Mode" alignment="0" min="-2" max="-2" attributes="0"/>
+>>>>>>> 6b6d92b2e5d779b671f8a09b669b48788dec3949
                           </Group>
                       </Group>
                   </Group>
@@ -135,8 +140,11 @@
                   <Component id="jButton_Mode" min="-2" pref="26" max="-2" attributes="0"/>
                   <EmptySpace min="-2" pref="30" max="-2" attributes="0"/>
                   <Component id="jButton_Logout" min="-2" pref="26" max="-2" attributes="0"/>
+<<<<<<< HEAD
                   <EmptySpace min="-2" pref="28" max="-2" attributes="0"/>
                   <Component id="jLabel18" min="-2" pref="33" max="-2" attributes="0"/>
+=======
+>>>>>>> 6b6d92b2e5d779b671f8a09b669b48788dec3949
                   <EmptySpace max="32767" attributes="0"/>
                   <Component id="jButton5" min="-2" max="-2" attributes="0"/>
                   <EmptySpace min="-2" pref="27" max="-2" attributes="0"/>
@@ -368,6 +376,7 @@
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton_ModeActionPerformed"/>
           </Events>
         </Component>
+<<<<<<< HEAD
         <Component class="javax.swing.JLabel" name="jLabel18">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
@@ -382,6 +391,8 @@
             <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="jLabel18MouseClicked"/>
           </Events>
         </Component>
+=======
+>>>>>>> 6b6d92b2e5d779b671f8a09b669b48788dec3949
       </SubComponents>
     </Container>
     <Container class="javax.swing.JPanel" name="jPanel_Dash">
@@ -408,6 +419,7 @@
                       <Component id="jLabel15" min="-2" pref="169" max="-2" attributes="0"/>
                       <Component id="jPanel3" min="-2" max="-2" attributes="0"/>
                   </Group>
+<<<<<<< HEAD
                   <EmptySpace max="32767" attributes="0"/>
                   <Component id="jPanel2" min="-2" max="-2" attributes="0"/>
                   <EmptySpace min="-2" pref="193" max="-2" attributes="0"/>
@@ -418,6 +430,11 @@
                       <Component id="WelcomingMess" min="-2" pref="549" max="-2" attributes="0"/>
                       <EmptySpace pref="461" max="32767" attributes="0"/>
                   </Group>
+=======
+                  <EmptySpace pref="44" max="32767" attributes="0"/>
+                  <Component id="jPanel2" min="-2" max="-2" attributes="0"/>
+                  <EmptySpace min="-2" pref="193" max="-2" attributes="0"/>
+>>>>>>> 6b6d92b2e5d779b671f8a09b669b48788dec3949
               </Group>
           </Group>
         </DimensionLayout>
@@ -439,6 +456,7 @@
                       </Group>
                       <Component id="jPanel2" alignment="0" min="-2" max="-2" attributes="0"/>
                   </Group>
+<<<<<<< HEAD
                   <EmptySpace min="0" pref="32" max="32767" attributes="0"/>
               </Group>
               <Group type="103" rootIndex="1" groupAlignment="0" attributes="0">
@@ -447,6 +465,9 @@
                       <Component id="WelcomingMess" min="-2" pref="182" max="-2" attributes="0"/>
                       <EmptySpace pref="269" max="32767" attributes="0"/>
                   </Group>
+=======
+                  <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+>>>>>>> 6b6d92b2e5d779b671f8a09b669b48788dec3949
               </Group>
           </Group>
         </DimensionLayout>
@@ -563,6 +584,7 @@
             </Property>
             <Property name="horizontalAlignment" type="int" value="0"/>
             <Property name="text" type="java.lang.String" value="New Customers "/>
+<<<<<<< HEAD
           </Properties>
         </Component>
         <Component class="javax.swing.JLabel" name="WelcomingMess">
@@ -571,10 +593,9 @@
               <Font name="Segoe UI Historic" size="48" style="0"/>
             </Property>
             <Property name="text" type="java.lang.String" value="Welcome to Transactions"/>
+=======
+>>>>>>> 6b6d92b2e5d779b671f8a09b669b48788dec3949
           </Properties>
-          <AuxValues>
-            <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
-          </AuxValues>
         </Component>
       </SubComponents>
     </Container>
@@ -594,7 +615,7 @@
               <Group type="102" alignment="0" attributes="0">
                   <EmptySpace max="-2" attributes="0"/>
                   <Component id="WELCOMING" min="-2" pref="549" max="-2" attributes="0"/>
-                  <EmptySpace pref="372" max="32767" attributes="0"/>
+                  <EmptySpace pref="379" max="32767" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
