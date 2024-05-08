@@ -5,16 +5,6 @@
 package loginandreg;
 import java.awt.*;
 import javax.swing.*;
-import org.jfree.chart.ChartFactory;
-import org.jfree.chart.ChartPanel;
-import org.jfree.chart.JFreeChart;
-import org.jfree.chart.plot.PiePlot;
-import org. jfree.data.general. DefaultPieDataset;
-import java.awt.BorderLayout;
-import java.awt.Color;
-
-
-
 /**
  *
  * @author OmarKandeel
@@ -34,9 +24,8 @@ public class Dash extends javax.swing.JFrame {
            panels[2] = jPanel_Transaction;
            panels[3] = jPanel_Transfer;
            panels[4] = jPanel_Settings;
-          
+            
     }
- 
   public void showPanel (JPanel panel)
     {  
         for (JPanel pnl : panels)
@@ -70,13 +59,9 @@ public class Dash extends javax.swing.JFrame {
         jButton_Mode = new javax.swing.JButton();
         jLabel15 = new javax.swing.JLabel();
         jPanel_Dash = new javax.swing.JPanel();
-        jLabel1 = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
-        jPanel3 = new javax.swing.JPanel();
         WelcomingMess = new javax.swing.JLabel();
-        TotalBalance = new javax.swing.JLabel();
         jPanel_Transaction = new javax.swing.JPanel();
-        WELCOMING = new javax.swing.JLabel();
+        transactions = new javax.swing.JLabel();
         jPanel_Cards = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
         jPanel_Settings = new javax.swing.JPanel();
@@ -85,7 +70,6 @@ public class Dash extends javax.swing.JFrame {
         logo = new javax.swing.JLabel();
         jPanel1 = new javax.swing.JPanel();
         jLabel4 = new javax.swing.JLabel();
-        jLabel14 = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
         jLabel9 = new javax.swing.JLabel();
         jLabel10 = new javax.swing.JLabel();
@@ -112,7 +96,7 @@ public class Dash extends javax.swing.JFrame {
         jButton1.setBackground(new java.awt.Color(0, 102, 102));
         jButton1.setFont(new java.awt.Font("Segoe UI Historic", 0, 16)); // NOI18N
         jButton1.setForeground(new java.awt.Color(255, 255, 255));
-        jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Logo/icons8-cards-24 (3).png")));
+        jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Logo/icons8-menu-24.png"))); // NOI18N
         jButton1.setText("DashBoard");
         jButton1.setToolTipText("Click here to go to the Dashboard;)");
         jButton1.setAutoscrolls(true);
@@ -240,13 +224,12 @@ public class Dash extends javax.swing.JFrame {
                             .addComponent(jButton3)
                             .addComponent(jButton1)
                             .addComponent(jButton4)
+                            .addComponent(jButton_Logout)
                             .addComponent(jButton_Mode)
                             .addGroup(leftLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                                 .addComponent(jButton2)
                                 .addComponent(jButton5, javax.swing.GroupLayout.Alignment.LEADING))
-                            .addGroup(leftLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                .addComponent(jLabel15, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(jButton_Logout, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))))
+                            .addComponent(jLabel15, javax.swing.GroupLayout.PREFERRED_SIZE, 62, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         leftLayout.setVerticalGroup(
@@ -268,84 +251,37 @@ public class Dash extends javax.swing.JFrame {
                 .addComponent(jButton_Logout, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(jLabel15)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 221, Short.MAX_VALUE)
                 .addComponent(jButton5)
                 .addGap(27, 27, 27))
         );
 
-        jPanel_Dash.setBackground(new java.awt.Color(255, 255, 255));
         jPanel_Dash.setPreferredSize(new java.awt.Dimension(934, 510));
 
-        jLabel1.setFont(new java.awt.Font("Sitka Text", 0, 48)); // NOI18N
-        jLabel1.setText("overview ");
-
-        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/loginandreg/p3.png"))); // NOI18N
-        jLabel3.setText("jLabel3");
-
-        WelcomingMess.setFont(new java.awt.Font("Segoe UI", 3, 12)); // NOI18N
-        WelcomingMess.setForeground(new java.awt.Color(0, 102, 102));
-        WelcomingMess.setText("welcome");
-
-        TotalBalance.setFont(new java.awt.Font("Segoe UI", 3, 12)); // NOI18N
-        TotalBalance.setForeground(new java.awt.Color(0, 102, 102));
-        TotalBalance.setText("Total Balance ");
-
-        javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
-        jPanel3.setLayout(jPanel3Layout);
-        jPanel3Layout.setHorizontalGroup(
-            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel3Layout.createSequentialGroup()
-                .addGap(0, 0, 0)
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(TotalBalance, javax.swing.GroupLayout.PREFERRED_SIZE, 213, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(WelcomingMess, javax.swing.GroupLayout.PREFERRED_SIZE, 204, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(101, Short.MAX_VALUE))
-        );
-        jPanel3Layout.setVerticalGroup(
-            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel3Layout.createSequentialGroup()
-                .addGap(14, 14, 14)
-                .addComponent(WelcomingMess)
-                .addGap(18, 18, 18)
-                .addComponent(TotalBalance)
-                .addGap(0, 3, Short.MAX_VALUE))
-        );
+        WelcomingMess.setFont(new java.awt.Font("Sitka Text", 0, 48)); // NOI18N
+        WelcomingMess.setText("Hello to DashBoard");
 
         javax.swing.GroupLayout jPanel_DashLayout = new javax.swing.GroupLayout(jPanel_Dash);
         jPanel_Dash.setLayout(jPanel_DashLayout);
         jPanel_DashLayout.setHorizontalGroup(
             jPanel_DashLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel_DashLayout.createSequentialGroup()
-                .addGroup(jPanel_DashLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel_DashLayout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 499, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel_DashLayout.createSequentialGroup()
-                        .addGap(14, 14, 14)
-                        .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 799, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(109, Short.MAX_VALUE))
+                .addComponent(WelcomingMess, javax.swing.GroupLayout.PREFERRED_SIZE, 499, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 435, Short.MAX_VALUE))
         );
         jPanel_DashLayout.setVerticalGroup(
             jPanel_DashLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel_DashLayout.createSequentialGroup()
-                .addGroup(jPanel_DashLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel_DashLayout.createSequentialGroup()
-                        .addComponent(jLabel1)
-                        .addGap(42, 42, 42))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel_DashLayout.createSequentialGroup()
-                        .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)))
-                .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 527, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(90, Short.MAX_VALUE))
+                .addContainerGap()
+                .addComponent(WelcomingMess)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         jPanel_Transaction.setBackground(new java.awt.Color(0, 153, 153));
         jPanel_Transaction.setPreferredSize(new java.awt.Dimension(934, 510));
 
-        WELCOMING.setFont(new java.awt.Font("Segoe UI Historic", 0, 48)); // NOI18N
-        WELCOMING.setText("Welcome to Transactions");
+        transactions.setFont(new java.awt.Font("Segoe UI Historic", 0, 48)); // NOI18N
+        transactions.setText("Welcome to Transactions");
 
         javax.swing.GroupLayout jPanel_TransactionLayout = new javax.swing.GroupLayout(jPanel_Transaction);
         jPanel_Transaction.setLayout(jPanel_TransactionLayout);
@@ -353,14 +289,14 @@ public class Dash extends javax.swing.JFrame {
             jPanel_TransactionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel_TransactionLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(WELCOMING, javax.swing.GroupLayout.PREFERRED_SIZE, 549, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(transactions, javax.swing.GroupLayout.PREFERRED_SIZE, 549, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(372, Short.MAX_VALUE))
         );
         jPanel_TransactionLayout.setVerticalGroup(
             jPanel_TransactionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel_TransactionLayout.createSequentialGroup()
-                .addComponent(WELCOMING, javax.swing.GroupLayout.PREFERRED_SIZE, 182, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 328, Short.MAX_VALUE))
+                .addComponent(transactions, javax.swing.GroupLayout.PREFERRED_SIZE, 182, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 538, Short.MAX_VALUE))
         );
 
         jPanel_Cards.setBackground(new java.awt.Color(0, 204, 51));
@@ -420,32 +356,17 @@ public class Dash extends javax.swing.JFrame {
         jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Logo/template2.png"))); // NOI18N
         jLabel4.setText(" ");
 
-        jLabel14.setFont(new java.awt.Font("Forte", 0, 24)); // NOI18N
-        jLabel14.setForeground(new java.awt.Color(242, 242, 242));
-        jLabel14.setText("X");
-        jLabel14.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jLabel14MouseClicked(evt);
-            }
-        });
-
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addComponent(jLabel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel14, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
+                .addGap(32, 32, 32))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jLabel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabel14, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         jLabel8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Logo/icons8-user-50.png"))); // NOI18N
@@ -616,7 +537,7 @@ public class Dash extends javax.swing.JFrame {
                 .addComponent(left, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, 0)
                 .addComponent(jPanel_Dash, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 1, Short.MAX_VALUE))
+                .addGap(0, 0, Short.MAX_VALUE))
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                     .addGap(0, 157, Short.MAX_VALUE)
@@ -750,11 +671,6 @@ public class Dash extends javax.swing.JFrame {
 
     }//GEN-LAST:event_kButton1ActionPerformed
 
-    private void jLabel14MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel14MouseClicked
-        // TODO add your handling code here:
-        System.exit(0);
-    }//GEN-LAST:event_jLabel14MouseClicked
-
     private void jLabel15MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel15MouseClicked
         // TODO add your handling code here:
         System.exit(0);
@@ -802,8 +718,6 @@ public class Dash extends javax.swing.JFrame {
     private javax.swing.JTextField Email1;
     private javax.swing.JTextField Email2;
     private javax.swing.JPasswordField Pass;
-    private javax.swing.JLabel TotalBalance;
-    private javax.swing.JLabel WELCOMING;
     public javax.swing.JLabel WelcomingMess;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
@@ -812,15 +726,12 @@ public class Dash extends javax.swing.JFrame {
     private javax.swing.JButton jButton5;
     private javax.swing.JButton jButton_Logout;
     private javax.swing.JButton jButton_Mode;
-    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel13;
-    private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel15;
     private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
@@ -828,7 +739,6 @@ public class Dash extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel_Cards;
     private javax.swing.JPanel jPanel_Dash;
     private javax.swing.JPanel jPanel_Settings;
@@ -837,5 +747,6 @@ public class Dash extends javax.swing.JFrame {
     private com.k33ptoo.components.KButton kButton1;
     private javax.swing.JPanel left;
     private javax.swing.JLabel logo;
+    public javax.swing.JLabel transactions;
     // End of variables declaration//GEN-END:variables
 }
