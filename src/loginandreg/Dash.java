@@ -3,39 +3,52 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
 package loginandreg;
-
 import java.awt.*;
 import javax.swing.*;
+import org.jfree.chart.ChartFactory;
+import org.jfree.chart.ChartPanel;
+import org.jfree.chart.JFreeChart;
+import org.jfree.chart.plot.PiePlot;
+import org. jfree.data.general. DefaultPieDataset;
+import java.awt.BorderLayout;
+import java.awt.Color;
+
+
 
 /**
  *
  * @author OmarKandeel
  */
 public class Dash extends javax.swing.JFrame {
-    // array of panels
-
-    JPanel[] panels = new JPanel[5];
-
+       // array of panels
+    JPanel[] panels= new JPanel[5];
+    
+    
+    
+    
     public Dash() {
         initComponents();
-        this.setLocationRelativeTo(null);
-        panels[0] = jPanel_Dash;
-        panels[1] = jPanel_Cards;
-        panels[2] = jPanel_Transaction;
-        panels[3] = jPanel_Transfer;
-        panels[4] = jPanel_Settings;
-
+         this.setLocationRelativeTo(null);
+           panels[0] = jPanel_Dash;
+           panels[1] = jPanel_Cards;
+           panels[2] = jPanel_Transaction;
+           panels[3] = jPanel_Transfer;
+           panels[4] = jPanel_Settings;
+          
     }
-
-    public void showPanel(JPanel panel) {
-        for (JPanel pnl : panels) {   //hide panles
+ 
+  public void showPanel (JPanel panel)
+    {  
+        for (JPanel pnl : panels)
+        {   //hide panles
             pnl.setVisible(false);
-
+            
         }
-        //show only this panel
-        panel.setVisible(true);
+            //show only this panel
+            panel.setVisible(true);
     }
-    private boolean isDarkMode = false;
+  private boolean isDarkMode = false;
+
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -55,40 +68,29 @@ public class Dash extends javax.swing.JFrame {
         jButton5 = new javax.swing.JButton();
         jButton_Logout = new javax.swing.JButton();
         jButton_Mode = new javax.swing.JButton();
-        jLabel14 = new javax.swing.JLabel();
+        jLabel18 = new javax.swing.JLabel();
         jPanel_Dash = new javax.swing.JPanel();
+        jLabel1 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
+        jPanel2 = new javax.swing.JPanel();
+        jPanel3 = new javax.swing.JPanel();
+        jLabel16 = new javax.swing.JLabel();
+        jTextField1 = new javax.swing.JTextField();
+        jLabel17 = new javax.swing.JLabel();
+        jTextField2 = new javax.swing.JTextField();
+        jLabel15 = new javax.swing.JLabel();
         WelcomingMess = new javax.swing.JLabel();
         jPanel_Transaction = new javax.swing.JPanel();
         WELCOMING = new javax.swing.JLabel();
         jPanel_Cards = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
         jPanel_Settings = new javax.swing.JPanel();
-        jPanel2 = new javax.swing.JPanel();
-        jLabel3 = new javax.swing.JLabel();
-        Settings_logo = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
-        jLabel15 = new javax.swing.JLabel();
-        Email = new javax.swing.JTextField();
-        jLabel16 = new javax.swing.JLabel();
-        Email3 = new javax.swing.JTextField();
-        jLabel17 = new javax.swing.JLabel();
-        Email4 = new javax.swing.JTextField();
-        kButton2 = new com.k33ptoo.components.KButton();
-        jLabel18 = new javax.swing.JLabel();
-        jLabel19 = new javax.swing.JLabel();
-        jLabel20 = new javax.swing.JLabel();
-        kButton3 = new com.k33ptoo.components.KButton();
-        Pass1 = new javax.swing.JPasswordField();
-        Pass2 = new javax.swing.JPasswordField();
-        jPanel_Mode = new javax.swing.JPanel();
-        jLabel21 = new javax.swing.JLabel();
-        LightMode = new javax.swing.JButton();
-        DarkMode = new javax.swing.JButton();
-        SupportButton = new javax.swing.JButton();
         jPanel_Transfer = new javax.swing.JPanel();
         logo = new javax.swing.JLabel();
         jPanel1 = new javax.swing.JPanel();
         jLabel4 = new javax.swing.JLabel();
+        jLabel14 = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
         jLabel9 = new javax.swing.JLabel();
         jLabel10 = new javax.swing.JLabel();
@@ -219,14 +221,12 @@ public class Dash extends javax.swing.JFrame {
             }
         });
 
-        jLabel14.setFont(new java.awt.Font("Forte", 0, 24)); // NOI18N
-        jLabel14.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel14.setText("EXit");
-        jLabel14.setToolTipText("Click here to close the app :(");
-        jLabel14.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jLabel14.addMouseListener(new java.awt.event.MouseAdapter() {
+        jLabel18.setFont(new java.awt.Font("Forte", 0, 24)); // NOI18N
+        jLabel18.setForeground(new java.awt.Color(242, 242, 242));
+        jLabel18.setText("exit");
+        jLabel18.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jLabel14MouseClicked(evt);
+                jLabel18MouseClicked(evt);
             }
         });
 
@@ -245,12 +245,13 @@ public class Dash extends javax.swing.JFrame {
                             .addComponent(jButton3)
                             .addComponent(jButton1)
                             .addComponent(jButton4)
-                            .addComponent(jButton_Logout)
+                            .addGroup(leftLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                .addComponent(jButton2)
+                                .addComponent(jButton5))
                             .addComponent(jButton_Mode)
                             .addGroup(leftLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                .addComponent(jLabel14, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(jButton2)
-                                .addComponent(jButton5, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))))
+                                .addComponent(jLabel18, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(jButton_Logout, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         leftLayout.setVerticalGroup(
@@ -270,32 +271,128 @@ public class Dash extends javax.swing.JFrame {
                 .addComponent(jButton_Mode, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(30, 30, 30)
                 .addComponent(jButton_Logout, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(30, 30, 30)
-                .addComponent(jLabel14, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 213, Short.MAX_VALUE)
+                .addGap(28, 28, 28)
+                .addComponent(jLabel18, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jButton5)
                 .addGap(27, 27, 27))
         );
 
+        jPanel_Dash.setBackground(new java.awt.Color(255, 255, 255));
         jPanel_Dash.setPreferredSize(new java.awt.Dimension(934, 510));
 
-        WelcomingMess.setFont(new java.awt.Font("Sitka Text", 0, 48)); // NOI18N
-        WelcomingMess.setText("Hello to DashBoard");
+        jLabel1.setFont(new java.awt.Font("Sitka Text", 0, 48)); // NOI18N
+        jLabel1.setText("overview ");
+
+        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/loginandreg/p3.png"))); // NOI18N
+        jLabel3.setText("jLabel3");
+
+        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
+        jPanel2.setLayout(jPanel2Layout);
+        jPanel2Layout.setHorizontalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 127, Short.MAX_VALUE)
+        );
+        jPanel2Layout.setVerticalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 688, Short.MAX_VALUE)
+        );
+
+        jLabel16.setFont(new java.awt.Font("Segoe UI", 3, 12)); // NOI18N
+        jLabel16.setForeground(new java.awt.Color(0, 102, 102));
+        jLabel16.setText("welcome");
+
+        jTextField1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextField1ActionPerformed(evt);
+            }
+        });
+
+        jLabel17.setFont(new java.awt.Font("Segoe UI", 3, 12)); // NOI18N
+        jLabel17.setForeground(new java.awt.Color(0, 102, 102));
+        jLabel17.setText("Total Balance ");
+
+        javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
+        jPanel3.setLayout(jPanel3Layout);
+        jPanel3Layout.setHorizontalGroup(
+            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel3Layout.createSequentialGroup()
+                .addGap(19, 19, 19)
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel3Layout.createSequentialGroup()
+                        .addComponent(jLabel17, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, 151, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel3Layout.createSequentialGroup()
+                        .addComponent(jLabel16, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(58, 58, 58))
+        );
+        jPanel3Layout.setVerticalGroup(
+            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel3Layout.createSequentialGroup()
+                .addGap(14, 14, 14)
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+                    .addComponent(jLabel16, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(18, 18, 18)
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel17)
+                    .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(188, Short.MAX_VALUE))
+        );
+
+        jLabel15.setFont(new java.awt.Font("Segoe UI", 3, 14)); // NOI18N
+        jLabel15.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel15.setText("New Customers ");
+
+        WelcomingMess.setFont(new java.awt.Font("Segoe UI Historic", 0, 48)); // NOI18N
+        WelcomingMess.setText("Welcome to Transactions");
 
         javax.swing.GroupLayout jPanel_DashLayout = new javax.swing.GroupLayout(jPanel_Dash);
         jPanel_Dash.setLayout(jPanel_DashLayout);
         jPanel_DashLayout.setHorizontalGroup(
             jPanel_DashLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel_DashLayout.createSequentialGroup()
-                .addComponent(WelcomingMess, javax.swing.GroupLayout.PREFERRED_SIZE, 499, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 435, Short.MAX_VALUE))
+                .addContainerGap()
+                .addGroup(jPanel_DashLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 799, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 499, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel_DashLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel15, javax.swing.GroupLayout.PREFERRED_SIZE, 169, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(193, 193, 193))
+            .addGroup(jPanel_DashLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jPanel_DashLayout.createSequentialGroup()
+                    .addGap(460, 460, 460)
+                    .addComponent(WelcomingMess, javax.swing.GroupLayout.PREFERRED_SIZE, 549, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addContainerGap(461, Short.MAX_VALUE)))
         );
         jPanel_DashLayout.setVerticalGroup(
             jPanel_DashLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel_DashLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(WelcomingMess)
+                .addGap(17, 17, 17)
+                .addComponent(jLabel1)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 527, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(jPanel_DashLayout.createSequentialGroup()
+                .addGroup(jPanel_DashLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel_DashLayout.createSequentialGroup()
+                        .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(jLabel15, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(0, 32, Short.MAX_VALUE))
+            .addGroup(jPanel_DashLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jPanel_DashLayout.createSequentialGroup()
+                    .addGap(269, 269, 269)
+                    .addComponent(WelcomingMess, javax.swing.GroupLayout.PREFERRED_SIZE, 182, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addContainerGap(269, Short.MAX_VALUE)))
         );
 
         jPanel_Transaction.setBackground(new java.awt.Color(0, 153, 153));
@@ -317,7 +414,7 @@ public class Dash extends javax.swing.JFrame {
             jPanel_TransactionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel_TransactionLayout.createSequentialGroup()
                 .addComponent(WELCOMING, javax.swing.GroupLayout.PREFERRED_SIZE, 182, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 538, Short.MAX_VALUE))
+                .addGap(0, 328, Short.MAX_VALUE))
         );
 
         jPanel_Cards.setBackground(new java.awt.Color(0, 204, 51));
@@ -342,269 +439,27 @@ public class Dash extends javax.swing.JFrame {
                 .addGap(0, 0, Short.MAX_VALUE))
         );
 
-        jPanel_Settings.setBackground(java.awt.Color.white);
+        jPanel_Settings.setBackground(new java.awt.Color(255, 204, 204));
         jPanel_Settings.setPreferredSize(new java.awt.Dimension(934, 510));
 
-        jPanel2.setBackground(new java.awt.Color(0, 102, 102));
-        jPanel2.setPreferredSize(new java.awt.Dimension(943, 125));
-
-        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Logo/Settings top.png"))); // NOI18N
-
-        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
-        jPanel2.setLayout(jPanel2Layout);
-        jPanel2Layout.setHorizontalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-        );
-        jPanel2Layout.setVerticalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-        );
-
-        Settings_logo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Logo/icons8-settings-75.png"))); // NOI18N
-        Settings_logo.setMaximumSize(new java.awt.Dimension(30, 30));
-
-        jLabel5.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-        jLabel5.setForeground(new java.awt.Color(0, 102, 102));
-        jLabel5.setText("Details");
-
-        jLabel15.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        jLabel15.setForeground(new java.awt.Color(0, 102, 102));
-        jLabel15.setText("First Name:");
-
-        Email.setBackground(new Color(0,0,0,0));
-        Email.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 2, 0, new java.awt.Color(0, 102, 102)));
-        Email.setDisabledTextColor(new java.awt.Color(204, 204, 0));
-        Email.setSelectedTextColor(new java.awt.Color(242, 242, 242));
-
-        jLabel16.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        jLabel16.setForeground(new java.awt.Color(0, 102, 102));
-        jLabel16.setText("Last Name:");
-
-        Email3.setBackground(new Color(0,0,0,0));
-        Email3.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 2, 0, new java.awt.Color(0, 102, 102)));
-        Email3.setDisabledTextColor(new java.awt.Color(204, 204, 0));
-        Email3.setSelectedTextColor(new java.awt.Color(242, 242, 242));
-
-        jLabel17.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        jLabel17.setForeground(new java.awt.Color(0, 102, 102));
-        jLabel17.setText("Email:");
-
-        Email4.setBackground(new Color(0,0,0,0));
-        Email4.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 2, 0, new java.awt.Color(0, 102, 102)));
-        Email4.setDisabledTextColor(new java.awt.Color(204, 204, 0));
-        Email4.setSelectedTextColor(new java.awt.Color(242, 242, 242));
-
-        kButton2.setForeground(new java.awt.Color(204, 102, 0));
-        kButton2.setText("Save");
-        kButton2.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-        kButton2.setkBackGroundColor(new java.awt.Color(255, 102, 102));
-        kButton2.setkBorderRadius(25);
-        kButton2.setkEndColor(new java.awt.Color(255, 255, 51));
-        kButton2.setkHoverEndColor(new java.awt.Color(0, 102, 102));
-        kButton2.setkStartColor(new java.awt.Color(0, 102, 102));
-        kButton2.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                kButton2MouseClicked(evt);
-            }
-        });
-        kButton2.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                kButton2ActionPerformed(evt);
-            }
-        });
-
-        jLabel18.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-        jLabel18.setForeground(new java.awt.Color(0, 102, 102));
-        jLabel18.setText("Change Password");
-
-        jLabel19.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        jLabel19.setForeground(new java.awt.Color(0, 102, 102));
-        jLabel19.setText("Current Password:");
-
-        jLabel20.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        jLabel20.setForeground(new java.awt.Color(0, 102, 102));
-        jLabel20.setText("New Password:");
-
-        kButton3.setForeground(new java.awt.Color(204, 102, 0));
-        kButton3.setText("Save");
-        kButton3.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-        kButton3.setkBackGroundColor(new java.awt.Color(255, 102, 102));
-        kButton3.setkBorderRadius(25);
-        kButton3.setkEndColor(new java.awt.Color(255, 255, 51));
-        kButton3.setkHoverEndColor(new java.awt.Color(0, 102, 102));
-        kButton3.setkStartColor(new java.awt.Color(0, 102, 102));
-        kButton3.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                kButton3MouseClicked(evt);
-            }
-        });
-        kButton3.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                kButton3ActionPerformed(evt);
-            }
-        });
-
-        Pass1.setBackground(new Color(0,0,0,0));
-        Pass1.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 2, 0, new java.awt.Color(0, 102, 102)));
-        Pass1.setSelectedTextColor(new java.awt.Color(242, 242, 242));
-
-        Pass2.setBackground(new Color(0,0,0,0));
-        Pass2.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 2, 0, new java.awt.Color(0, 102, 102)));
-        Pass2.setSelectedTextColor(new java.awt.Color(242, 242, 242));
-
-        jPanel_Mode.setBackground(new java.awt.Color(255, 255, 255));
-
-        jLabel21.setFont(new java.awt.Font("Segoe UI", 1, 20)); // NOI18N
-        jLabel21.setForeground(new java.awt.Color(0, 102, 102));
-        jLabel21.setText("Choose Mode");
-
-        LightMode.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Logo/LightMode.png"))); // NOI18N
-        LightMode.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        LightMode.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                LightModeActionPerformed(evt);
-            }
-        });
-
-        DarkMode.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Logo/DarkMode.png"))); // NOI18N
-        DarkMode.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        DarkMode.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                DarkModeActionPerformed(evt);
-            }
-        });
-
-        javax.swing.GroupLayout jPanel_ModeLayout = new javax.swing.GroupLayout(jPanel_Mode);
-        jPanel_Mode.setLayout(jPanel_ModeLayout);
-        jPanel_ModeLayout.setHorizontalGroup(
-            jPanel_ModeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel_ModeLayout.createSequentialGroup()
-                .addContainerGap(41, Short.MAX_VALUE)
-                .addGroup(jPanel_ModeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel_ModeLayout.createSequentialGroup()
-                        .addGroup(jPanel_ModeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(DarkMode, javax.swing.GroupLayout.PREFERRED_SIZE, 360, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(LightMode, javax.swing.GroupLayout.PREFERRED_SIZE, 360, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(21, 21, 21))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel_ModeLayout.createSequentialGroup()
-                        .addComponent(jLabel21)
-                        .addGap(134, 134, 134))))
-        );
-        jPanel_ModeLayout.setVerticalGroup(
-            jPanel_ModeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel_ModeLayout.createSequentialGroup()
-                .addComponent(jLabel21, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(30, 30, 30)
-                .addComponent(LightMode, javax.swing.GroupLayout.PREFERRED_SIZE, 161, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(57, 57, 57)
-                .addComponent(DarkMode, javax.swing.GroupLayout.PREFERRED_SIZE, 161, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
-        );
-
-        SupportButton.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-        SupportButton.setForeground(new java.awt.Color(0, 102, 102));
-        SupportButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Logo/icons8-support-75.png"))); // NOI18N
-        SupportButton.setText("Support");
-        SupportButton.setToolTipText("Click here to get Support contacts");
-        SupportButton.setBorder(null);
-        SupportButton.setContentAreaFilled(false);
-        SupportButton.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        SupportButton.setPreferredSize(new java.awt.Dimension(75, 75));
-        SupportButton.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                SupportButtonMouseClicked(evt);
-            }
-        });
+        jLabel5.setFont(new java.awt.Font("Sitka Text", 0, 48)); // NOI18N
+        jLabel5.setText("Hello to Settings");
 
         javax.swing.GroupLayout jPanel_SettingsLayout = new javax.swing.GroupLayout(jPanel_Settings);
         jPanel_Settings.setLayout(jPanel_SettingsLayout);
         jPanel_SettingsLayout.setHorizontalGroup(
             jPanel_SettingsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel_SettingsLayout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(Settings_logo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(443, 443, 443))
             .addGroup(jPanel_SettingsLayout.createSequentialGroup()
-                .addGap(21, 21, 21)
-                .addGroup(jPanel_SettingsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel_SettingsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                        .addGroup(jPanel_SettingsLayout.createSequentialGroup()
-                            .addComponent(jLabel19)
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                            .addComponent(Pass1, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGroup(jPanel_SettingsLayout.createSequentialGroup()
-                            .addComponent(jLabel20)
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(Pass2, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addComponent(jLabel18)
-                    .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(jPanel_SettingsLayout.createSequentialGroup()
-                        .addGap(15, 15, 15)
-                        .addGroup(jPanel_SettingsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addGroup(jPanel_SettingsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(kButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGroup(jPanel_SettingsLayout.createSequentialGroup()
-                                    .addComponent(jLabel17)
-                                    .addGap(40, 40, 40)
-                                    .addComponent(Email4, javax.swing.GroupLayout.PREFERRED_SIZE, 233, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGroup(jPanel_SettingsLayout.createSequentialGroup()
-                                    .addComponent(jLabel16)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                    .addComponent(Email3, javax.swing.GroupLayout.PREFERRED_SIZE, 233, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                            .addGroup(jPanel_SettingsLayout.createSequentialGroup()
-                                .addComponent(jLabel15)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(Email, javax.swing.GroupLayout.PREFERRED_SIZE, 231, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                    .addGroup(jPanel_SettingsLayout.createSequentialGroup()
-                        .addGap(18, 18, 18)
-                        .addComponent(kButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(SupportButton, javax.swing.GroupLayout.PREFERRED_SIZE, 147, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jPanel_Mode, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
+                .addGap(15, 15, 15)
+                .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 420, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(499, Short.MAX_VALUE))
         );
         jPanel_SettingsLayout.setVerticalGroup(
             jPanel_SettingsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel_SettingsLayout.createSequentialGroup()
-                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(Settings_logo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel_SettingsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jPanel_Mode, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addGroup(jPanel_SettingsLayout.createSequentialGroup()
-                        .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(20, 20, 20)
-                        .addGroup(jPanel_SettingsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel15)
-                            .addComponent(Email, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(jPanel_SettingsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel16)
-                            .addComponent(Email3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(18, 18, 18)
-                        .addGroup(jPanel_SettingsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel17)
-                            .addComponent(Email4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(kButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(65, 65, 65)
-                        .addComponent(jLabel18, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addGroup(jPanel_SettingsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(Pass1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel19))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addGroup(jPanel_SettingsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel20)
-                            .addComponent(Pass2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(kButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(SupportButton, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 50, Short.MAX_VALUE))))
+                .addGap(38, 38, 38)
+                .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 128, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         jPanel_Transfer.setBackground(java.awt.Color.white);
@@ -619,17 +474,32 @@ public class Dash extends javax.swing.JFrame {
         jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Logo/template2.png"))); // NOI18N
         jLabel4.setText(" ");
 
+        jLabel14.setFont(new java.awt.Font("Forte", 0, 24)); // NOI18N
+        jLabel14.setForeground(new java.awt.Color(242, 242, 242));
+        jLabel14.setText("X");
+        jLabel14.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel14MouseClicked(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addComponent(jLabel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGap(0, 0, 0))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jLabel14, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jLabel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel14, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         jLabel8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Logo/icons8-user-50.png"))); // NOI18N
@@ -639,9 +509,9 @@ public class Dash extends javax.swing.JFrame {
         jLabel9.setForeground(new java.awt.Color(0, 102, 102));
         jLabel9.setText("Transfer");
 
-        jLabel10.setFont(new java.awt.Font("Sitka Text", 1, 20)); // NOI18N
+        jLabel10.setFont(new java.awt.Font("Sitka Text", 1, 16)); // NOI18N
         jLabel10.setForeground(new java.awt.Color(0, 102, 102));
-        jLabel10.setText("Make sure your password is correct");
+        jLabel10.setText("You will need your Password to confirm Transfer");
 
         jLabel11.setFont(new java.awt.Font("Sitka Text", 1, 20)); // NOI18N
         jLabel11.setForeground(new java.awt.Color(0, 102, 102));
@@ -700,7 +570,6 @@ public class Dash extends javax.swing.JFrame {
 
         kButton1.setForeground(new java.awt.Color(204, 102, 0));
         kButton1.setText("Transfer");
-        kButton1.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
         kButton1.setkBackGroundColor(new java.awt.Color(255, 102, 102));
         kButton1.setkBorderRadius(25);
         kButton1.setkEndColor(new java.awt.Color(255, 255, 51));
@@ -721,47 +590,45 @@ public class Dash extends javax.swing.JFrame {
         jPanel_Transfer.setLayout(jPanel_TransferLayout);
         jPanel_TransferLayout.setHorizontalGroup(
             jPanel_TransferLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 950, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 983, Short.MAX_VALUE)
             .addGroup(jPanel_TransferLayout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel_TransferLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel_TransferLayout.createSequentialGroup()
+                        .addComponent(jLabel11)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(jPanel_TransferLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(Email1, javax.swing.GroupLayout.PREFERRED_SIZE, 274, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(jPanel_TransferLayout.createSequentialGroup()
-                                .addComponent(jLabel11)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED))
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel_TransferLayout.createSequentialGroup()
-                                .addGroup(jPanel_TransferLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel13, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 58, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel_TransferLayout.createSequentialGroup()
-                                        .addComponent(jLabel12)
-                                        .addGap(34, 34, 34)))
-                                .addGap(24, 24, 24)))
-                        .addGroup(jPanel_TransferLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel_TransferLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel_TransferLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(Pass, javax.swing.GroupLayout.PREFERRED_SIZE, 281, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(Email2, javax.swing.GroupLayout.PREFERRED_SIZE, 281, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addComponent(Email1, javax.swing.GroupLayout.PREFERRED_SIZE, 281, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(jPanel_TransferLayout.createSequentialGroup()
-                                .addComponent(logo, javax.swing.GroupLayout.PREFERRED_SIZE, 122, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jLabel10)))
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                .addComponent(logo, javax.swing.GroupLayout.PREFERRED_SIZE, 144, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(jLabel10, javax.swing.GroupLayout.PREFERRED_SIZE, 337, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(63, 63, 63))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel_TransferLayout.createSequentialGroup()
                         .addGap(0, 0, Short.MAX_VALUE)
                         .addGroup(jPanel_TransferLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel_TransferLayout.createSequentialGroup()
-                                .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(408, 408, 408))
+                                .addGroup(jPanel_TransferLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(jLabel12)
+                                    .addGroup(jPanel_TransferLayout.createSequentialGroup()
+                                        .addComponent(jLabel13, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(Email2, javax.swing.GroupLayout.PREFERRED_SIZE, 239, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addGroup(jPanel_TransferLayout.createSequentialGroup()
+                                        .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 58, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(Pass)))
+                                .addGap(288, 288, 288))
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel_TransferLayout.createSequentialGroup()
-                                .addComponent(jLabel9)
-                                .addGap(379, 379, 379))))))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel_TransferLayout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(kButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(369, 369, 369))
+                                .addGroup(jPanel_TransferLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel_TransferLayout.createSequentialGroup()
+                                        .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGap(28, 28, 28))
+                                    .addComponent(jLabel9, javax.swing.GroupLayout.Alignment.TRAILING))
+                                .addGap(433, 433, 433))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel_TransferLayout.createSequentialGroup()
+                                .addComponent(kButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(414, 414, 414))))))
         );
         jPanel_TransferLayout.setVerticalGroup(
             jPanel_TransferLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -774,25 +641,23 @@ public class Dash extends javax.swing.JFrame {
                             .addComponent(logo, javax.swing.GroupLayout.PREFERRED_SIZE, 84, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel10, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addComponent(jLabel11, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGap(30, 30, 30)
                 .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(34, 34, 34)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel_TransferLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel_TransferLayout.createSequentialGroup()
-                        .addComponent(Email1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(20, 20, 20)
-                        .addComponent(Email2, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(20, 20, 20)
-                        .addComponent(Pass, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel_TransferLayout.createSequentialGroup()
-                        .addComponent(jLabel12, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(20, 20, 20)
-                        .addComponent(jLabel13, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(20, 20, 20)
-                        .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(24, 24, 24)
+                    .addComponent(jLabel12, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(Email1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(20, 20, 20)
+                .addGroup(jPanel_TransferLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jLabel13, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(Email2, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(20, 20, 20)
+                .addGroup(jPanel_TransferLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(Pass, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
                 .addComponent(kButton1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
@@ -805,7 +670,7 @@ public class Dash extends javax.swing.JFrame {
                 .addComponent(left, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, 0)
                 .addComponent(jPanel_Dash, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
+                .addGap(0, 1, Short.MAX_VALUE))
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                     .addGap(0, 157, Short.MAX_VALUE)
@@ -875,42 +740,39 @@ public class Dash extends javax.swing.JFrame {
         this.dispose();
         Login loginFrame = new Login();
         loginFrame.setVisible(true);
-        Login.WelcomeUserName = " ";
+        Login.WelcomeUserName=" ";
 //        loginFrame.pack();
 //        loginFrame.setLocationRelativeTo(null);
     }//GEN-LAST:event_jButton_LogoutActionPerformed
 
     private void jButton_ModeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_ModeActionPerformed
         // TODO add your handling code here:
-        javax.swing.JPanel myPanel1 = this.jPanel_Dash;
-        javax.swing.JPanel myPanel2 = this.jPanel_Cards;
-        javax.swing.JPanel myPanel3 = this.jPanel_Settings;
-        javax.swing.JPanel myPanel4 = this.jPanel_Transaction;
-        javax.swing.JPanel myPanel5 = this.jPanel_Transfer;
-        javax.swing.JPanel myPanel6 = this.jPanel_Mode;
+         javax.swing.JPanel myPanel1 = this.jPanel_Dash; 
+         javax.swing.JPanel myPanel2 = this.jPanel_Cards; 
+         javax.swing.JPanel myPanel3 = this.jPanel_Settings; 
+         javax.swing.JPanel myPanel4 = this.jPanel_Transaction;
+         javax.swing.JPanel myPanel5 = this.jPanel_Transfer; 
 
-        if (isDarkMode) {
-            // Switch to light mode
-            myPanel1.setBackground(java.awt.Color.WHITE); // Light mode color
-            myPanel2.setBackground(java.awt.Color.WHITE); // Light mode color
-            myPanel3.setBackground(java.awt.Color.WHITE); // Light mode color
-            myPanel4.setBackground(java.awt.Color.WHITE); // Light mode color
-            myPanel5.setBackground(java.awt.Color.WHITE); // Light mode color
-            myPanel6.setBackground(java.awt.Color.WHITE); // Light mode color
-            isDarkMode = false; // Update the mode
-        } else {
-            // Switch to dark mode
-            myPanel1.setBackground(java.awt.Color.DARK_GRAY); // Dark mode color
-            myPanel2.setBackground(java.awt.Color.DARK_GRAY); // Dark mode color
-            myPanel3.setBackground(java.awt.Color.DARK_GRAY); // Dark mode color
-            myPanel4.setBackground(java.awt.Color.DARK_GRAY); // Dark mode color
-            myPanel5.setBackground(java.awt.Color.DARK_GRAY); // Dark mode color
-            myPanel6.setBackground(java.awt.Color.DARK_GRAY); // Dark mode color
-            isDarkMode = true; // Update the mode
-        }
+    if (isDarkMode) {
+        // Switch to light mode
+        myPanel1.setBackground(java.awt.Color.WHITE); // Light mode color
+        myPanel2.setBackground(java.awt.Color.WHITE); // Light mode color
+        myPanel3.setBackground(java.awt.Color.WHITE); // Light mode color
+        myPanel4.setBackground(java.awt.Color.WHITE); // Light mode color
+        myPanel5.setBackground(java.awt.Color.WHITE); // Light mode color
+        isDarkMode = false; // Update the mode
+    } else {
+        // Switch to dark mode
+        myPanel1.setBackground(java.awt.Color.DARK_GRAY); // Dark mode color
+        myPanel2.setBackground(java.awt.Color.DARK_GRAY); // Dark mode color
+        myPanel3.setBackground(java.awt.Color.DARK_GRAY); // Dark mode color
+        myPanel4.setBackground(java.awt.Color.DARK_GRAY); // Dark mode color
+        myPanel5.setBackground(java.awt.Color.DARK_GRAY); // Dark mode color
+        isDarkMode = true; // Update the mode
+    }
 
-        // You may also change button text to indicate the current mode
-        //toggleButton.setText(isDarkMode ? "Switch to Light Mode" : "Switch to Dark Mode");
+    // You may also change button text to indicate the current mode
+    //toggleButton.setText(isDarkMode ? "Switch to Light Mode" : "Switch to Dark Mode");
     }//GEN-LAST:event_jButton_ModeActionPerformed
 
     private void Email1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Email1ActionPerformed
@@ -942,64 +804,19 @@ public class Dash extends javax.swing.JFrame {
 
     }//GEN-LAST:event_kButton1ActionPerformed
 
+    private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextField1ActionPerformed
+
+    private void jLabel18MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel18MouseClicked
+        // TODO add your handling code here:
+        System.exit(0);
+    }//GEN-LAST:event_jLabel18MouseClicked
+
     private void jLabel14MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel14MouseClicked
         // TODO add your handling code here:
         System.exit(0);
     }//GEN-LAST:event_jLabel14MouseClicked
-
-    private void kButton2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_kButton2MouseClicked
-        // TODO add your handling code here:
-    }//GEN-LAST:event_kButton2MouseClicked
-
-    private void kButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_kButton2ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_kButton2ActionPerformed
-
-    private void kButton3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_kButton3MouseClicked
-        // TODO add your handling code here:
-    }//GEN-LAST:event_kButton3MouseClicked
-
-    private void kButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_kButton3ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_kButton3ActionPerformed
-
-    private void DarkModeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_DarkModeActionPerformed
-        // TODO add your handling code here:
-        javax.swing.JPanel myPanel1 = this.jPanel_Dash;
-        javax.swing.JPanel myPanel2 = this.jPanel_Cards;
-        javax.swing.JPanel myPanel3 = this.jPanel_Settings;
-        javax.swing.JPanel myPanel4 = this.jPanel_Transaction;
-        javax.swing.JPanel myPanel5 = this.jPanel_Transfer;
-        javax.swing.JPanel myPanel6 = this.jPanel_Mode;
-        myPanel1.setBackground(java.awt.Color.DARK_GRAY); // Dark mode color
-        myPanel2.setBackground(java.awt.Color.DARK_GRAY); // Dark mode color
-        myPanel3.setBackground(java.awt.Color.DARK_GRAY); // Dark mode color
-        myPanel4.setBackground(java.awt.Color.DARK_GRAY); // Dark mode color
-        myPanel5.setBackground(java.awt.Color.DARK_GRAY); // Dark mode color
-        myPanel6.setBackground(java.awt.Color.DARK_GRAY); // Dark mode color
-        isDarkMode = true; // Update the mode
-    }//GEN-LAST:event_DarkModeActionPerformed
-
-    private void LightModeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_LightModeActionPerformed
-        // TODO add your handling code here:
-        javax.swing.JPanel myPanel1 = this.jPanel_Dash;
-        javax.swing.JPanel myPanel2 = this.jPanel_Cards;
-        javax.swing.JPanel myPanel3 = this.jPanel_Settings;
-        javax.swing.JPanel myPanel4 = this.jPanel_Transaction;
-        javax.swing.JPanel myPanel5 = this.jPanel_Transfer;
-        javax.swing.JPanel myPanel6 = this.jPanel_Mode;
-        myPanel1.setBackground(java.awt.Color.WHITE); // Light mode color
-        myPanel2.setBackground(java.awt.Color.WHITE); // Light mode color
-        myPanel3.setBackground(java.awt.Color.WHITE); // Light mode color
-        myPanel4.setBackground(java.awt.Color.WHITE); // Light mode color
-        myPanel5.setBackground(java.awt.Color.WHITE); // Light mode color
-        myPanel6.setBackground(java.awt.Color.WHITE); // Light mode color
-        isDarkMode = false; // Update the mode
-    }//GEN-LAST:event_LightModeActionPerformed
-
-    private void SupportButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_SupportButtonMouseClicked
-        // TODO add your handling code here:
-    }//GEN-LAST:event_SupportButtonMouseClicked
 
     /**
      * @param args the command line arguments
@@ -1027,7 +844,7 @@ public class Dash extends javax.swing.JFrame {
             java.util.logging.Logger.getLogger(Dash.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
-        Dash DashFrame = new Dash();
+        Dash DashFrame = new Dash(); 
         DashFrame.pack();
         DashFrame.setLocationRelativeTo(null);
 
@@ -1040,18 +857,9 @@ public class Dash extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton DarkMode;
-    private javax.swing.JTextField Email;
     private javax.swing.JTextField Email1;
     private javax.swing.JTextField Email2;
-    private javax.swing.JTextField Email3;
-    private javax.swing.JTextField Email4;
-    private javax.swing.JButton LightMode;
     private javax.swing.JPasswordField Pass;
-    private javax.swing.JPasswordField Pass1;
-    private javax.swing.JPasswordField Pass2;
-    private javax.swing.JLabel Settings_logo;
-    private javax.swing.JButton SupportButton;
     public javax.swing.JLabel WELCOMING;
     public javax.swing.JLabel WelcomingMess;
     private javax.swing.JButton jButton1;
@@ -1061,6 +869,7 @@ public class Dash extends javax.swing.JFrame {
     private javax.swing.JButton jButton5;
     private javax.swing.JButton jButton_Logout;
     private javax.swing.JButton jButton_Mode;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
@@ -1070,10 +879,7 @@ public class Dash extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel16;
     private javax.swing.JLabel jLabel17;
     private javax.swing.JLabel jLabel18;
-    private javax.swing.JLabel jLabel19;
     private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel20;
-    private javax.swing.JLabel jLabel21;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
@@ -1083,15 +889,15 @@ public class Dash extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
+    private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel_Cards;
     private javax.swing.JPanel jPanel_Dash;
-    private javax.swing.JPanel jPanel_Mode;
     private javax.swing.JPanel jPanel_Settings;
     private javax.swing.JPanel jPanel_Transaction;
     private javax.swing.JPanel jPanel_Transfer;
+    private javax.swing.JTextField jTextField1;
+    private javax.swing.JTextField jTextField2;
     private com.k33ptoo.components.KButton kButton1;
-    private com.k33ptoo.components.KButton kButton2;
-    private com.k33ptoo.components.KButton kButton3;
     private javax.swing.JPanel left;
     private javax.swing.JLabel logo;
     // End of variables declaration//GEN-END:variables
