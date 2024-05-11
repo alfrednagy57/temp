@@ -6,7 +6,7 @@ package loginandreg;
 
 import java.awt.Graphics;
 import java.awt.Insets;
-//import com.mysql.cj.protocol.Resultset;
+import com.mysql.cj.protocol.Resultset;
 import java.awt.Color;
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -301,6 +301,11 @@ public class SignUp extends javax.swing.JFrame {
 
         Password.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 2, 0, new java.awt.Color(0, 102, 102)));
         Password.setSelectedTextColor(new java.awt.Color(242, 242, 242));
+        Password.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                PasswordKeyPressed(evt);
+            }
+        });
 
         togbtn1.setText("Show");
         togbtn1.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -1169,6 +1174,10 @@ public class SignUp extends javax.swing.JFrame {
             setForeground(Color.GRAY);
         }
     }//GEN-LAST:event_verifoFocusLost
+
+    private void PasswordKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_PasswordKeyPressed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_PasswordKeyPressed
 
     /**
      * @param args the command line arguments

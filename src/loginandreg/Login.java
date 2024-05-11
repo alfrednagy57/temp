@@ -293,7 +293,7 @@ public class Login extends javax.swing.JFrame {
             Class.forName("com.mysql.cj.jdbc.Driver");
             Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/BankDatabase?serverTimezone=UTC", "root", "123456");
             Statement stmt = con.createStatement();  
-            String sqlCommand = "SELECT email, national_id,fname, acc_pass FROM customers JOIN account ON customers.national_id = account.national_no WHERE email = ?";
+            String sqlCommand = "SELECT email, national_id,fname, acc_pass,balance as Bal,card_number FROM customers JOIN account ON customers.national_id = account.national_no WHERE email = ?";
             PreparedStatement pstmt = con.prepareStatement(sqlCommand);   
             pstmt.setString(1, email);
             ResultSet rs = pstmt.executeQuery();
@@ -308,7 +308,13 @@ public class Login extends javax.swing.JFrame {
                     this.dispose();
                     Dash DashFrame= new Dash();
                     DashFrame.setVisible(true);
-                    DashFrame.WELCOMING.setText(WelcomeUserName);
+                    DashFrame.WelcomingMess.setText("Welcome "+WelcomeUserName+"!");
+                   // DashFrame.WelcomeMess.
+                    DashFrame.Acc_fname=WelcomeUserName;
+                    DashFrame.Acc_cardno=rs.getString("card_number");
+                    DashFrame.National_no=rs.getString("national_id");
+                    DashFrame.ball=rs.getNString("Bal");
+                    DashFrame.acc_pass=rs.getString("acc_pass");
                     
                     break;
                 } else {
