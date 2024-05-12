@@ -132,10 +132,10 @@ public class Dash extends javax.swing.JFrame {
         DelCard = new com.k33ptoo.components.KButton();
         AddCard = new com.k33ptoo.components.KButton();
         SetCard = new com.k33ptoo.components.KButton();
-        Card = new javax.swing.JLabel();
         LockCard = new com.k33ptoo.components.KButton();
         jScrollPane2 = new javax.swing.JScrollPane();
         CardsTable = new javax.swing.JTable();
+        jLabel2 = new javax.swing.JLabel();
         jPanel_Transfer = new javax.swing.JPanel();
         logo = new javax.swing.JLabel();
         jPanel1 = new javax.swing.JPanel();
@@ -460,7 +460,7 @@ public class Dash extends javax.swing.JFrame {
                     .addComponent(print, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(DeleteTableRow, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(ClearTable, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(25, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         jPanel_Cards.setBackground(new java.awt.Color(255, 255, 255));
@@ -510,11 +510,12 @@ public class Dash extends javax.swing.JFrame {
             }
         });
 
-        Card.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        Card.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Logo/card1.png")));
-        Card.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Logo/card1.png"))); // NOI18N
-
         LockCard.setText("Lock");
+        LockCard.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                LockCardMouseClicked(evt);
+            }
+        });
 
         CardsTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -551,6 +552,8 @@ public class Dash extends javax.swing.JFrame {
             CardsTable.getColumnModel().getColumn(4).setResizable(false);
         }
 
+        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Logo/card1.png"))); // NOI18N
+
         javax.swing.GroupLayout jPanel_CardsLayout = new javax.swing.GroupLayout(jPanel_Cards);
         jPanel_Cards.setLayout(jPanel_CardsLayout);
         jPanel_CardsLayout.setHorizontalGroup(
@@ -558,37 +561,37 @@ public class Dash extends javax.swing.JFrame {
             .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(jPanel_CardsLayout.createSequentialGroup()
                 .addGap(52, 52, 52)
-                .addGroup(jPanel_CardsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                .addGroup(jPanel_CardsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel_CardsLayout.createSequentialGroup()
-                        .addComponent(Card, javax.swing.GroupLayout.PREFERRED_SIZE, 448, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(190, 190, 190))
-                    .addGroup(jPanel_CardsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 794, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGroup(jPanel_CardsLayout.createSequentialGroup()
-                            .addComponent(AddCard, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGap(28, 28, 28)
-                            .addComponent(DelCard, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGap(18, 18, 18)
-                            .addComponent(SetCard, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGap(18, 18, 18)
-                            .addComponent(LockCard, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addContainerGap(71, Short.MAX_VALUE))
+                        .addComponent(AddCard, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(28, 28, 28)
+                        .addComponent(DelCard, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(SetCard, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(LockCard, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 794, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(78, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel_CardsLayout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jLabel2)
+                .addGap(237, 237, 237))
         );
         jPanel_CardsLayout.setVerticalGroup(
             jPanel_CardsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel_CardsLayout.createSequentialGroup()
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(Card, javax.swing.GroupLayout.PREFERRED_SIZE, 214, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(47, 47, 47)
+                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 205, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 41, Short.MAX_VALUE)
                 .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 212, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(45, 45, 45)
+                .addGap(33, 33, 33)
                 .addGroup(jPanel_CardsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(DelCard, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(SetCard, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(AddCard, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(LockCard, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(9, Short.MAX_VALUE))
         );
 
         jPanel_Transfer.setBackground(java.awt.Color.white);
@@ -1546,7 +1549,7 @@ public class Dash extends javax.swing.JFrame {
     private void DelCardMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_DelCardMouseClicked
         // TODO add your handling code here:
         
-        Message DelCards = new Message(this);
+        Mess DelCards = new Mess(this);
         DelCards.showMessage("Delete this card ?", "All data will lose if you press ok button\nYou can restore any time within 30 days start from now.");
 
         
@@ -1555,11 +1558,11 @@ public class Dash extends javax.swing.JFrame {
         // Check if the user confirmed the dialog
         if (DelCards.confirmed==true) {
             
-            int rowIndex = TransTable.getSelectedRow();
-            int col=TransTable.getColumnCount()-3;
+            int rowIndex = CardsTable.getSelectedRow();
+            int col=CardsTable.getColumnCount()-3;
             if (rowIndex != -1) { // Check if a row is selected
 
-                DefaultTableModel model = (DefaultTableModel) TransTable.getModel();
+                DefaultTableModel model = (DefaultTableModel) CardsTable.getModel();
 
                 // Create an array of strings to store the data of the selected row
                 String cardo=new String();
@@ -1581,9 +1584,21 @@ public class Dash extends javax.swing.JFrame {
                     int rowsAffected = pstmt.executeUpdate();
 
                     if (rowsAffected > 0) {
-                        JOptionPane.showMessageDialog(this,"Row deleted successfully.");
+                        Mess mass=new Mess(this);
+                        mass.showMessage("card", cardo+" is deleted successfully");
+                        if(mass.confirmed==true)
+                        {
+                         mass.setVisible(false);
+                         mass.dispose();
+                        }
                     } else {
-                        JOptionPane.showMessageDialog(this,"No row deleted. Check your parameters.");
+                        Mess mass=new Mess(this);
+                        mass.showMessage("card","No row deleted. Check your parameters.");
+                        if(mass.confirmed==true)
+                        {
+                         mass.setVisible(false);
+                         mass.dispose();
+                        }
                     }
 
                     pstmt.close();
@@ -1594,24 +1609,34 @@ public class Dash extends javax.swing.JFrame {
                 UpdateCardsTable();
             }
         }
+        else {
+            Mess masss=new Mess(this);
+            masss.showMessage("card","no card selected\nplease select a card");
+            masss.setVisible(true);
+            if(masss.confirmed==true)
+            {
+                masss.setVisible(false);
+                masss.dispose();
+            }
+        }
         DelCards.dispose();
     }//GEN-LAST:event_DelCardMouseClicked
 
     private void SetCardMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_SetCardMouseClicked
         // TODO add your handling code here:
-          int rowIndex = TransTable.getSelectedRow();
-            int col=TransTable.getColumnCount()-3;
+          int rowIndex = CardsTable.getSelectedRow();
+            int col=CardsTable.getColumnCount()-3;
             if (rowIndex != -1) { // Check if a row is selected
                 
                 String atmo=new String();
-                DefaultTableModel model = (DefaultTableModel) TransTable.getModel();
+                DefaultTableModel model = (DefaultTableModel) CardsTable.getModel();
 
                 // Create an array of strings to store the data of the selected row
                 String cardo;
                 Object value = model.getValueAt(rowIndex, 1);
                 cardo = (value == null) ? "" : value.toString();
                 
-                 try{
+                try{
                 Class.forName("com.mysql.cj.jdbc.Driver");
                 Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/BankDatabase?serverTimezone=UTC", "root", "123456");
                 Statement stmt = con.createStatement();
@@ -1621,10 +1646,10 @@ public class Dash extends javax.swing.JFrame {
                 
                 ResultSet rs= pstmt.executeQuery();
 
-                while (rs.next()) {
+                if(rs.next()) {
                     atmo=rs.getString("atm_pin");
                 }
-
+                System.out.println(atmo+"\n");
                 // Close the ResultSet
                 rs.close();
                 pstmt.close();
@@ -1645,25 +1670,28 @@ public class Dash extends javax.swing.JFrame {
                 ResetPin reset = new ResetPin(this);
                 reset.showMessage("Reset pin", "Enter the old password");
 
-                reset .setVisible(true);
+                reset.setVisible(true);
                 
                 
                 if (reset.confirmed==true) {
                     char[] passChars = reset.Password.getPassword();
                     String newpin = new String(passChars);
-                    int Cou=0;
-                    if(atmo.equals(newpin)){
+                        
+                    char[] passChars2 = reset.Old.getPassword();
+                    String oldy = new String(passChars2);
+                    
+                    if(atmo.equals(oldy)){
                         try{
 
                        Class.forName("com.mysql.cj.jdbc.Driver");
                         Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/BankDatabase?serverTimezone=UTC", "root", "123456");
 
-                        String sqlCommand = "UPDATE cards SET atm_pin=? where card_no= ?";
+                        String sqlCommand = "UPDATE cards SET atm_pin=? where card_no=?";
                         PreparedStatement pstmt = con.prepareStatement(sqlCommand);
-                        
-                        pstmt.setString(1,atmo);
+
+                        pstmt.setString(1,newpin);
                         pstmt.setString(2, cardo);
-                        
+
                         int ms= pstmt.executeUpdate();
                         }
                         catch(ClassNotFoundException | SQLException e)
@@ -1677,12 +1705,19 @@ public class Dash extends javax.swing.JFrame {
                                 mass.dispose();
                             }
                         }
+                        Mess mass=new Mess(this);
+                        mass.showMessage("Pin","Pin changed successfully to "+newpin);
+                        mass.setVisible(true);
+                        if(mass.confirmed==true)
+                        {
+                            mass.setVisible(false);
+                            mass.dispose();
+                        }
                     }
                     else
                     {
-                        Cou++;
                         Mess mass=new Mess(this);
-                        mass.showMessage("old pin","please enter your correct old pin\nyou have "+(3-Cou)+" tries");
+                        mass.showMessage("Old Pin","please enter your correct old pin");
                         mass.setVisible(true);
                         if(mass.confirmed==true)
                         {
@@ -1691,7 +1726,6 @@ public class Dash extends javax.swing.JFrame {
                         }
                     }
                 }
-               
 
                 reset.dispose();
             }
@@ -1699,13 +1733,6 @@ public class Dash extends javax.swing.JFrame {
             {
                 Mess mass=new Mess(this);
                 mass.showMessage("No selected card","please select a card to reset it is pin");
-                 int frameX = super.getX();
-                int frameY = super.getY();
-                int dialogWidth = mass.getWidth();
-                int dialogHeight = mass.getHeight();
-                int dialogX = (int)(frameX - dialogWidth-frameX*0.6); // Adjust the X position to the left
-                int dialogY = frameY;
-                mass.setLocation(dialogX, dialogY);
                 mass.setVisible(true);
                 if(mass.confirmed==true)
                 {
@@ -1714,6 +1741,127 @@ public class Dash extends javax.swing.JFrame {
                 }
             }
     }//GEN-LAST:event_SetCardMouseClicked
+
+    private void LockCardMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_LockCardMouseClicked
+        // TODO add your handling code here:
+        Mess2 mass=new Mess2(this);
+        mass.showMessage("Lock card","are you sure to lock this card");
+        mass.setVisible(true);
+        if(mass.confirmed==true)
+        {
+            int rowIndex = CardsTable.getSelectedRow();
+            int col=CardsTable.getColumnCount()-3;
+            if (rowIndex != -1) { // Check if a row is selected
+
+                DefaultTableModel model = (DefaultTableModel) CardsTable.getModel();
+
+                // Create an array of strings to store the data of the selected row
+                String cardo=new String();
+
+                Object value = model.getValueAt(rowIndex, 1);
+                cardo = (value == null) ? "" : value.toString();
+                
+               try {
+                    Class.forName("com.mysql.cj.jdbc.Driver");
+                    Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/BankDatabase?serverTimezone=UTC", "root", "123456");
+                    String sqlCommand = "select Locked from cards where Locked=?";
+                    PreparedStatement pstmt = con.prepareStatement(sqlCommand);
+                    pstmt.setString(1, "1");
+
+                    ResultSet rs = pstmt.executeQuery();
+
+                    if (rs.next()) {
+                        try {
+                            Class.forName("com.mysql.cj.jdbc.Driver");
+                            Connection con2 = DriverManager.getConnection("jdbc:mysql://localhost:3306/BankDatabase?serverTimezone=UTC", "root", "123456");
+
+                            String sqlCommand2 = "UPDATE cards SET Locked=? where Locked=?";
+                            PreparedStatement pstmt2 = con2.prepareStatement(sqlCommand2);
+
+                            pstmt2.setString(1, "0"); // Set to value you want to update to
+                            pstmt2.setString(2, "1"); // Set to value you want to match
+
+                            int rowsUpdated = pstmt2.executeUpdate();
+                            System.out.println(rowsUpdated + " rows updated");
+                            pstmt2.close();
+                            con2.close();
+                             Mess mass2=new Mess(this);
+                            mass2.showMessage("lock card ","card "+cardo+" is locked now");
+                            mass2.setVisible(true);
+                            if(mass2.confirmed==true)
+                            {
+                              mass2.setVisible(false);
+                              mass2.dispose();
+                            }
+                        } catch (ClassNotFoundException | SQLException ex) {
+                            // Handle exception
+                            Mess masss=new Mess(this);
+                            masss.showMessage("problem in database",ex.getMessage());
+                            masss.setVisible(true);
+                            if(mass.confirmed==true)
+                            {
+                                masss.setVisible(false);
+                                masss.dispose();
+                            }
+                        }
+                    }
+
+                    // Close ResultSet, PreparedStatement, and Connection
+                    rs.close();
+                    pstmt.close();
+                    con.close();
+                } catch (ClassNotFoundException | SQLException e) {
+                    // Handle exception
+                     Mess mass2=new Mess(this);
+                    mass2.showMessage("error in retrieving atm pin ",e.getMessage());
+                    mass2.setVisible(true);
+                    if(mass2.confirmed==true)
+                    {
+                      mass2.setVisible(false);
+                      mass2.dispose();
+                    }
+                }
+
+                
+                try{
+
+                    Class.forName("com.mysql.cj.jdbc.Driver");
+                     Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/BankDatabase?serverTimezone=UTC", "root", "123456");
+
+                     String sqlCommand = "UPDATE cards SET Locked=? where card_no= ?";
+                     PreparedStatement pstmt = con.prepareStatement(sqlCommand);
+
+                     pstmt.setString(1, "1");
+                     pstmt.setString(2, cardo);
+
+                     int ms= pstmt.executeUpdate();
+                    }
+                 catch(ClassNotFoundException | SQLException e)
+                 {
+                     Mess masss=new Mess(this);
+                     masss.showMessage("problem in database",e.getMessage());
+                     masss.setVisible(true);
+                     if(mass.confirmed==true)
+                     {
+                         masss.setVisible(false);
+                         masss.dispose();
+                     }
+                 }
+            }
+            else
+            {
+                 Mess masss=new Mess(this);
+                masss.showMessage("no card selected","please select a card");
+                masss.setVisible(true);
+                if(masss.confirmed==true)
+                {
+                    masss.setVisible(false);
+                    masss.dispose();
+                }
+            }
+        }
+        mass.dispose();
+    }//GEN-LAST:event_LockCardMouseClicked
 
     /**
      *
@@ -1758,7 +1906,6 @@ public class Dash extends javax.swing.JFrame {
     private javax.swing.JPasswordField AccPass;
     private com.k33ptoo.components.KButton AddCard;
     private javax.swing.JTextField AmountTO;
-    private javax.swing.JLabel Card;
     private javax.swing.JTable CardsTable;
     private com.k33ptoo.components.KButton ClearTable;
     private javax.swing.JButton DarkMode;
@@ -1794,6 +1941,7 @@ public class Dash extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel17;
     private javax.swing.JLabel jLabel18;
     private javax.swing.JLabel jLabel19;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel20;
     private javax.swing.JLabel jLabel21;
     private javax.swing.JLabel jLabel22;

@@ -73,6 +73,7 @@ public class Mess extends javax.swing.JDialog {
         frame.setGlassPane(glass);
         glass.setVisible(true);
         lbTitle.setText(title);
+        txt.setText(message);
         setLocationRelativeTo(frame);
         show = true;
         animator.start();
@@ -96,6 +97,7 @@ public class Mess extends javax.swing.JDialog {
         cmdOK = new javaswingdev.swing.ButtonCustom();
         lbTitle = new javax.swing.JLabel();
         lbIcon = new javax.swing.JLabel();
+        txt = new javax.swing.JTextPane();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setUndecorated(true);
@@ -118,6 +120,12 @@ public class Mess extends javax.swing.JDialog {
         lbIcon.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lbIcon.setIcon(new javax.swing.ImageIcon(getClass().getResource("/javaswingdev/message/icon.png"))); // NOI18N
 
+        txt.setEditable(false);
+        txt.setFont(new java.awt.Font("sansserif", 0, 14)); // NOI18N
+        txt.setForeground(new java.awt.Color(76, 76, 76));
+        txt.setText("Message Text\nSimple");
+        txt.setFocusable(false);
+
         javax.swing.GroupLayout background1Layout = new javax.swing.GroupLayout(background1);
         background1.setLayout(background1Layout);
         background1Layout.setHorizontalGroup(
@@ -126,12 +134,17 @@ public class Mess extends javax.swing.JDialog {
             .addGroup(background1Layout.createSequentialGroup()
                 .addGroup(background1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(background1Layout.createSequentialGroup()
-                        .addGap(155, 155, 155)
-                        .addComponent(lbIcon))
-                    .addGroup(background1Layout.createSequentialGroup()
                         .addGap(86, 86, 86)
-                        .addComponent(cmdOK, javax.swing.GroupLayout.PREFERRED_SIZE, 198, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(89, Short.MAX_VALUE))
+                        .addComponent(cmdOK, javax.swing.GroupLayout.PREFERRED_SIZE, 198, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 83, Short.MAX_VALUE))
+                    .addGroup(background1Layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(txt)))
+                .addContainerGap())
+            .addGroup(background1Layout.createSequentialGroup()
+                .addGap(161, 161, 161)
+                .addComponent(lbIcon)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         background1Layout.setVerticalGroup(
             background1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -139,7 +152,9 @@ public class Mess extends javax.swing.JDialog {
                 .addComponent(lbIcon, javax.swing.GroupLayout.PREFERRED_SIZE, 74, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(lbTitle, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 46, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 17, Short.MAX_VALUE)
+                .addComponent(txt, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
                 .addComponent(cmdOK, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
@@ -175,5 +190,6 @@ public class Mess extends javax.swing.JDialog {
     private javaswingdev.swing.ButtonCustom cmdOK;
     private javax.swing.JLabel lbIcon;
     private javax.swing.JLabel lbTitle;
+    private javax.swing.JTextPane txt;
     // End of variables declaration//GEN-END:variables
 }

@@ -11,6 +11,7 @@ import javax.swing.text.SimpleAttributeSet;
 import javax.swing.text.StyleConstants;
 import javax.swing.text.StyledDocument;
 import Classes.Glass;
+import javax.swing.JOptionPane;
 import org.jdesktop.animation.timing.Animator;
 import org.jdesktop.animation.timing.TimingTargetAdapter;
 
@@ -263,10 +264,22 @@ public class ResetPin extends javax.swing.JDialog {
     }//GEN-LAST:event_cmdCancelActionPerformed
 
     private void cmdOKActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmdOKActionPerformed
-        messageType = MessageType.OK;
-        closeMessage();
-        this.confirmed=true;
-        this.setVisible(false);
+        char[] passChars = Password.getPassword();
+        String newpin = new String(passChars);
+        
+        char[] passChars2 = Password2.getPassword();
+        String newpin2 = new String(passChars2);
+        if(newpin2.equals(newpin))
+        {
+            messageType = MessageType.OK;
+            closeMessage();
+            this.confirmed=true;
+            this.setVisible(false);
+        }
+        else
+        {
+             JOptionPane.showMessageDialog(this,"password are not matched");
+        }
         //this.dispose();
     }//GEN-LAST:event_cmdOKActionPerformed
 
