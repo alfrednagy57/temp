@@ -426,7 +426,7 @@ public class Dash extends javax.swing.JFrame {
                     .addComponent(print, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(DeleteTableRow, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(ClearTable, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(68, Short.MAX_VALUE))
+                .addContainerGap(142, Short.MAX_VALUE))
         );
 
         jPanel_Cards.setBackground(new java.awt.Color(255, 255, 255));
@@ -532,7 +532,7 @@ public class Dash extends javax.swing.JFrame {
                             .addComponent(SetCard, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGap(18, 18, 18)
                             .addComponent(LockCard, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addContainerGap(78, Short.MAX_VALUE))
+                .addContainerGap(71, Short.MAX_VALUE))
         );
         jPanel_CardsLayout.setVerticalGroup(
             jPanel_CardsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1101,9 +1101,10 @@ public class Dash extends javax.swing.JFrame {
         Class.forName("com.mysql.cj.jdbc.Driver");
         Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/BankDatabase?serverTimezone=UTC", "root", "123456");
         Statement stmt = con.createStatement();
-        String sqlCommand ="select * from transaction_details where from_acc=?;";
+        String sqlCommand ="select * from transaction_details where from_acc=? OR to_acc=?;";
         PreparedStatement pstmt = con.prepareStatement(sqlCommand);
         pstmt.setString(1,this.Acc_cardno);
+        pstmt.setString(2,this.Acc_cardno);
         rs= pstmt.executeQuery();
         
         while (rs.next()) {
