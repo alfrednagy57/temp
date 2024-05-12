@@ -13,7 +13,7 @@ import javax.swing.text.StyledDocument;
 import org.jdesktop.animation.timing.Animator;
 import org.jdesktop.animation.timing.TimingTargetAdapter;
 
-public class MessageDialog extends javax.swing.JDialog {
+public class Message extends javax.swing.JDialog {
 
     private final JFrame fram;
     private Animator animator;
@@ -21,7 +21,7 @@ public class MessageDialog extends javax.swing.JDialog {
     private boolean show;
     private MessageType messageType = MessageType.CANCEL;
 
-    public MessageDialog(JFrame fram) {
+    public Message(JFrame fram) {
         super(fram, true);
         this.fram = fram;
         initComponents();

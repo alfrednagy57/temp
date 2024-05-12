@@ -293,7 +293,7 @@ public class Login extends javax.swing.JFrame {
             Class.forName("com.mysql.cj.jdbc.Driver");
             Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/BankDatabase?serverTimezone=UTC", "root", "123456");
             Statement stmt = con.createStatement();  
-            String sqlCommand = "SELECT email, national_id,fname, acc_pass,balance as Bal,card_number FROM customers JOIN account ON customers.national_id = account.national_no WHERE email = ?";
+            String sqlCommand = "SELECT email, national_id,fname, acc_pass,balance as Bal,card_number,acc_category as ac FROM customers JOIN account ON customers.national_id = account.national_no WHERE email = ?";
             PreparedStatement pstmt = con.prepareStatement(sqlCommand);   
             pstmt.setString(1, email);
             ResultSet rs = pstmt.executeQuery();
@@ -315,6 +315,7 @@ public class Login extends javax.swing.JFrame {
                     DashFrame.National_no=rs.getString("national_id");
                     DashFrame.ball=rs.getNString("Bal");
                     DashFrame.acc_pass=rs.getString("acc_pass");
+                    DashFrame.acc_Cat=rs.getString("ac");
                     
                     break;
                 } else {

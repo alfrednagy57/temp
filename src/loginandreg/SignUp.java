@@ -45,6 +45,7 @@ import Classes.PatternChecker;
 import Classes.ValMail;
 import Classes.ReceiveMail;
 import Classes.ProgressBarCustom;
+import java.awt.HeadlessException;
 
 /**
  *
@@ -175,7 +176,13 @@ public class SignUp extends javax.swing.JFrame {
         addPasswordListener();
         addPassword2Listener();
     }
+    public boolean isNumeric(String str) {
+            // Regular expression to match only numbers
+            String regex = "\\d+";
 
+            // Check if the string matches the regular expression
+            return str.matches(regex);
+        }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -787,11 +794,31 @@ public class SignUp extends javax.swing.JFrame {
         String FullAddress=add.getText();
         String Mob_Num=mob_no.getText();
         String Sex=Gender.getSelectedItem();
-
+        
 
         if(Sex.isEmpty()||Mob_Num.isEmpty()||FullAddress.isEmpty()||AtmPin.isEmpty()||Cvv.isEmpty()||expireDateString.isEmpty()||fname.isEmpty()||Card_no.isEmpty()||lname.isEmpty()||email.isEmpty()||pass.isEmpty()||Nation_no.isEmpty()||Country.isEmpty()||City.isEmpty()||AccType.isEmpty())
         {
             JOptionPane.showMessageDialog(this,"please enter the required fields");
+        }
+        else if(!isNumeric(Nation_no))
+        {
+            JOptionPane.showMessageDialog(this,"national id is not valid");
+        }
+        else if(!isNumeric(Card_no))
+        {
+         JOptionPane.showMessageDialog(this,"please assure that you entered a valid card number\ncard number shoulde be numbers only");   
+        }
+        else if(!isNumeric(Cvv))
+        {
+            JOptionPane.showMessageDialog(this,"please assure that you entered a valid cvv\nCvv shoulde be numbers only"); 
+        }
+        else if(!isNumeric(Mob_Num))
+        {
+            JOptionPane.showMessageDialog(this,"please assure that you entered a valid mobile number\nMobile number shoulde be numbers only"); 
+        }
+        else if(!isNumeric(AtmPin))
+             {
+            JOptionPane.showMessageDialog(this,"please assure that you entered a valid atm pin\nAtm pin shoulde be numbers only"); 
         }
         else if((Mob_Num.length())>12)
         {
@@ -929,7 +956,7 @@ public class SignUp extends javax.swing.JFrame {
                     fq=true;
                 // Close the ResultSet, Statement, and Connection
                 }
-                catch (Exception e)
+                catch (ClassNotFoundException | SQLException e)
                 {
                     JOptionPane.showMessageDialog(this,e);
                     System.out.println(e.getMessage());
@@ -990,7 +1017,7 @@ public class SignUp extends javax.swing.JFrame {
 
                     // Close the ResultSet, Statement, and Connection
                     }
-                    catch (Exception e)
+                    catch (HeadlessException | ClassNotFoundException | SQLException e)
                     {
                         JOptionPane.showMessageDialog(this,e);
                         System.out.println(e.getMessage());

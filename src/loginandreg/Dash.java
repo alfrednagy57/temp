@@ -15,6 +15,8 @@ import java.util.logging.Logger;
 import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
 import java.sql.SQLException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
 /**
  *
@@ -52,6 +54,7 @@ public class Dash extends javax.swing.JFrame {
     public String National_no=new String();
     public String ball=new String();
     public String acc_pass=new String();
+    public String acc_Cat=new String();
     
     private int Basic_transNO=0;
    
@@ -90,6 +93,10 @@ public class Dash extends javax.swing.JFrame {
         DelCard = new com.k33ptoo.components.KButton();
         AddCard = new com.k33ptoo.components.KButton();
         SetCard = new com.k33ptoo.components.KButton();
+        Card = new javax.swing.JLabel();
+        LockCard = new com.k33ptoo.components.KButton();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        CardsTable = new javax.swing.JTable();
         jPanel_Transfer = new javax.swing.JPanel();
         logo = new javax.swing.JLabel();
         jPanel1 = new javax.swing.JPanel();
@@ -419,7 +426,7 @@ public class Dash extends javax.swing.JFrame {
                     .addComponent(print, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(DeleteTableRow, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(ClearTable, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(68, Short.MAX_VALUE))
         );
 
         jPanel_Cards.setBackground(new java.awt.Color(255, 255, 255));
@@ -449,10 +456,60 @@ public class Dash extends javax.swing.JFrame {
         );
 
         DelCard.setText("Delete");
+        DelCard.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                DelCardMouseClicked(evt);
+            }
+        });
 
         AddCard.setText("Add");
+        AddCard.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                AddCardMouseClicked(evt);
+            }
+        });
 
         SetCard.setText("Reset pin");
+
+        Card.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        Card.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Logo/card1.png")));
+
+        LockCard.setText("Lock");
+
+        CardsTable.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null}
+            },
+            new String [] {
+                "name", "card number", "cvv", "expire date", "balance"
+            }
+        ) {
+            Class[] types = new Class [] {
+                java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class
+            };
+            boolean[] canEdit = new boolean [] {
+                false, false, false, false, false
+            };
+
+            public Class getColumnClass(int columnIndex) {
+                return types [columnIndex];
+            }
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
+        jScrollPane2.setViewportView(CardsTable);
+        if (CardsTable.getColumnModel().getColumnCount() > 0) {
+            CardsTable.getColumnModel().getColumn(0).setResizable(false);
+            CardsTable.getColumnModel().getColumn(1).setResizable(false);
+            CardsTable.getColumnModel().getColumn(2).setResizable(false);
+            CardsTable.getColumnModel().getColumn(3).setResizable(false);
+            CardsTable.getColumnModel().getColumn(4).setResizable(false);
+        }
 
         javax.swing.GroupLayout jPanel_CardsLayout = new javax.swing.GroupLayout(jPanel_Cards);
         jPanel_Cards.setLayout(jPanel_CardsLayout);
@@ -460,31 +517,38 @@ public class Dash extends javax.swing.JFrame {
             jPanel_CardsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(jPanel_CardsLayout.createSequentialGroup()
-                .addGap(347, 347, 347)
-                .addComponent(DelCard, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(54, 54, 54)
-                .addComponent(SetCard, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(156, Short.MAX_VALUE))
-            .addGroup(jPanel_CardsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(jPanel_CardsLayout.createSequentialGroup()
-                    .addGap(124, 124, 124)
-                    .addComponent(AddCard, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addContainerGap(625, Short.MAX_VALUE)))
+                .addGap(52, 52, 52)
+                .addGroup(jPanel_CardsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(jPanel_CardsLayout.createSequentialGroup()
+                        .addComponent(Card, javax.swing.GroupLayout.PREFERRED_SIZE, 448, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(190, 190, 190))
+                    .addGroup(jPanel_CardsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 794, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGroup(jPanel_CardsLayout.createSequentialGroup()
+                            .addComponent(AddCard, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGap(28, 28, 28)
+                            .addComponent(DelCard, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGap(18, 18, 18)
+                            .addComponent(SetCard, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGap(18, 18, 18)
+                            .addComponent(LockCard, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addContainerGap(78, Short.MAX_VALUE))
         );
         jPanel_CardsLayout.setVerticalGroup(
             jPanel_CardsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel_CardsLayout.createSequentialGroup()
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 513, Short.MAX_VALUE)
+                .addGap(18, 18, 18)
+                .addComponent(Card, javax.swing.GroupLayout.PREFERRED_SIZE, 214, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(47, 47, 47)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 212, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(45, 45, 45)
                 .addGroup(jPanel_CardsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(DelCard, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(SetCard, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(52, 52, 52))
-            .addGroup(jPanel_CardsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel_CardsLayout.createSequentialGroup()
-                    .addContainerGap(415, Short.MAX_VALUE)
+                    .addComponent(SetCard, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(AddCard, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGap(50, 50, 50)))
+                    .addComponent(LockCard, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         jPanel_Transfer.setBackground(java.awt.Color.white);
@@ -769,6 +833,7 @@ public class Dash extends javax.swing.JFrame {
         jLabel22.setText("Choose Mode");
 
         LightMode.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        //LightMode.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Logo/light.png")));
         LightMode.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 LightModeActionPerformed(evt);
@@ -776,6 +841,7 @@ public class Dash extends javax.swing.JFrame {
         });
 
         DarkMode.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        //DarkMode.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Logo/Dark.png")));
         DarkMode.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 DarkModeActionPerformed(evt);
@@ -977,6 +1043,47 @@ public class Dash extends javax.swing.JFrame {
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
         // TODO add your handling code here:
+        DefaultTableModel model = (DefaultTableModel) CardsTable.getModel();
+        // Clear all rows from the table
+        model.setRowCount(0);
+
+
+        ResultSet rs=null;
+        try{
+        Class.forName("com.mysql.cj.jdbc.Driver");
+        Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/BankDatabase?serverTimezone=UTC", "root", "123456");
+        Statement stmt = con.createStatement();
+        //"name", "card number", "cvv", "date opened", "balance"
+        String sqlCommand ="select * from Customers as c join account as a on a.national_no=c.national_id where a.national_no=?;";
+        PreparedStatement pstmt = con.prepareStatement(sqlCommand);
+        pstmt.setString(1,this.National_no);
+        rs= pstmt.executeQuery();
+        
+        while (rs.next()) {
+        // Retrieve data from the current row of the ResultSet
+        String fname=rs.getString("fname");
+        String lname=rs.getString("lname");
+
+        String name=fname.concat(lname);
+        
+        String Card=rs.getString("card_number");
+        String cnn=rs.getString("cvv");
+        String DateOpen=rs.getString("expire_date");
+        String Balance=rs.getString("balance");
+        // Add the data to the model
+        model.addRow(new String[]{name, Card, cnn, DateOpen, Balance});
+        }
+
+        // Close the ResultSet
+        rs.close();
+        pstmt.close();
+        con.close();
+        }
+        catch(Exception e)
+        {
+         JOptionPane.showMessageDialog(this,"error in cards table data");
+        }
+        
         //cards button
         showPanel(jPanel_Cards);
     }//GEN-LAST:event_jButton3ActionPerformed
@@ -1384,6 +1491,245 @@ public class Dash extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_SupportButtonMouseClicked
 
+    private void AddCardMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_AddCardMouseClicked
+        // TODO add your handling code here:
+        PaneAddCard AddCard=new PaneAddCard(this);
+        AddCard.setVisible(true);
+        //wait until the user confirms
+        while(AddCard.confirmed==false)
+        {
+         /*nothing*/   
+        }
+        String CardNum= AddCard.CardNum.getText();
+        
+        char[] passwordChars = AddCard.Password.getPassword();
+        String atmpiin = new String(passwordChars);
+        
+        Date selectedDate = AddCard.expire_date.getDate();
+        SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
+        String formattedDate = dateFormat.format(selectedDate);
+        
+        String Cvv=AddCard.CardNum.getText();
+        AddCard.dispose();
+         try
+            {
+            Class.forName("com.mysql.cj.jdbc.Driver");
+            Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/BankDatabase?serverTimezone=UTC", "root", "123456");
+            Statement stmt = con.createStatement();
+            String sqlCommand = "INSERT INTO account (card_number, cvv, national_no, acc_pass, atm_pin, acc_category, expire_date, balance) VALUES (?, ?, ?, ?, ?, ?, ?, ?);";
+            PreparedStatement pstmt = con.prepareStatement(sqlCommand);
+
+            String accType=new String();
+
+            
+
+            pstmt.setString(1, CardNum);
+            pstmt.setString(2, Cvv);
+            pstmt.setString(3, this.National_no);
+            pstmt.setString(4, this.acc_pass);
+            pstmt.setString(5, atmpiin);
+            pstmt.setString(6, this.acc_Cat);
+            pstmt.setString(7,formattedDate);
+            pstmt.setString(8, "0");
+
+
+            pstmt.executeUpdate();
+
+            // Close resources
+            pstmt.close();
+            con.close();
+        // Close the ResultSet, Statement, and Connection
+        }
+        catch (ClassNotFoundException | SQLException e)
+        {
+            JOptionPane.showMessageDialog(this,e);
+            System.out.println(e.getMessage());
+            System.out.println("add card");
+        }
+         
+         DefaultTableModel model = (DefaultTableModel) CardsTable.getModel();
+        // Clear all rows from the table
+        model.setRowCount(0);
+
+
+        ResultSet rs=null;
+        try{
+        Class.forName("com.mysql.cj.jdbc.Driver");
+        Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/BankDatabase?serverTimezone=UTC", "root", "123456");
+        Statement stmt = con.createStatement();
+        //"name", "card number", "cvv", "date opened", "balance"
+        String sqlCommand ="select * from Customers as c join account as a on a.national_no=c.national_id where a.national_no=?;";
+        PreparedStatement pstmt = con.prepareStatement(sqlCommand);
+        pstmt.setString(1,this.National_no);
+        rs= pstmt.executeQuery();
+        
+        while (rs.next()) {
+        // Retrieve data from the current row of the ResultSet
+        String fname=rs.getString("fname");
+        String lname=rs.getString("lname");
+
+        String name=fname.concat(lname);
+        
+        String Card=rs.getString("card_number");
+        String cnn=rs.getString("cvv");
+        String DateOpen=rs.getString("expire_date");
+        String Balance=rs.getString("balance");
+        // Add the data to the model
+        model.addRow(new String[]{name, Card, cnn, DateOpen, Balance});
+        }
+
+        // Close the ResultSet
+        rs.close();
+        pstmt.close();
+        con.close();
+        }
+        catch(Exception e)
+        {
+         JOptionPane.showMessageDialog(this,"error in add cards table data");
+        }
+         
+    }//GEN-LAST:event_AddCardMouseClicked
+
+    private void DelCardMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_DelCardMouseClicked
+        // TODO add your handling code here:
+        int rowIndex = TransTable.getSelectedRow();
+        int col=TransTable.getColumnCount()-3;
+        if (rowIndex != -1) { // Check if a row is selected
+             Message obj = new Message(this);
+            obj.showMessage("Delete this card ?", "All data will lose if you press ok button\nYou can restore any time within 30 days start from now.");
+            if (obj.getMessageType() == Message.MessageType.OK) {
+                System.out.println("User click ok");
+            } else {
+                System.out.println("User click cancel");
+                return;
+            }
+            DefaultTableModel model = (DefaultTableModel) TransTable.getModel();
+
+            // Create an array of strings to store the data of the selected row
+            String Fullname=new String();
+            String cardo=new String();
+            String cnn=new String();
+            String exDate=new String();
+            String Balance=new String();
+            
+            // Retrieve data from the selected row and store it in the array
+            for (int i = 0; i < 5; i++) {
+                Object value = model.getValueAt(rowIndex, i);
+                switch(i)
+                {
+                    case 0 -> Fullname = (value == null) ? "" : value.toString();
+                    case 1 -> cardo = (value == null) ? "" : value.toString();
+                    case 2 -> cnn = (value == null) ? "" : value.toString();
+                    case 3 -> exDate = (value == null) ? "" : value.toString();
+                    case 4 -> Balance = (value == null) ? "" : value.toString();
+                }
+            }
+            
+           try {
+                Class.forName("com.mysql.cj.jdbc.Driver");
+                Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/BankDatabase?serverTimezone=UTC", "root", "123456");
+
+                String sqlCommand = "DELETE FROM account WHERE card_number=? AND national_no=?";
+                PreparedStatement pstmt = con.prepareStatement(sqlCommand);
+
+                pstmt.setString(1, cardo);
+                pstmt.setString(2, this.National_no);
+                
+
+                int rowsAffected = pstmt.executeUpdate();
+
+                if (rowsAffected > 0) {
+                    JOptionPane.showMessageDialog(this,"Row deleted successfully.");
+                } else {
+                    JOptionPane.showMessageDialog(this,"No row deleted. Check your parameters.");
+                }
+
+                pstmt.close();
+                con.close();
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+            // Clear all rows from the table
+            model.setRowCount(0);
+
+
+            ResultSet rs=null;
+            try{
+            Class.forName("com.mysql.cj.jdbc.Driver");
+            Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/BankDatabase?serverTimezone=UTC", "root", "123456");
+            Statement stmt = con.createStatement();
+            String sqlCommand ="select * from transaction_details where from_acc=?;";
+            PreparedStatement pstmt = con.prepareStatement(sqlCommand);
+            pstmt.setString(1,this.Acc_cardno);
+            rs= pstmt.executeQuery();
+
+            while (rs.next()) {
+            // Retrieve data from the current row of the ResultSet
+            String transactionNumber = rs.getString("Trans_no");
+            String from = rs.getString("from_acc");
+            String to = rs.getString("to_acc");
+            String amount = rs.getString("amount");
+            String balance = rs.getString("balance");
+            String date = rs.getString("date");
+
+            // Add the data to the model
+            model.addRow(new String[]{transactionNumber, from, to, amount, balance,date});
+            }
+
+            // Close the ResultSet
+            rs.close();
+            pstmt.close();
+            con.close();
+            }
+            catch(Exception e)
+            {
+             JOptionPane.showMessageDialog(this,"error in transaction table data");
+            }
+            } else {
+                 JOptionPane.showMessageDialog(this,"No row selected.");
+            }
+            DefaultTableModel model = (DefaultTableModel) CardsTable.getModel();
+           // Clear all rows from the table
+           model.setRowCount(0);
+
+
+           ResultSet rs=null;
+           try{
+           Class.forName("com.mysql.cj.jdbc.Driver");
+           Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/BankDatabase?serverTimezone=UTC", "root", "123456");
+           Statement stmt = con.createStatement();
+           //"name", "card number", "cvv", "date opened", "balance"
+           String sqlCommand ="select * from Customers as c join account as a on a.national_no=c.national_id where a.national_no=?;";
+           PreparedStatement pstmt = con.prepareStatement(sqlCommand);
+           pstmt.setString(1,this.National_no);
+           rs= pstmt.executeQuery();
+
+           while (rs.next()) {
+           // Retrieve data from the current row of the ResultSet
+           String fname=rs.getString("fname");
+           String lname=rs.getString("lname");
+
+           String name=fname.concat(lname);
+
+           String Card=rs.getString("card_number");
+           String cnn=rs.getString("cvv");
+           String DateOpen=rs.getString("expire_date");
+           String Balance=rs.getString("balance");
+           // Add the data to the model
+           model.addRow(new String[]{name, Card, cnn, DateOpen, Balance});
+           }
+
+           // Close the ResultSet
+           rs.close();
+           pstmt.close();
+           con.close();
+           }
+           catch(Exception e)
+           {
+            JOptionPane.showMessageDialog(this,"error in add cards table data");
+           }
+    }//GEN-LAST:event_DelCardMouseClicked
+
     /**
      * @param args the command line arguments
      */
@@ -1426,6 +1772,8 @@ public class Dash extends javax.swing.JFrame {
     private javax.swing.JPasswordField AccPass;
     private com.k33ptoo.components.KButton AddCard;
     private javax.swing.JTextField AmountTO;
+    private javax.swing.JLabel Card;
+    private javax.swing.JTable CardsTable;
     private com.k33ptoo.components.KButton ClearTable;
     private javax.swing.JButton DarkMode;
     private com.k33ptoo.components.KButton DelCard;
@@ -1434,6 +1782,7 @@ public class Dash extends javax.swing.JFrame {
     private javax.swing.JTextField Email3;
     private javax.swing.JTextField Email4;
     private javax.swing.JButton LightMode;
+    private com.k33ptoo.components.KButton LockCard;
     private javax.swing.JPasswordField Pass1;
     private javax.swing.JPasswordField Pass2;
     private com.k33ptoo.components.KButton SetCard;
@@ -1479,6 +1828,7 @@ public class Dash extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel_Transaction;
     private javax.swing.JPanel jPanel_Transfer;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane jScrollPane2;
     private com.k33ptoo.components.KButton kButton2;
     private com.k33ptoo.components.KButton kButton3;
     private javax.swing.JPanel left;
