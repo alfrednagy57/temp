@@ -16,7 +16,7 @@ import org.jdesktop.animation.timing.TimingTargetAdapter;
 
 
 
-public class Message extends javax.swing.JDialog {
+public class Mess extends javax.swing.JDialog {
 
     private final JFrame frame;
     private final Glass glass;
@@ -26,7 +26,7 @@ public class Message extends javax.swing.JDialog {
     
     public boolean confirmed;
     
-    public Message(JFrame frame) {
+    public Mess(JFrame frame) {
         super(frame, true);
         this.frame = frame;
         initComponents();
@@ -93,7 +93,6 @@ public class Message extends javax.swing.JDialog {
     private void initComponents() {
 
         background1 = new javaswingdev.message.Background();
-        cmdCancel = new javaswingdev.swing.ButtonCustom();
         cmdOK = new javaswingdev.swing.ButtonCustom();
         lbTitle = new javax.swing.JLabel();
         lbIcon = new javax.swing.JLabel();
@@ -102,17 +101,6 @@ public class Message extends javax.swing.JDialog {
         setUndecorated(true);
 
         background1.setBorder(javax.swing.BorderFactory.createEmptyBorder(3, 3, 3, 3));
-
-        cmdCancel.setBackground(new java.awt.Color(245, 71, 71));
-        cmdCancel.setText("Cancel");
-        cmdCancel.setColorHover(new java.awt.Color(255, 74, 74));
-        cmdCancel.setColorPressed(new java.awt.Color(235, 61, 61));
-        cmdCancel.setFont(new java.awt.Font("sansserif", 0, 14)); // NOI18N
-        cmdCancel.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                cmdCancelActionPerformed(evt);
-            }
-        });
 
         cmdOK.setText("OK");
         cmdOK.setFont(new java.awt.Font("sansserif", 0, 14)); // NOI18N
@@ -135,27 +123,25 @@ public class Message extends javax.swing.JDialog {
         background1Layout.setHorizontalGroup(
             background1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(lbTitle, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, background1Layout.createSequentialGroup()
-                .addComponent(cmdCancel, javax.swing.GroupLayout.DEFAULT_SIZE, 179, Short.MAX_VALUE)
-                .addGap(3, 3, 3)
-                .addComponent(cmdOK, javax.swing.GroupLayout.DEFAULT_SIZE, 179, Short.MAX_VALUE)
-                .addContainerGap())
             .addGroup(background1Layout.createSequentialGroup()
-                .addGap(156, 156, 156)
-                .addComponent(lbIcon)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGroup(background1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(background1Layout.createSequentialGroup()
+                        .addGap(155, 155, 155)
+                        .addComponent(lbIcon))
+                    .addGroup(background1Layout.createSequentialGroup()
+                        .addGap(86, 86, 86)
+                        .addComponent(cmdOK, javax.swing.GroupLayout.PREFERRED_SIZE, 198, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(89, Short.MAX_VALUE))
         );
         background1Layout.setVerticalGroup(
             background1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, background1Layout.createSequentialGroup()
                 .addComponent(lbIcon, javax.swing.GroupLayout.PREFERRED_SIZE, 74, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(20, 20, 20)
+                .addGap(18, 18, 18)
                 .addComponent(lbTitle, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(33, 33, 33)
-                .addGroup(background1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(cmdCancel, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(cmdOK, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 46, Short.MAX_VALUE)
+                .addComponent(cmdOK, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -172,20 +158,12 @@ public class Message extends javax.swing.JDialog {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void cmdCancelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmdCancelActionPerformed
-        messageType = MessageType.CANCEL;
-        closeMessage();
-        this.confirmed=false;
-        this.setVisible(false);
-        //this.dispose();
-    }//GEN-LAST:event_cmdCancelActionPerformed
-
     private void cmdOKActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmdOKActionPerformed
         messageType = MessageType.OK;
         closeMessage();
         this.confirmed=true;
         this.setVisible(false);
-        //this.dispose();
+        this.dispose();
     }//GEN-LAST:event_cmdOKActionPerformed
 
     public static enum MessageType {
@@ -194,7 +172,6 @@ public class Message extends javax.swing.JDialog {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javaswingdev.message.Background background1;
-    private javaswingdev.swing.ButtonCustom cmdCancel;
     private javaswingdev.swing.ButtonCustom cmdOK;
     private javax.swing.JLabel lbIcon;
     private javax.swing.JLabel lbTitle;

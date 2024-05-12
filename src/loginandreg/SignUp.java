@@ -964,7 +964,7 @@ public class SignUp extends javax.swing.JFrame {
                 }
 
 
-
+                boolean tt=false;
                 /************************************************************************************************/
                 if(fq)
                 {
@@ -1011,8 +1011,7 @@ public class SignUp extends javax.swing.JFrame {
                         pstmt.close();
                         con.close();
 
-
-                        JOptionPane.showMessageDialog(this,"Signed up successfully");
+                        tt=true;
 
 
                     // Close the ResultSet, Statement, and Connection
@@ -1023,8 +1022,38 @@ public class SignUp extends javax.swing.JFrame {
                         System.out.println(e.getMessage());
                         System.out.println("second");
                     }
+                    
                 }
+                if(tt)
+                {
+                    try{
+                        Class.forName("com.mysql.cj.jdbc.Driver");
+                        Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/BankDatabase?serverTimezone=UTC", "root", "123456");
+                        Statement stmt = con.createStatement();
+                        String sqlCommand ="insert into cards(national_no,card_no,cvv,atm_pin,expire_date,balance,Locked) VALUES(?,?,?,?,?,?,?);";
+                        PreparedStatement pstmt = con.prepareStatement(sqlCommand);
+                        
+                        
+                        pstmt.setString(1, Nation_no);
+                        pstmt.setString(2, Card_no);
+                        pstmt.setString(3, Cvv);
+                        pstmt.setString(4, AtmPin);
+                        pstmt.setString(5,expireDateString);
+                        pstmt.setString(6, "0");
+                        pstmt.setString(7, "1");
+                        
+                        JOptionPane.showMessageDialog(this,"Signed up successfully");
 
+                    }
+                    catch(HeadlessException | ClassNotFoundException | SQLException e)
+                    {
+                        JOptionPane.showMessageDialog(this,e);
+                        System.out.println(e.getMessage());
+                        System.out.println("third");
+                    }
+                }
+                    
+                    
                        this.dispose();
                        Login LoginFrame = new Login();
                        LoginFrame.setVisible(true);
