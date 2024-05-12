@@ -157,6 +157,11 @@ public class Login extends javax.swing.JFrame {
                 kButton1MouseClicked(evt);
             }
         });
+        kButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                kButton1ActionPerformed(evt);
+            }
+        });
 
         togbtn1.setText("Show");
         togbtn1.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -293,7 +298,7 @@ public class Login extends javax.swing.JFrame {
             Class.forName("com.mysql.cj.jdbc.Driver");
             Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/BankDatabase?serverTimezone=UTC", "root", "123456");
             Statement stmt = con.createStatement();  
-            String sqlCommand = "SELECT email, national_id,fname, acc_pass,balance as Bal,card_number,acc_category as ac FROM customers JOIN account ON customers.national_id = account.national_no WHERE email = ?";
+            String sqlCommand = "SELECT email, national_id,fname,lname, acc_pass,balance as Bal,card_number,acc_category as ac FROM customers JOIN account ON customers.national_id = account.national_no WHERE email = ?";
             PreparedStatement pstmt = con.prepareStatement(sqlCommand);   
             pstmt.setString(1, email);
             ResultSet rs = pstmt.executeQuery();
@@ -302,7 +307,9 @@ public class Login extends javax.swing.JFrame {
            
             do {
                 if (pass.equals(rs.getString("acc_pass"))) {
-                    WelcomeUserName=rs.getString("fname");
+                    String fn=rs.getString("fname").concat(" ");
+                    String ful=fn.concat(rs.getString("lname"));
+                    WelcomeUserName=ful;
                     JOptionPane.showMessageDialog(this, "Correct password \nWelcome "+WelcomeUserName+" !");
                     this.setVisible(false);
                     this.dispose();
@@ -351,6 +358,10 @@ public class Login extends javax.swing.JFrame {
         SignUpFrame.setLocationRelativeTo(null);
         this.dispose();
     }//GEN-LAST:event_jXHyperlink1MouseClicked
+
+    private void kButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_kButton1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_kButton1ActionPerformed
 
     /**
      * @param args the command line arguments

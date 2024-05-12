@@ -178,10 +178,15 @@ public class SignUp extends javax.swing.JFrame {
     }
     public boolean isNumeric(String str) {
             // Regular expression to match only numbers
-            String regex = "\\d+";
-
+            String regex = "0123456789";
+            str=str.toLowerCase();
+            for(int i=0;i<str.length();i++)
+            {
+                if(str.charAt(i)>='a'||str.charAt(i)<='z')
+                    return false;
+            }
             // Check if the string matches the regular expression
-            return str.matches(regex);
+            return true;
         }
     /**
      * This method is called from within the constructor to initialize the form.
@@ -856,7 +861,7 @@ public class SignUp extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(this,"enter a pin for atm of 6 digits");
             atm_pin.setText(" ");
         }
-        else if((Card_no.length())>6)
+        else if((Card_no.length())>16)
         {
             JOptionPane.showMessageDialog(this,"enter a card num of 6 digits");
             card_no.setText(" ");
