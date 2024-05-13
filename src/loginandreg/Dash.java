@@ -18,6 +18,7 @@ import javax.swing.table.DefaultTableModel;
 import java.sql.SQLException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.StringTokenizer;
 import javax.swing.event.DocumentEvent;
 import javax.swing.event.DocumentListener;
 import javax.swing.text.Document;
@@ -141,10 +142,14 @@ public class Dash extends javax.swing.JFrame {
         jScrollPane2 = new javax.swing.JScrollPane();
         CardsTable = new javax.swing.JTable();
         jPanel5 = new javax.swing.JPanel();
-        jLabel2 = new javax.swing.JLabel();
-        FulName = new javax.swing.JLabel();
-        Expire = new javax.swing.JLabel();
         Cardii = new javax.swing.JLabel();
+        FulName = new javax.swing.JLabel();
+        cs = new javax.swing.JLabel();
+        Expiree = new javax.swing.JLabel();
+        cvv = new javax.swing.JLabel();
+        Expire = new javax.swing.JLabel();
+        nam = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
         jPanel_Transfer = new javax.swing.JPanel();
         logo = new javax.swing.JLabel();
         jPanel1 = new javax.swing.JPanel();
@@ -184,10 +189,7 @@ public class Dash extends javax.swing.JFrame {
         LightMode = new javax.swing.JButton();
         DarkMode = new javax.swing.JButton();
         SupportButton = new javax.swing.JButton();
-        jLabel23 = new javax.swing.JLabel();
-        passss2 = new javax.swing.JPasswordField();
-        Bar = new Classes.ProgressBarCustom();
-        mess = new javax.swing.JLabel();
+        togbtn2 = new javax.swing.JToggleButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
@@ -384,7 +386,7 @@ public class Dash extends javax.swing.JFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        jPanel_Transaction.setBackground(new java.awt.Color(0, 153, 153));
+        jPanel_Transaction.setBackground(new java.awt.Color(0, 102, 102));
         jPanel_Transaction.setPreferredSize(new java.awt.Dimension(934, 510));
 
         transactions.setFont(new java.awt.Font("Segoe UI Historic", 0, 48)); // NOI18N
@@ -479,7 +481,7 @@ public class Dash extends javax.swing.JFrame {
         jPanel_Cards.setBackground(new java.awt.Color(255, 255, 255));
         jPanel_Cards.setPreferredSize(new java.awt.Dimension(934, 510));
 
-        jPanel2.setBackground(new java.awt.Color(0, 153, 153));
+        jPanel2.setBackground(new java.awt.Color(0, 102, 102));
 
         jLabel1.setBackground(new java.awt.Color(187, 187, 187));
         jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 48)); // NOI18N
@@ -568,14 +570,43 @@ public class Dash extends javax.swing.JFrame {
         jPanel5.setPreferredSize(new java.awt.Dimension(200, 200));
         jPanel5.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Logo/card1.png"))); // NOI18N
-        jPanel5.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 10, 230, 130));
-        jPanel5.add(FulName, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 130, 150, 30));
+        Cardii.setBackground(new java.awt.Color(255, 255, 255));
+        Cardii.setFont(new java.awt.Font("Segoe UI", 1, 36)); // NOI18N
+        Cardii.setText("653");
+        jPanel5.add(Cardii, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 70, 320, 40));
 
-        Expire.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        FulName.setBackground(new java.awt.Color(255, 255, 255));
+        FulName.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
+        FulName.setText("653");
+        jPanel5.add(FulName, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 40, 250, 30));
+
+        cs.setBackground(new java.awt.Color(255, 255, 255));
+        cs.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
+        cs.setText("Cvv");
+        jPanel5.add(cs, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 140, 60, 30));
+
+        Expiree.setBackground(new java.awt.Color(255, 255, 255));
+        Expiree.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
+        Expiree.setText("expire date");
+        jPanel5.add(Expiree, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 140, 150, 30));
+
+        cvv.setBackground(new java.awt.Color(255, 255, 255));
+        cvv.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
+        cvv.setText("cvv");
+        jPanel5.add(cvv, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 180, 50, 30));
+
+        Expire.setBackground(new java.awt.Color(255, 255, 255));
+        Expire.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
         Expire.setText("653");
-        jPanel5.add(Expire, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 90, 40, 20));
-        jPanel5.add(Cardii, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 76, 250, 30));
+        jPanel5.add(Expire, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 180, 220, 30));
+
+        nam.setBackground(new java.awt.Color(255, 255, 255));
+        nam.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
+        nam.setText("name");
+        jPanel5.add(nam, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 10, 230, 30));
+
+        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Logo/card1.png"))); // NOI18N
+        jPanel5.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 440, 220));
 
         javax.swing.GroupLayout jPanel_CardsLayout = new javax.swing.GroupLayout(jPanel_Cards);
         jPanel_Cards.setLayout(jPanel_CardsLayout);
@@ -594,7 +625,7 @@ public class Dash extends javax.swing.JFrame {
                         .addGap(18, 18, 18)
                         .addComponent(LockCard, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 794, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(71, Short.MAX_VALUE))
+                .addContainerGap(78, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel_CardsLayout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jPanel5, javax.swing.GroupLayout.PREFERRED_SIZE, 443, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -785,7 +816,7 @@ public class Dash extends javax.swing.JFrame {
                     .addComponent(togbtn1))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(Transfer, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(32, Short.MAX_VALUE))
         );
 
         jPanel_Settings.setBackground(java.awt.Color.white);
@@ -892,6 +923,7 @@ public class Dash extends javax.swing.JFrame {
         jLabel22.setForeground(new java.awt.Color(0, 102, 102));
         jLabel22.setText("Choose Mode");
 
+        LightMode.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Logo/LightMode.png"))); // NOI18N
         LightMode.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         //LightMode.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Logo/light.png")));
         LightMode.addActionListener(new java.awt.event.ActionListener() {
@@ -900,6 +932,7 @@ public class Dash extends javax.swing.JFrame {
             }
         });
 
+        DarkMode.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Logo/DarkMode.png"))); // NOI18N
         DarkMode.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         //DarkMode.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Logo/Dark.png")));
         DarkMode.addActionListener(new java.awt.event.ActionListener() {
@@ -932,11 +965,12 @@ public class Dash extends javax.swing.JFrame {
                 .addComponent(LightMode, javax.swing.GroupLayout.PREFERRED_SIZE, 161, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(57, 57, 57)
                 .addComponent(DarkMode, javax.swing.GroupLayout.PREFERRED_SIZE, 161, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 98, Short.MAX_VALUE))
+                .addGap(0, 53, Short.MAX_VALUE))
         );
 
         SupportButton.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         SupportButton.setForeground(new java.awt.Color(0, 102, 102));
+        SupportButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Logo/icons8-support-75.png"))); // NOI18N
         SupportButton.setText("Support");
         SupportButton.setToolTipText("Click here to get Support contacts");
         SupportButton.setBorder(null);
@@ -949,70 +983,59 @@ public class Dash extends javax.swing.JFrame {
             }
         });
 
-        jLabel23.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        jLabel23.setForeground(new java.awt.Color(0, 102, 102));
-        jLabel23.setText("Confirm new Password:");
-
-        passss2.setBackground(new Color(0,0,0,0));
-        passss2.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 2, 0, new java.awt.Color(0, 102, 102)));
-        passss2.setSelectedTextColor(new java.awt.Color(242, 242, 242));
+        togbtn2.setText("Show");
+        togbtn2.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                togbtn2MouseClicked(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel_SettingsLayout = new javax.swing.GroupLayout(jPanel_Settings);
         jPanel_Settings.setLayout(jPanel_SettingsLayout);
         jPanel_SettingsLayout.setHorizontalGroup(
             jPanel_SettingsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, 935, Short.MAX_VALUE)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel_SettingsLayout.createSequentialGroup()
-                .addGap(443, 492, Short.MAX_VALUE)
-                .addComponent(Settings_logo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(443, 443, 443))
+            .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, 934, Short.MAX_VALUE)
             .addGroup(jPanel_SettingsLayout.createSequentialGroup()
+                .addGap(21, 21, 21)
                 .addGroup(jPanel_SettingsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel_SettingsLayout.createSequentialGroup()
-                        .addGap(21, 21, 21)
-                        .addGroup(jPanel_SettingsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel_SettingsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                .addGroup(jPanel_SettingsLayout.createSequentialGroup()
-                                    .addComponent(jLabel20)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(oldd, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGroup(jPanel_SettingsLayout.createSequentialGroup()
-                                    .addComponent(jLabel21)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(passs1, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel_SettingsLayout.createSequentialGroup()
-                                    .addComponent(jLabel23)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addGroup(jPanel_SettingsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                        .addComponent(Bar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                        .addComponent(passss2)
-                                        .addComponent(mess, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                            .addComponent(jLabel19)
-                            .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGroup(jPanel_SettingsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addGroup(jPanel_SettingsLayout.createSequentialGroup()
-                                .addGap(15, 15, 15)
-                                .addGroup(jPanel_SettingsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addGroup(jPanel_SettingsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addComponent(kButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGroup(jPanel_SettingsLayout.createSequentialGroup()
-                                            .addComponent(jLabel18)
-                                            .addGap(40, 40, 40)
-                                            .addComponent(eemail, javax.swing.GroupLayout.PREFERRED_SIZE, 233, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                        .addGroup(jPanel_SettingsLayout.createSequentialGroup()
-                                            .addComponent(jLabel17)
-                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                            .addComponent(llname, javax.swing.GroupLayout.PREFERRED_SIZE, 233, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                                    .addGroup(jPanel_SettingsLayout.createSequentialGroup()
-                                        .addComponent(jLabel16)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(ffname, javax.swing.GroupLayout.PREFERRED_SIZE, 231, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                            .addComponent(SupportButton, javax.swing.GroupLayout.PREFERRED_SIZE, 147, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGroup(jPanel_SettingsLayout.createSequentialGroup()
-                        .addGap(65, 65, 65)
-                        .addComponent(kButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(jLabel20)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 41, Short.MAX_VALUE)
+                                .addComponent(oldd, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(jPanel_SettingsLayout.createSequentialGroup()
+                                .addComponent(jLabel21)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(passs1, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 31, Short.MAX_VALUE)
+                        .addComponent(togbtn2, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jLabel19)
+                    .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(SupportButton, javax.swing.GroupLayout.PREFERRED_SIZE, 158, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(jPanel_SettingsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                        .addGroup(jPanel_SettingsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel_SettingsLayout.createSequentialGroup()
+                                .addComponent(jLabel18)
+                                .addGap(40, 40, 40)
+                                .addComponent(eemail, javax.swing.GroupLayout.PREFERRED_SIZE, 233, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(jPanel_SettingsLayout.createSequentialGroup()
+                                .addComponent(jLabel17)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(llname, javax.swing.GroupLayout.PREFERRED_SIZE, 233, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGroup(jPanel_SettingsLayout.createSequentialGroup()
+                            .addComponent(jLabel16)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                            .addComponent(ffname, javax.swing.GroupLayout.PREFERRED_SIZE, 231, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addComponent(kButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(kButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
                 .addComponent(jPanel_Mode, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel_SettingsLayout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(Settings_logo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(443, 443, 443))
         );
         jPanel_SettingsLayout.setVerticalGroup(
             jPanel_SettingsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1037,9 +1060,9 @@ public class Dash extends javax.swing.JFrame {
                         .addGroup(jPanel_SettingsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel18)
                             .addComponent(eemail, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(kButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(65, 65, 65)
+                        .addGap(71, 71, 71)
                         .addComponent(jLabel19, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
                         .addGroup(jPanel_SettingsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -1048,20 +1071,13 @@ public class Dash extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addGroup(jPanel_SettingsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel21)
-                            .addComponent(passs1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(passs1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(togbtn2))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addGroup(jPanel_SettingsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel23)
-                            .addComponent(passss2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(Bar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(mess, javax.swing.GroupLayout.PREFERRED_SIZE, 15, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(12, 12, 12)
                         .addComponent(kButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(SupportButton, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 0, Short.MAX_VALUE))))
+                        .addGap(56, 56, 56))))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -1126,14 +1142,15 @@ public class Dash extends javax.swing.JFrame {
         // TODO add your handling code here:
         //transfer button
         //JOptionPane.showMessageDialog(this,Acc_cardno+"\n"+Acc_fname+"\n"+National_no+"\n"+ball);
-        national.setText(" ");
-        AmountTO.setText(" ");
-        AccPass.setText(" ");
+        national.setText("");
+        AmountTO.setText("");
+        AccPass.setText("");
         showPanel(jPanel_Transfer);
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
         // TODO add your handling code here:
+        String qq = null;
          try {
                     Class.forName("com.mysql.cj.jdbc.Driver");
                     Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/BankDatabase?serverTimezone=UTC", "root", "123456");
@@ -1146,6 +1163,8 @@ public class Dash extends javax.swing.JFrame {
                     if (rs.next()) {
                        Expire.setText(rs.getString("expire_date"));
                        Cardii.setText(rs.getString("card_no"));
+                       cvv.setText(rs.getString("cvv"));
+                       qq=rs.getString("card_no");
                     }
                     
 
@@ -1163,6 +1182,7 @@ public class Dash extends javax.swing.JFrame {
                       mass2.dispose();
                     }
                 }
+         this.Acc_cardno=qq;
         UpdateCardsTable();
         //cards button
         showPanel(jPanel_Cards);
@@ -1518,7 +1538,12 @@ public class Dash extends javax.swing.JFrame {
         // TODO add your handling code here:
         String first=ffname.getText();
         String last=llname.getText();
-        String emo=eemail.getText();
+        StringTokenizer qqq=new StringTokenizer(eemail.getText(),"@");
+        String emo=null;
+        if(qqq.hasMoreTokens())
+        {
+        emo=qqq.nextToken();
+        }
         if(emo.isEmpty()||last.isEmpty()||first.isEmpty())
         {
             Mess mass=new Mess(this);
@@ -1544,6 +1569,8 @@ public class Dash extends javax.swing.JFrame {
                 // Close resources
                 pstmt.close();
                 con.close();
+                Mess mass=new Mess(this);
+                mass.showMessage("change data","data changed successfully");
             // Close the ResultSet, Statement, and Connection
             }
             catch (HeadlessException | ClassNotFoundException | SQLException e)
@@ -1555,116 +1582,6 @@ public class Dash extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_kButton2MouseClicked
     
-     private void addPasswordListener() {
-        Document doc = passs1.getDocument();
-        doc.addDocumentListener(new DocumentListener() {
-            @Override
-            public void insertUpdate(DocumentEvent e) {
-                handlePasswordChange();
-            }
-
-            @Override
-            public void removeUpdate(DocumentEvent e) {
-                handlePasswordChange();
-            }
-
-            @Override
-            public void changedUpdate(DocumentEvent e) {
-                handlePasswordChange();
-            }
-        });
-    }
-    
-    private void addPassword2Listener() {
-        Document doc = passss2.getDocument();
-        doc.addDocumentListener(new DocumentListener() {
-            @Override
-            public void insertUpdate(DocumentEvent e) {
-                handlePassword2Change();
-            }
-
-            @Override
-            public void removeUpdate(DocumentEvent e) {
-                handlePassword2Change();
-            }
-
-            @Override
-            public void changedUpdate(DocumentEvent e) {
-                handlePassword2Change();
-            }
-        });
-    }
-    
-      private void handlePassword2Change(){
-        
-        
-        
-        char[] passChars2 = passs1.getPassword();
-        String pass = new String(passChars2).trim();
-        pass=pass.trim();
-
-        char[] passChars3 = passss2.getPassword();
-        String pass2 = new String(passChars3).trim();
-        pass2=pass2.trim();
-        
-        System.out.println("password : "+pass2+"\n");
-
-        System.out.println("confirm password : "+pass+"\n");
-        if(pass.equals(pass2))
-        {
-            mess.setText("password mathced");
-            confirmedpassword=true;
-        }
-        else
-        {
-            mess.setText("password are not matched");
-            confirmedpassword=false;
-        }
-        System.out.println(confirmedpassword);
-      }
-      
-      
-    private void handlePasswordChange() {
-        char[] passChars2 = passs1.getPassword();
-        String pass = new String(passChars2);
-        System.out.println("password : " +pass+"\n");
-        pass=pass.trim();
-       if(PatternChecker.MatchPattern(pass))
-       {
-           Bar.setColor(Color.GREEN); // Set the color of the progress bar
-           mess.setText("password accepted");
-           Bar.setValue(100);
-       }
-       else if(!PatternChecker.MatchPatternSchars(pass)&&PatternChecker.MatchPatternchars(pass)&&PatternChecker.MatchPattern8Num(pass))
-       {
-           Bar.setColor(new java.awt.Color(255, 0, 51));
-           mess.setText("password must contain 1 special char");
-           Bar.setValue(68);
-       }
-       else if(!PatternChecker.MatchPatternSchars(pass)&&!PatternChecker.MatchPatternchars(pass)&&PatternChecker.MatchPattern8Num(pass))
-       {
-           mess.setText("password must contain 1 upper case and 1 lower case");
-           Bar.setColor(new java.awt.Color(255, 0, 51));
-           Bar.setValue(34);
-       }
-       else if(!PatternChecker.MatchPatternSchars(pass)&&!PatternChecker.MatchPatternchars(pass)&&!PatternChecker.MatchPattern8Num(pass))
-       {
-    //                nums.setBackground(new java.awt.Color(204, 0, 0));
-            Bar.setColor(new java.awt.Color(255, 0, 51));
-            mess.setText("password must contain 8 numbers");
-       }
-       else {
-    //                System.out.println("color changed");
-           Bar.setColor(Color.GREEN); // Set the color of the progress bar
-           mess.setText("password accepted");
-           Bar.setValue(100);
-       }
-
-       if(pass.isEmpty())
-       {
-           Bar.setValue(0);
-       }
-    }
     private void kButton3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_kButton3MouseClicked
         // TODO add your handling code here:
           char[] passChars = oldd.getPassword();
@@ -1673,10 +1590,8 @@ public class Dash extends javax.swing.JFrame {
         char[] passChars2 = passs1.getPassword();
         String pas1 = new String(passChars2);
         
-        char[] passChars3 = passss2.getPassword();
-        String pas2 = new String(passChars3);
         
-        if(old.isEmpty()||pas1.isEmpty()||pas2.isEmpty())
+        if(old.isEmpty()||pas1.isEmpty())
         {
             Mess mass=new Mess(this);
             mass.showMessage("fields","Please enter all required fields");
@@ -1686,9 +1601,14 @@ public class Dash extends javax.swing.JFrame {
             Mess mass=new Mess(this);
             mass.showMessage("Old password","the old password you entered is not correct");
         }
+        else if(!PatternChecker.MatchPattern(pas1))
+        {
+            Mess mass=new Mess(this);
+            mass.showMessage("New password","password should contain 8 numbers\n1 upper case char and 1 lower case\n1 special char");
+        }
         else
         {
-            mess.setText("password matched");
+            
             try
             {
                 Class.forName("com.mysql.cj.jdbc.Driver");
@@ -2087,7 +2007,7 @@ public class Dash extends javax.swing.JFrame {
                     }
                 }
 
-                
+                this.Acc_cardno=cardo;
                 try{
 
                     Class.forName("com.mysql.cj.jdbc.Driver");
@@ -2125,7 +2045,7 @@ public class Dash extends javax.swing.JFrame {
                 }
             }
         }
-        try {
+         try {
                     Class.forName("com.mysql.cj.jdbc.Driver");
                     Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/BankDatabase?serverTimezone=UTC", "root", "123456");
                     String sqlCommand = "select * from cards where Locked=?";
@@ -2137,10 +2057,9 @@ public class Dash extends javax.swing.JFrame {
                     if (rs.next()) {
                        Expire.setText(rs.getString("expire_date"));
                        Cardii.setText(rs.getString("card_no"));
+                       cvv.setText(rs.getString("cvv"));
                     }
-                    System.out.println(FulName.getText());
-                    System.out.println(Expire.getText());
-                    System.out.println(Cardii.getText());
+                    
 
                     rs.close();
                     pstmt.close();
@@ -2162,6 +2081,20 @@ public class Dash extends javax.swing.JFrame {
     private void AmountTOActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AmountTOActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_AmountTOActionPerformed
+
+    private void togbtn2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_togbtn2MouseClicked
+        // TODO add your handling code here:
+        if(togbtn2.isSelected())
+        {
+            passs1.setEchoChar((char)0);
+            togbtn2.setText("Hide");
+        }
+        else
+        {
+            passs1.setEchoChar('*');
+            togbtn2.setText("Show");
+        }
+    }//GEN-LAST:event_togbtn2MouseClicked
 
     /**
      *
@@ -2206,7 +2139,6 @@ public class Dash extends javax.swing.JFrame {
     private javax.swing.JPasswordField AccPass;
     private com.k33ptoo.components.KButton AddCard;
     private javax.swing.JTextField AmountTO;
-    private Classes.ProgressBarCustom Bar;
     private javax.swing.JLabel Cardii;
     private javax.swing.JTable CardsTable;
     private com.k33ptoo.components.KButton ClearTable;
@@ -2214,6 +2146,7 @@ public class Dash extends javax.swing.JFrame {
     private com.k33ptoo.components.KButton DelCard;
     private com.k33ptoo.components.KButton DeleteTableRow;
     private javax.swing.JLabel Expire;
+    private javax.swing.JLabel Expiree;
     private javax.swing.JLabel FulName;
     private javax.swing.JButton LightMode;
     private com.k33ptoo.components.KButton LockCard;
@@ -2223,6 +2156,8 @@ public class Dash extends javax.swing.JFrame {
     private javax.swing.JTable TransTable;
     private com.k33ptoo.components.KButton Transfer;
     public javax.swing.JLabel WelcomingMess;
+    private javax.swing.JLabel cs;
+    private javax.swing.JLabel cvv;
     private javax.swing.JTextField eemail;
     private javax.swing.JTextField ffname;
     private javax.swing.JButton jButton1;
@@ -2246,7 +2181,6 @@ public class Dash extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel20;
     private javax.swing.JLabel jLabel21;
     private javax.swing.JLabel jLabel22;
-    private javax.swing.JLabel jLabel23;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
@@ -2271,13 +2205,13 @@ public class Dash extends javax.swing.JFrame {
     private javax.swing.JPanel left;
     private javax.swing.JTextField llname;
     private javax.swing.JLabel logo;
-    private javax.swing.JLabel mess;
+    private javax.swing.JLabel nam;
     private javax.swing.JTextField national;
     private javax.swing.JPasswordField oldd;
     private javax.swing.JPasswordField passs1;
-    private javax.swing.JPasswordField passss2;
     private com.k33ptoo.components.KButton print;
     private javax.swing.JToggleButton togbtn1;
+    private javax.swing.JToggleButton togbtn2;
     public javax.swing.JLabel transactions;
     // End of variables declaration//GEN-END:variables
 }
