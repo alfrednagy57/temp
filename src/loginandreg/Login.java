@@ -157,11 +157,6 @@ public class Login extends javax.swing.JFrame {
                 kButton1MouseClicked(evt);
             }
         });
-        kButton1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                kButton1ActionPerformed(evt);
-            }
-        });
 
         togbtn1.setText("Show");
         togbtn1.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -323,7 +318,7 @@ public class Login extends javax.swing.JFrame {
                     DashFrame.ball=rs.getNString("Bal");
                     DashFrame.acc_pass=rs.getString("acc_pass");
                     DashFrame.acc_Cat=rs.getString("ac");
-                    
+                    DashFrame.ShowDash();
                     break;
                 } else {
                     Cou++;
@@ -358,10 +353,6 @@ public class Login extends javax.swing.JFrame {
         SignUpFrame.setLocationRelativeTo(null);
         this.dispose();
     }//GEN-LAST:event_jXHyperlink1MouseClicked
-
-    private void kButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_kButton1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_kButton1ActionPerformed
 
     /**
      * @param args the command line arguments

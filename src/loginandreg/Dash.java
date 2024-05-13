@@ -1,5 +1,6 @@
 
 package loginandreg;
+import Classes.PatternChecker;
 import java.awt.*;
 import java.awt.print.PrinterException;
 import java.awt.print.PrinterJob;
@@ -17,6 +18,10 @@ import javax.swing.table.DefaultTableModel;
 import java.sql.SQLException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import javax.swing.event.DocumentEvent;
+import javax.swing.event.DocumentListener;
+import javax.swing.text.Document;
+
 
 /**
  *
@@ -25,7 +30,7 @@ import java.util.Date;
 public class Dash extends javax.swing.JFrame {
        // array of panels
     JPanel[] panels= new JPanel[5];
-    
+    private boolean confirmedpassword=false;
     
     public Dash() {
         initComponents();
@@ -58,7 +63,7 @@ public class Dash extends javax.swing.JFrame {
     
     private int Basic_transNO=0;
    
-    
+     
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -162,23 +167,27 @@ public class Dash extends javax.swing.JFrame {
         Settings_logo = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
         jLabel16 = new javax.swing.JLabel();
-        Email = new javax.swing.JTextField();
+        ffname = new javax.swing.JTextField();
         jLabel17 = new javax.swing.JLabel();
-        Email3 = new javax.swing.JTextField();
+        llname = new javax.swing.JTextField();
         jLabel18 = new javax.swing.JLabel();
-        Email4 = new javax.swing.JTextField();
+        eemail = new javax.swing.JTextField();
         kButton2 = new com.k33ptoo.components.KButton();
         jLabel19 = new javax.swing.JLabel();
         jLabel20 = new javax.swing.JLabel();
         jLabel21 = new javax.swing.JLabel();
         kButton3 = new com.k33ptoo.components.KButton();
-        Pass1 = new javax.swing.JPasswordField();
-        Pass2 = new javax.swing.JPasswordField();
+        oldd = new javax.swing.JPasswordField();
+        passs1 = new javax.swing.JPasswordField();
         jPanel_Mode = new javax.swing.JPanel();
         jLabel22 = new javax.swing.JLabel();
         LightMode = new javax.swing.JButton();
         DarkMode = new javax.swing.JButton();
         SupportButton = new javax.swing.JButton();
+        jLabel23 = new javax.swing.JLabel();
+        passss2 = new javax.swing.JPasswordField();
+        Bar = new Classes.ProgressBarCustom();
+        mess = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
@@ -364,8 +373,8 @@ public class Dash extends javax.swing.JFrame {
         jPanel_DashLayout.setHorizontalGroup(
             jPanel_DashLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel_DashLayout.createSequentialGroup()
-                .addComponent(WelcomingMess, javax.swing.GroupLayout.PREFERRED_SIZE, 499, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 435, Short.MAX_VALUE))
+                .addComponent(WelcomingMess, javax.swing.GroupLayout.DEFAULT_SIZE, 928, Short.MAX_VALUE)
+                .addContainerGap())
         );
         jPanel_DashLayout.setVerticalGroup(
             jPanel_DashLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -585,7 +594,7 @@ public class Dash extends javax.swing.JFrame {
                         .addGap(18, 18, 18)
                         .addComponent(LockCard, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 794, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(78, Short.MAX_VALUE))
+                .addContainerGap(71, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel_CardsLayout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jPanel5, javax.swing.GroupLayout.PREFERRED_SIZE, 443, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -806,28 +815,28 @@ public class Dash extends javax.swing.JFrame {
         jLabel16.setForeground(new java.awt.Color(0, 102, 102));
         jLabel16.setText("First Name:");
 
-        Email.setBackground(new Color(0,0,0,0));
-        Email.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 2, 0, new java.awt.Color(0, 102, 102)));
-        Email.setDisabledTextColor(new java.awt.Color(204, 204, 0));
-        Email.setSelectedTextColor(new java.awt.Color(242, 242, 242));
+        ffname.setBackground(new Color(0,0,0,0));
+        ffname.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 2, 0, new java.awt.Color(0, 102, 102)));
+        ffname.setDisabledTextColor(new java.awt.Color(204, 204, 0));
+        ffname.setSelectedTextColor(new java.awt.Color(242, 242, 242));
 
         jLabel17.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jLabel17.setForeground(new java.awt.Color(0, 102, 102));
         jLabel17.setText("Last Name:");
 
-        Email3.setBackground(new Color(0,0,0,0));
-        Email3.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 2, 0, new java.awt.Color(0, 102, 102)));
-        Email3.setDisabledTextColor(new java.awt.Color(204, 204, 0));
-        Email3.setSelectedTextColor(new java.awt.Color(242, 242, 242));
+        llname.setBackground(new Color(0,0,0,0));
+        llname.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 2, 0, new java.awt.Color(0, 102, 102)));
+        llname.setDisabledTextColor(new java.awt.Color(204, 204, 0));
+        llname.setSelectedTextColor(new java.awt.Color(242, 242, 242));
 
         jLabel18.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jLabel18.setForeground(new java.awt.Color(0, 102, 102));
         jLabel18.setText("Email:");
 
-        Email4.setBackground(new Color(0,0,0,0));
-        Email4.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 2, 0, new java.awt.Color(0, 102, 102)));
-        Email4.setDisabledTextColor(new java.awt.Color(204, 204, 0));
-        Email4.setSelectedTextColor(new java.awt.Color(242, 242, 242));
+        eemail.setBackground(new Color(0,0,0,0));
+        eemail.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 2, 0, new java.awt.Color(0, 102, 102)));
+        eemail.setDisabledTextColor(new java.awt.Color(204, 204, 0));
+        eemail.setSelectedTextColor(new java.awt.Color(242, 242, 242));
 
         kButton2.setForeground(new java.awt.Color(204, 102, 0));
         kButton2.setText("Save");
@@ -840,11 +849,6 @@ public class Dash extends javax.swing.JFrame {
         kButton2.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 kButton2MouseClicked(evt);
-            }
-        });
-        kButton2.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                kButton2ActionPerformed(evt);
             }
         });
 
@@ -873,19 +877,14 @@ public class Dash extends javax.swing.JFrame {
                 kButton3MouseClicked(evt);
             }
         });
-        kButton3.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                kButton3ActionPerformed(evt);
-            }
-        });
 
-        Pass1.setBackground(new Color(0,0,0,0));
-        Pass1.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 2, 0, new java.awt.Color(0, 102, 102)));
-        Pass1.setSelectedTextColor(new java.awt.Color(242, 242, 242));
+        oldd.setBackground(new Color(0,0,0,0));
+        oldd.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 2, 0, new java.awt.Color(0, 102, 102)));
+        oldd.setSelectedTextColor(new java.awt.Color(242, 242, 242));
 
-        Pass2.setBackground(new Color(0,0,0,0));
-        Pass2.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 2, 0, new java.awt.Color(0, 102, 102)));
-        Pass2.setSelectedTextColor(new java.awt.Color(242, 242, 242));
+        passs1.setBackground(new Color(0,0,0,0));
+        passs1.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 2, 0, new java.awt.Color(0, 102, 102)));
+        passs1.setSelectedTextColor(new java.awt.Color(242, 242, 242));
 
         jPanel_Mode.setBackground(new java.awt.Color(255, 255, 255));
 
@@ -933,7 +932,7 @@ public class Dash extends javax.swing.JFrame {
                 .addComponent(LightMode, javax.swing.GroupLayout.PREFERRED_SIZE, 161, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(57, 57, 57)
                 .addComponent(DarkMode, javax.swing.GroupLayout.PREFERRED_SIZE, 161, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 150, Short.MAX_VALUE))
+                .addGap(0, 98, Short.MAX_VALUE))
         );
 
         SupportButton.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
@@ -949,6 +948,14 @@ public class Dash extends javax.swing.JFrame {
                 SupportButtonMouseClicked(evt);
             }
         });
+
+        jLabel23.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        jLabel23.setForeground(new java.awt.Color(0, 102, 102));
+        jLabel23.setText("Confirm new Password:");
+
+        passss2.setBackground(new Color(0,0,0,0));
+        passss2.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 2, 0, new java.awt.Color(0, 102, 102)));
+        passss2.setSelectedTextColor(new java.awt.Color(242, 242, 242));
 
         javax.swing.GroupLayout jPanel_SettingsLayout = new javax.swing.GroupLayout(jPanel_Settings);
         jPanel_Settings.setLayout(jPanel_SettingsLayout);
@@ -967,12 +974,19 @@ public class Dash extends javax.swing.JFrame {
                             .addGroup(jPanel_SettingsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                 .addGroup(jPanel_SettingsLayout.createSequentialGroup()
                                     .addComponent(jLabel20)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                    .addComponent(Pass1, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(oldd, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addGroup(jPanel_SettingsLayout.createSequentialGroup()
                                     .addComponent(jLabel21)
                                     .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(Pass2, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                    .addComponent(passs1, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel_SettingsLayout.createSequentialGroup()
+                                    .addComponent(jLabel23)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addGroup(jPanel_SettingsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                        .addComponent(Bar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                        .addComponent(passss2)
+                                        .addComponent(mess, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE))))
                             .addComponent(jLabel19)
                             .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(jPanel_SettingsLayout.createSequentialGroup()
@@ -983,18 +997,18 @@ public class Dash extends javax.swing.JFrame {
                                         .addGroup(jPanel_SettingsLayout.createSequentialGroup()
                                             .addComponent(jLabel18)
                                             .addGap(40, 40, 40)
-                                            .addComponent(Email4, javax.swing.GroupLayout.PREFERRED_SIZE, 233, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                            .addComponent(eemail, javax.swing.GroupLayout.PREFERRED_SIZE, 233, javax.swing.GroupLayout.PREFERRED_SIZE))
                                         .addGroup(jPanel_SettingsLayout.createSequentialGroup()
                                             .addComponent(jLabel17)
                                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                            .addComponent(Email3, javax.swing.GroupLayout.PREFERRED_SIZE, 233, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                            .addComponent(llname, javax.swing.GroupLayout.PREFERRED_SIZE, 233, javax.swing.GroupLayout.PREFERRED_SIZE)))
                                     .addGroup(jPanel_SettingsLayout.createSequentialGroup()
                                         .addComponent(jLabel16)
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(Email, javax.swing.GroupLayout.PREFERRED_SIZE, 231, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                                        .addComponent(ffname, javax.swing.GroupLayout.PREFERRED_SIZE, 231, javax.swing.GroupLayout.PREFERRED_SIZE))))
                             .addComponent(SupportButton, javax.swing.GroupLayout.PREFERRED_SIZE, 147, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(jPanel_SettingsLayout.createSequentialGroup()
-                        .addGap(42, 42, 42)
+                        .addGap(65, 65, 65)
                         .addComponent(kButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jPanel_Mode, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -1014,31 +1028,39 @@ public class Dash extends javax.swing.JFrame {
                         .addGap(20, 20, 20)
                         .addGroup(jPanel_SettingsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel16)
-                            .addComponent(Email, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                            .addComponent(ffname, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(12, 12, 12)
                         .addGroup(jPanel_SettingsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel17)
-                            .addComponent(Email3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(18, 18, 18)
+                            .addComponent(llname, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addGroup(jPanel_SettingsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel18)
-                            .addComponent(Email4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(eemail, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(kButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(65, 65, 65)
                         .addComponent(jLabel19, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
-                        .addGroup(jPanel_SettingsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(Pass1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel20))
+                        .addGroup(jPanel_SettingsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel20)
+                            .addComponent(oldd, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addGroup(jPanel_SettingsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel21)
-                            .addComponent(Pass2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(58, 58, 58)
+                            .addComponent(passs1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(jPanel_SettingsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel23)
+                            .addComponent(passss2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(Bar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(mess, javax.swing.GroupLayout.PREFERRED_SIZE, 15, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(12, 12, 12)
                         .addComponent(kButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(SupportButton, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(SupportButton, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(0, 0, Short.MAX_VALUE))))
         );
 
@@ -1089,6 +1111,11 @@ public class Dash extends javax.swing.JFrame {
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
+    public void ShowDash()
+    {
+        showPanel(jPanel_Dash);
+        UpdateCardsTable();
+    }
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
         showPanel(jPanel_Dash);
@@ -1489,19 +1516,207 @@ public class Dash extends javax.swing.JFrame {
        
     private void kButton2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_kButton2MouseClicked
         // TODO add your handling code here:
+        String first=ffname.getText();
+        String last=llname.getText();
+        String emo=eemail.getText();
+        if(emo.isEmpty()||last.isEmpty()||first.isEmpty())
+        {
+            Mess mass=new Mess(this);
+            mass.showMessage("fields","Please enter all required fields");
+        }
+        else
+        {
+            try
+            {
+                Class.forName("com.mysql.cj.jdbc.Driver");
+                Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/BankDatabase?serverTimezone=UTC", "root", "123456");
+                Statement stmt = con.createStatement();
+                String sqlCommand = "UPDATE customers set fname=?,lname=?,email=? where national_id=?;";
+                PreparedStatement pstmt = con.prepareStatement(sqlCommand);
+
+                pstmt.setString(1,first);
+                pstmt.setString(2,last);
+                pstmt.setString(3,emo);
+                pstmt.setString(4,this.National_no);
+                
+                int rs =pstmt.executeUpdate();
+
+                // Close resources
+                pstmt.close();
+                con.close();
+            // Close the ResultSet, Statement, and Connection
+            }
+            catch (HeadlessException | ClassNotFoundException | SQLException e)
+            {
+                JOptionPane.showMessageDialog(this,e);
+                System.out.println(e.getMessage());
+                System.out.println("second");
+            }
+        }
     }//GEN-LAST:event_kButton2MouseClicked
+    
+     private void addPasswordListener() {
+        Document doc = passs1.getDocument();
+        doc.addDocumentListener(new DocumentListener() {
+            @Override
+            public void insertUpdate(DocumentEvent e) {
+                handlePasswordChange();
+            }
 
-    private void kButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_kButton2ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_kButton2ActionPerformed
+            @Override
+            public void removeUpdate(DocumentEvent e) {
+                handlePasswordChange();
+            }
 
+            @Override
+            public void changedUpdate(DocumentEvent e) {
+                handlePasswordChange();
+            }
+        });
+    }
+    
+    private void addPassword2Listener() {
+        Document doc = passss2.getDocument();
+        doc.addDocumentListener(new DocumentListener() {
+            @Override
+            public void insertUpdate(DocumentEvent e) {
+                handlePassword2Change();
+            }
+
+            @Override
+            public void removeUpdate(DocumentEvent e) {
+                handlePassword2Change();
+            }
+
+            @Override
+            public void changedUpdate(DocumentEvent e) {
+                handlePassword2Change();
+            }
+        });
+    }
+    
+      private void handlePassword2Change(){
+        
+        
+        
+        char[] passChars2 = passs1.getPassword();
+        String pass = new String(passChars2).trim();
+        pass=pass.trim();
+
+        char[] passChars3 = passss2.getPassword();
+        String pass2 = new String(passChars3).trim();
+        pass2=pass2.trim();
+        
+        System.out.println("password : "+pass2+"\n");
+
+        System.out.println("confirm password : "+pass+"\n");
+        if(pass.equals(pass2))
+        {
+            mess.setText("password mathced");
+            confirmedpassword=true;
+        }
+        else
+        {
+            mess.setText("password are not matched");
+            confirmedpassword=false;
+        }
+        System.out.println(confirmedpassword);
+      }
+      
+      
+    private void handlePasswordChange() {
+        char[] passChars2 = passs1.getPassword();
+        String pass = new String(passChars2);
+        System.out.println("password : " +pass+"\n");
+        pass=pass.trim();
+       if(PatternChecker.MatchPattern(pass))
+       {
+           Bar.setColor(Color.GREEN); // Set the color of the progress bar
+           mess.setText("password accepted");
+           Bar.setValue(100);
+       }
+       else if(!PatternChecker.MatchPatternSchars(pass)&&PatternChecker.MatchPatternchars(pass)&&PatternChecker.MatchPattern8Num(pass))
+       {
+           Bar.setColor(new java.awt.Color(255, 0, 51));
+           mess.setText("password must contain 1 special char");
+           Bar.setValue(68);
+       }
+       else if(!PatternChecker.MatchPatternSchars(pass)&&!PatternChecker.MatchPatternchars(pass)&&PatternChecker.MatchPattern8Num(pass))
+       {
+           mess.setText("password must contain 1 upper case and 1 lower case");
+           Bar.setColor(new java.awt.Color(255, 0, 51));
+           Bar.setValue(34);
+       }
+       else if(!PatternChecker.MatchPatternSchars(pass)&&!PatternChecker.MatchPatternchars(pass)&&!PatternChecker.MatchPattern8Num(pass))
+       {
+    //                nums.setBackground(new java.awt.Color(204, 0, 0));
+            Bar.setColor(new java.awt.Color(255, 0, 51));
+            mess.setText("password must contain 8 numbers");
+       }
+       else {
+    //                System.out.println("color changed");
+           Bar.setColor(Color.GREEN); // Set the color of the progress bar
+           mess.setText("password accepted");
+           Bar.setValue(100);
+       }
+
+       if(pass.isEmpty())
+       {
+           Bar.setValue(0);
+       }
+    }
     private void kButton3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_kButton3MouseClicked
         // TODO add your handling code here:
-    }//GEN-LAST:event_kButton3MouseClicked
+          char[] passChars = oldd.getPassword();
+        String old = new String(passChars);
+        
+        char[] passChars2 = passs1.getPassword();
+        String pas1 = new String(passChars2);
+        
+        char[] passChars3 = passss2.getPassword();
+        String pas2 = new String(passChars3);
+        
+        if(old.isEmpty()||pas1.isEmpty()||pas2.isEmpty())
+        {
+            Mess mass=new Mess(this);
+            mass.showMessage("fields","Please enter all required fields");
+        }
+        else if(!old.equals(this.acc_pass))
+        {
+            Mess mass=new Mess(this);
+            mass.showMessage("Old password","the old password you entered is not correct");
+        }
+        else
+        {
+            mess.setText("password matched");
+            try
+            {
+                Class.forName("com.mysql.cj.jdbc.Driver");
+                Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/BankDatabase?serverTimezone=UTC", "root", "123456");
+                Statement stmt = con.createStatement();
+                String sqlCommand = "UPDATE account set acc_pass=? where national_no=?;";
+                PreparedStatement pstmt = con.prepareStatement(sqlCommand);
 
-    private void kButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_kButton3ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_kButton3ActionPerformed
+                pstmt.setString(1,pas1);
+                pstmt.setString(2,this.National_no);
+                
+                int rs =pstmt.executeUpdate();
+
+                Mess mass=new Mess(this);
+                mass.showMessage("acc password","account password chaned successfully");
+                // Close resources
+                pstmt.close();
+                con.close();
+            // Close the ResultSet, Statement, and Connection
+            }
+            catch (HeadlessException | ClassNotFoundException | SQLException e)
+            {
+                JOptionPane.showMessageDialog(this,e);
+                System.out.println(e.getMessage());
+                System.out.println("second");
+            }
+        }
+    }//GEN-LAST:event_kButton3MouseClicked
 
     private void LightModeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_LightModeActionPerformed
         // TODO add your handling code here:
@@ -1539,6 +1754,9 @@ public class Dash extends javax.swing.JFrame {
 
     private void SupportButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_SupportButtonMouseClicked
         // TODO add your handling code here:
+        mail mailo=new mail(this);
+        mailo.showMessage("Navigate to mail",".");
+        
     }//GEN-LAST:event_SupportButtonMouseClicked
 
     private void AddCardMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_AddCardMouseClicked
@@ -1988,27 +2206,25 @@ public class Dash extends javax.swing.JFrame {
     private javax.swing.JPasswordField AccPass;
     private com.k33ptoo.components.KButton AddCard;
     private javax.swing.JTextField AmountTO;
+    private Classes.ProgressBarCustom Bar;
     private javax.swing.JLabel Cardii;
     private javax.swing.JTable CardsTable;
     private com.k33ptoo.components.KButton ClearTable;
     private javax.swing.JButton DarkMode;
     private com.k33ptoo.components.KButton DelCard;
     private com.k33ptoo.components.KButton DeleteTableRow;
-    private javax.swing.JTextField Email;
-    private javax.swing.JTextField Email3;
-    private javax.swing.JTextField Email4;
     private javax.swing.JLabel Expire;
     private javax.swing.JLabel FulName;
     private javax.swing.JButton LightMode;
     private com.k33ptoo.components.KButton LockCard;
-    private javax.swing.JPasswordField Pass1;
-    private javax.swing.JPasswordField Pass2;
     private com.k33ptoo.components.KButton SetCard;
     private javax.swing.JLabel Settings_logo;
     private javax.swing.JButton SupportButton;
     private javax.swing.JTable TransTable;
     private com.k33ptoo.components.KButton Transfer;
     public javax.swing.JLabel WelcomingMess;
+    private javax.swing.JTextField eemail;
+    private javax.swing.JTextField ffname;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
@@ -2030,6 +2246,7 @@ public class Dash extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel20;
     private javax.swing.JLabel jLabel21;
     private javax.swing.JLabel jLabel22;
+    private javax.swing.JLabel jLabel23;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
@@ -2052,8 +2269,13 @@ public class Dash extends javax.swing.JFrame {
     private com.k33ptoo.components.KButton kButton2;
     private com.k33ptoo.components.KButton kButton3;
     private javax.swing.JPanel left;
+    private javax.swing.JTextField llname;
     private javax.swing.JLabel logo;
+    private javax.swing.JLabel mess;
     private javax.swing.JTextField national;
+    private javax.swing.JPasswordField oldd;
+    private javax.swing.JPasswordField passs1;
+    private javax.swing.JPasswordField passss2;
     private com.k33ptoo.components.KButton print;
     private javax.swing.JToggleButton togbtn1;
     public javax.swing.JLabel transactions;
