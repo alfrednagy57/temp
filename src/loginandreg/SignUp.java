@@ -177,17 +177,23 @@ public class SignUp extends javax.swing.JFrame {
         addPassword2Listener();
     }
     public boolean isNumeric(String str) {
-            // Regular expression to match only numbers
-            String regex = "0123456789";
-            str=str.toLowerCase();
-            for(int i=0;i<str.length();i++)
-            {
-                if(str.charAt(i)>='a'||str.charAt(i)<='z')
-                    return false;
-            }
-            // Check if the string matches the regular expression
-            return true;
+    // Check if the string is empty
+    if (str == null || str.isEmpty()) {
+        return false;
+    }
+
+    // Loop through each character in the string
+    for (int i = 0; i < str.length(); i++) {
+        // Check if the character is not a digit
+        if (!Character.isDigit(str.charAt(i))) {
+            return false;
         }
+    }
+
+    // If all characters are digits, return true
+    return true;
+}
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -822,7 +828,7 @@ public class SignUp extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(this,"please assure that you entered a valid mobile number\nMobile number shoulde be numbers only"); 
         }
         else if(!isNumeric(AtmPin))
-             {
+        {
             JOptionPane.showMessageDialog(this,"please assure that you entered a valid atm pin\nAtm pin shoulde be numbers only"); 
         }
         else if((Mob_Num.length())>12)
