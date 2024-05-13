@@ -787,72 +787,87 @@ public class SignUp extends javax.swing.JFrame {
 
         if(Sex.isEmpty()||Mob_Num.isEmpty()||FullAddress.isEmpty()||AtmPin.isEmpty()||Cvv.isEmpty()||expireDateString.isEmpty()||fname.isEmpty()||Card_no.isEmpty()||lname.isEmpty()||email.isEmpty()||pass.isEmpty()||Nation_no.isEmpty()||Country.isEmpty()||City.isEmpty()||AccType.isEmpty())
         {
-            JOptionPane.showMessageDialog(this,"please enter the required fields");
+             Mess mass=new Mess(this);
+            mass.showMessage("Missing data","please enter the required fields");
         }
         else if(!isNumeric(Nation_no))
         {
-            JOptionPane.showMessageDialog(this,"national id is not valid");
+             Mess mass=new Mess(this);
+            mass.showMessage("National id","national id is not valid");
         }
         else if(!isNumeric(Card_no))
         {
-         JOptionPane.showMessageDialog(this,"please assure that you entered a valid card number\ncard number shoulde be numbers only");   
+             Mess mass=new Mess(this);
+            mass.showMessage("card number","please assure that you entered a valid card number");
         }
         else if(!isNumeric(Cvv))
         {
-            JOptionPane.showMessageDialog(this,"please assure that you entered a valid cvv\nCvv shoulde be numbers only"); 
+             Mess mass=new Mess(this);
+            mass.showMessage("cvv","please assure that you entered a valid cvv");
         }
         else if(!isNumeric(Mob_Num))
         {
-            JOptionPane.showMessageDialog(this,"please assure that you entered a valid mobile number\nMobile number shoulde be numbers only"); 
+             Mess mass=new Mess(this);
+            mass.showMessage("Moblie number","please assure that you entered a valid mobile number");
         }
         else if(!isNumeric(AtmPin))
         {
-            JOptionPane.showMessageDialog(this,"please assure that you entered a valid atm pin\nAtm pin shoulde be numbers only"); 
+             Mess mass=new Mess(this);
+            mass.showMessage("Atm Pin","please assure that you entered a valid atm pin");
         }
         else if((Mob_Num.length())>12)
         {
-            JOptionPane.showMessageDialog(this,"re-type your correct phone num");
+             Mess mass=new Mess(this);
+            mass.showMessage("Moblie number","entered mobile number is too long");
             mob_no.setText(" ");
         }
         else if((email.length())>29)
         {
-            JOptionPane.showMessageDialog(this,"long email please provide me with a different one");
+             Mess mass=new Mess(this);
+            mass.showMessage("email","long email please provide me with a different one");
             Email.setText(" ");
         }
         else if((fname.length())>10 || (lname.length())>10)
         {
-            JOptionPane.showMessageDialog(this,"re-enter a valid Names");
+             Mess mass=new Mess(this);
+            mass.showMessage("name","name too long");
             Fname.setText(" ");
             Lname.setText(" ");
         }
         else if((Nation_no.length()) >15)
         {
-            JOptionPane.showMessageDialog(this,"enter Egyptian national ids only");
+            Mess mass=new Mess(this);
+            mass.showMessage("national id","enter Egyptian national ids only");
             ID.setText(" ");
         }
         else if(FullAddress.length()>15)
         {
-            JOptionPane.showMessageDialog(this,"enter a real address");
+            Mess mass=new Mess(this);
+            mass.showMessage("full address","enter a real address");
             add.setText(" ");
         }
         else if((Cvv.length()) >3)
         {
-            JOptionPane.showMessageDialog(this,"enter a valid cvv of 3 digits");
+            Mess mass=new Mess(this);
+            mass.showMessage("name","name too long");
             cvv.setText(" ");
         }
         else if((AtmPin.length())>6)
         {
-            JOptionPane.showMessageDialog(this,"enter a pin for atm of 6 digits");
+            Mess mass=new Mess(this);
+            mass.showMessage("atm pin","enter a pin for atm of 6 digits");
             atm_pin.setText(" ");
         }
         else if((Card_no.length())>16)
         {
-            JOptionPane.showMessageDialog(this,"enter a card num of 6 digits");
+            Mess mass=new Mess(this);
+            mass.showMessage("card number","enter a card num of 6 digits");
             card_no.setText(" ");
         }
         else if((pass.length())>50)
         {
-            JOptionPane.showMessageDialog(this,"password limit is 50 chars");
+            Mess mass=new Mess(this);
+            mass.showMessage("password","password limit is 50 chars");
             Password.setText(" ");
         }
         else
@@ -880,23 +895,28 @@ public class SignUp extends javax.swing.JFrame {
 
             if(fname.length()<4||lname.length()<4)
             {
-                JOptionPane.showMessageDialog(this,"Name is too short");
+                Mess mass=new Mess(this);
+            mass.showMessage("name","name too short");
             }
             else if(!ValMail.EmailVal(fullmail))
             {
-                JOptionPane.showMessageDialog(this,"email does not meet our standards");
+                 Mess mass=new Mess(this);
+            mass.showMessage("email","email does not meet our standards");
             }
             else if(!domain.equals("gmail"))
             {
-                JOptionPane.showMessageDialog(this,"we accept gmail only");
+                 Mess mass=new Mess(this);
+            mass.showMessage("mail","only google accounts are accepted");
             }
             else if(!VerifiedEmail)
             {
-                JOptionPane.showMessageDialog(this,"please verify you email");
+                 Mess mass=new Mess(this);
+            mass.showMessage("mail","You must verify your mail firstly");
             }
             else if(!confirmedpassword)
             {
-                 JOptionPane.showMessageDialog(this,"passwords should be matched before signing up");
+                 Mess mass=new Mess(this);
+            mass.showMessage("password","passwords should be matched before signing up");
             }
             else
             {
@@ -1113,20 +1133,24 @@ public class SignUp extends javax.swing.JFrame {
         }
         catch(Exception e)
         {
-            JOptionPane.showMessageDialog(this,e.getMessage());
+             Mess mass=new Mess(this);
+                 mass.showMessage("error",e.getMessage());
         }
         if(flag){
             ValMail.sendEmail(Email.getText().trim(),"Verification",RandomCode);
             if(ReceiveMail.receivemail()==1){
-                JOptionPane.showMessageDialog(this,"Please enter a valid email because this email is not on gmail database");
+                Mess mass=new Mess(this);
+                 mass.showMessage("Email","Please enter a valid email because this email is not on gmail database");
             }
             else{
-                 JOptionPane.showMessageDialog(this,"Verification code Sent\nCheck your inbox");
+                Mess mass=new Mess(this);
+                 mass.showMessage("Verification code Sent","Check your inbox");
             }
         }
         else
         {
-            JOptionPane.showMessageDialog(this,"please enter a different email as this email is already used");
+            Mess mass=new Mess(this);
+            mass.showMessage("Email","please enter a different email as this email is already used");
         }
     }//GEN-LAST:event_VerifyMouseClicked
 

@@ -285,7 +285,6 @@ public class Login extends javax.swing.JFrame {
         if(token.hasMoreElements())
         {
             email=token.nextToken();
-//            JOptionPane.showMessageDialog(this, email);
         }
          
         try
@@ -305,7 +304,8 @@ public class Login extends javax.swing.JFrame {
                     String fn=rs.getString("fname").concat(" ");
                     String ful=fn.concat(rs.getString("lname"));
                     WelcomeUserName=ful;
-                    JOptionPane.showMessageDialog(this, "Correct password \nWelcome "+WelcomeUserName+" !");
+                    Mess mass=new Mess(this);
+                    mass.showMessage("Correct password ","Welcome "+WelcomeUserName+ " !");
                     this.setVisible(false);
                     this.dispose();
                     Dash DashFrame= new Dash();
@@ -323,9 +323,11 @@ public class Login extends javax.swing.JFrame {
                 } else {
                     Cou++;
                     if (Cou < 3) {
-                        JOptionPane.showMessageDialog(this, "Password Wrong \nYou have " + (3 - Cou) + " try");
+                         Mess2 mass=new Mess2(this);
+                         mass.showMessage("Password Wrong \nYou have " + (3 - Cou) + " try","");
                     } else {
-                        JOptionPane.showMessageDialog(this, "You have exceeded the maximum number of attempts.\nThe app is going to close");
+                        Mess2 mass=new Mess2(this);
+                        mass.showMessage("You have exceeded the maximum number of attempts.\nThe app is going to close","");
                         Thread.sleep(3000);
                         this.setVisible(false);
                         dispose();
@@ -333,13 +335,15 @@ public class Login extends javax.swing.JFrame {
                 }
             } while (Cou < 3 && rs.next());
             } else {
-                JOptionPane.showMessageDialog(this, "Email not found.");
+                 Mess2 mass=new Mess2(this);
+                    mass.showMessage("Email not found.","");
             }
 
             }   
             catch (Exception e)
             {
-             JOptionPane.showMessageDialog(this,e.getMessage());
+                 Mess2 mass=new Mess2(this);
+                    mass.showMessage(e.getMessage(),"");
              System.out.println(e.getMessage());
             }
 

@@ -11,17 +11,12 @@ import java.sql.ResultSet;
 import java.sql.Statement;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
 import java.sql.SQLException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.StringTokenizer;
-import javax.swing.event.DocumentEvent;
-import javax.swing.event.DocumentListener;
-import javax.swing.text.Document;
 
 
 /**
@@ -602,7 +597,7 @@ public class Dash extends javax.swing.JFrame {
 
         nam.setBackground(new java.awt.Color(255, 255, 255));
         nam.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
-        nam.setText("name");
+        nam.setText("Name");
         jPanel5.add(nam, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 10, 230, 30));
 
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Logo/card1.png"))); // NOI18N
@@ -625,7 +620,7 @@ public class Dash extends javax.swing.JFrame {
                         .addGap(18, 18, 18)
                         .addComponent(LockCard, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 794, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(78, Short.MAX_VALUE))
+                .addContainerGap(71, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel_CardsLayout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jPanel5, javax.swing.GroupLayout.PREFERRED_SIZE, 443, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -816,7 +811,7 @@ public class Dash extends javax.swing.JFrame {
                     .addComponent(togbtn1))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(Transfer, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(32, Short.MAX_VALUE))
+                .addContainerGap(43, Short.MAX_VALUE))
         );
 
         jPanel_Settings.setBackground(java.awt.Color.white);
@@ -994,7 +989,7 @@ public class Dash extends javax.swing.JFrame {
         jPanel_Settings.setLayout(jPanel_SettingsLayout);
         jPanel_SettingsLayout.setHorizontalGroup(
             jPanel_SettingsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, 934, Short.MAX_VALUE)
+            .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, 935, Short.MAX_VALUE)
             .addGroup(jPanel_SettingsLayout.createSequentialGroup()
                 .addGap(21, 21, 21)
                 .addGroup(jPanel_SettingsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1008,7 +1003,7 @@ public class Dash extends javax.swing.JFrame {
                                 .addComponent(jLabel21)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addComponent(passs1, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 31, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 32, Short.MAX_VALUE)
                         .addComponent(togbtn2, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(jLabel19)
                     .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -1295,12 +1290,14 @@ public class Dash extends javax.swing.JFrame {
         String password = new String(passChars);
 
         if (this.National_no.equals(toNationalId)) {
-            JOptionPane.showMessageDialog(this, "You cannot send money to yourself.");
+             Mess mass=new Mess(this);
+            mass.showMessage("transfer","You cannot send money to yourself.");
             return;
         }
 
         if (sendAmount <= 0) {
-            JOptionPane.showMessageDialog(this, "Invalid amount. Please enter a positive value.");
+            Mess mass=new Mess(this);
+            mass.showMessage("transfer","Invalid amount. Please enter a positive value.");
             return;
         }
 
@@ -1317,7 +1314,8 @@ public class Dash extends javax.swing.JFrame {
                 long senderNewBalance = Long.parseLong(this.ball) - sendAmount;
 
                 if (senderNewBalance < 0) {
-                    JOptionPane.showMessageDialog(this, "Insufficient balance.");
+                    Mess mass=new Mess(this);
+            mass.showMessage("transfer","Insufficient balance.");
                     return;
                 }
 
@@ -1352,13 +1350,15 @@ public class Dash extends javax.swing.JFrame {
 
                     int rs5 = pstmt5.executeUpdate();
 
-                    JOptionPane.showMessageDialog(this, "Transaction successful.");
+                    Mess mass=new Mess(this);
+            mass.showMessage("transfer","Transaction successful.");
                 } catch (SQLException e) {
                     JOptionPane.showMessageDialog(this, "Error processing transaction.");
                     e.printStackTrace();
                 }
             } else {
-                JOptionPane.showMessageDialog(this, "Recipient account not found.");
+                Mess mass=new Mess(this);
+            mass.showMessage("transfer","Recipient account not found.");
             }
         } catch (ClassNotFoundException | SQLException e) {
             JOptionPane.showMessageDialog(this, "Error connecting to database.");
@@ -1396,9 +1396,11 @@ public class Dash extends javax.swing.JFrame {
             pstmt.setString(2,this.Acc_cardno);
             int rs = pstmt.executeUpdate();
             if (rs > 0) {
-                JOptionPane.showMessageDialog(this,"Data deleted successfully.");
+                Mess mass=new Mess(this);
+            mass.showMessage("transactions","Data deleted successfully.");
             } else {
-                JOptionPane.showMessageDialog(this,"No row deleted. Check your parameters.");
+                 Mess mass=new Mess(this);
+            mass.showMessage("transactions","No row deleted. Check your parameters.");
             }
         }
         catch(Exception e)
@@ -1469,9 +1471,11 @@ public class Dash extends javax.swing.JFrame {
                 int rowsAffected = pstmt.executeUpdate();
 
                 if (rowsAffected > 0) {
-                    JOptionPane.showMessageDialog(this,"Row deleted successfully.");
+                     Mess mass=new Mess(this);
+            mass.showMessage("transactions","Row deleted successfully.");
                 } else {
-                    JOptionPane.showMessageDialog(this,"No row deleted. Check your parameters.");
+                    Mess mass=new Mess(this);
+                    mass.showMessage("transactions","no row deleted.");
                 }
 
                 pstmt.close();
@@ -1517,7 +1521,8 @@ public class Dash extends javax.swing.JFrame {
              JOptionPane.showMessageDialog(this,"error in transaction table data");
             }
             } else {
-                 JOptionPane.showMessageDialog(this,"No row selected.");
+             Mess mass=new Mess(this);
+            mass.showMessage("transactions","no row selected");
             }
     }//GEN-LAST:event_DeleteTableRowMouseClicked
 
