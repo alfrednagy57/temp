@@ -2,6 +2,7 @@
 package loginandreg;
 import Classes.PatternChecker;
 import java.awt.*;
+import java.awt.event.ItemEvent;
 import java.awt.print.PrinterException;
 import java.awt.print.PrinterJob;
 import java.sql.Connection;
@@ -56,7 +57,9 @@ public class Dash extends javax.swing.JFrame {
     public String ball=new String();
     public String acc_pass=new String();
     public String acc_Cat=new String();
-    
+    public String acc_cvv=null;
+    public String acc_exp=null;
+   
     private int Basic_transNO=0;
    
      
@@ -72,7 +75,7 @@ public class Dash extends javax.swing.JFrame {
 
         try {
             // Establish database connection
-            Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/BankDatabase?serverTimezone=UTC", "root", "1212");
+            Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/BankDatabase?serverTimezone=UTC", "root", "123456");
 
             // Prepare the SQL statement
             String sqlCommand = "SELECT * FROM cards as c JOIN customers AS a ON a.national_id = c.national_no WHERE a.national_id = ?;";
@@ -120,14 +123,13 @@ public class Dash extends javax.swing.JFrame {
         jLabel15 = new javax.swing.JLabel();
         jPanel_Dash = new javax.swing.JPanel();
         jPanel_visa = new javax.swing.JPanel();
-        cardNum = new javax.swing.JLabel();
-        exp = new javax.swing.JLabel();
-        totalBalance = new javax.swing.JLabel();
-        exp1 = new javax.swing.JLabel();
-        cardCvv = new javax.swing.JLabel();
+        cardNumoo = new javax.swing.JLabel();
+        cardbal = new javax.swing.JLabel();
+        cardcvv = new javax.swing.JLabel();
+        expo = new javax.swing.JLabel();
         cc = new javax.swing.JLabel();
         jPanel7 = new javax.swing.JPanel();
-        jLabel23 = new javax.swing.JLabel();
+        WelcomingMess = new javax.swing.JLabel();
         jLabel24 = new javax.swing.JLabel();
         jLabel25 = new javax.swing.JLabel();
         jLabel26 = new javax.swing.JLabel();
@@ -139,10 +141,12 @@ public class Dash extends javax.swing.JFrame {
         from = new javax.swing.JComboBox<>();
         to = new javax.swing.JComboBox<>();
         jLabel28 = new javax.swing.JLabel();
-        from_text = new javax.swing.JTextField();
-        to_text = new javax.swing.JTextField();
+        from_amount = new javax.swing.JTextField();
         jLabel31 = new javax.swing.JLabel();
         jLabel32 = new javax.swing.JLabel();
+        convert = new com.k33ptoo.components.KButton();
+        jLabel35 = new javax.swing.JLabel();
+        deposit = new com.k33ptoo.components.KButton();
         jPanel_Transaction = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
         TransTable = new javax.swing.JTable();
@@ -391,39 +395,34 @@ public class Dash extends javax.swing.JFrame {
         jPanel_visa.setBackground(java.awt.Color.white);
         jPanel_visa.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        cardNum.setFont(new java.awt.Font("Segoe UI Historic", 1, 14)); // NOI18N
-        cardNum.setForeground(new java.awt.Color(255, 255, 255));
-        cardNum.setText("Card Num:9292939312912391239");
-        jPanel_visa.add(cardNum, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 160, 220, 20));
+        cardNumoo.setFont(new java.awt.Font("Segoe UI Historic", 1, 14)); // NOI18N
+        cardNumoo.setForeground(new java.awt.Color(255, 255, 255));
+        cardNumoo.setText("Card Num:9292939312912391239");
+        jPanel_visa.add(cardNumoo, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 160, 220, 20));
 
-        exp.setFont(new java.awt.Font("Segoe UI Historic", 1, 14)); // NOI18N
-        exp.setForeground(new java.awt.Color(255, 255, 255));
-        exp.setText("09/26");
-        jPanel_visa.add(exp, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 160, 40, 20));
+        cardbal.setFont(new java.awt.Font("Segoe UI Historic", 1, 14)); // NOI18N
+        cardbal.setForeground(new java.awt.Color(255, 255, 255));
+        cardbal.setText("Total balance");
+        jPanel_visa.add(cardbal, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 70, 130, 20));
 
-        totalBalance.setFont(new java.awt.Font("Segoe UI Historic", 1, 14)); // NOI18N
-        totalBalance.setForeground(new java.awt.Color(255, 255, 255));
-        totalBalance.setText("Total balance");
-        jPanel_visa.add(totalBalance, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 70, 130, 20));
+        cardcvv.setFont(new java.awt.Font("Segoe UI Historic", 1, 14)); // NOI18N
+        cardcvv.setForeground(new java.awt.Color(255, 215, 0));
+        cardcvv.setText("486");
+        jPanel_visa.add(cardcvv, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 110, 30, 30));
 
-        exp1.setFont(new java.awt.Font("Segoe UI Historic", 1, 14)); // NOI18N
-        exp1.setForeground(new java.awt.Color(255, 215, 0));
-        exp1.setText("486");
-        jPanel_visa.add(exp1, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 110, 30, 30));
-
-        cardCvv.setFont(new java.awt.Font("Segoe UI Historic", 1, 14)); // NOI18N
-        cardCvv.setForeground(new java.awt.Color(255, 255, 255));
-        cardCvv.setText("09/26");
-        jPanel_visa.add(cardCvv, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 150, 40, 30));
+        expo.setFont(new java.awt.Font("Segoe UI Historic", 1, 14)); // NOI18N
+        expo.setForeground(new java.awt.Color(255, 255, 255));
+        expo.setText("09/26");
+        jPanel_visa.add(expo, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 150, 40, 30));
 
         cc.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Logo/Credit Cards (Community)-Photoroom.png-Photoroom.png"))); // NOI18N
         jPanel_visa.add(cc, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 521, 214));
 
         jPanel7.setBackground(new java.awt.Color(0, 102, 102));
 
-        jLabel23.setFont(new java.awt.Font("Snap ITC", 1, 48)); // NOI18N
-        jLabel23.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel23.setText("Welcome, User Name");
+        WelcomingMess.setFont(new java.awt.Font("Snap ITC", 1, 48)); // NOI18N
+        WelcomingMess.setForeground(new java.awt.Color(255, 255, 255));
+        WelcomingMess.setText("Welcome, User Name");
 
         javax.swing.GroupLayout jPanel7Layout = new javax.swing.GroupLayout(jPanel7);
         jPanel7.setLayout(jPanel7Layout);
@@ -431,14 +430,14 @@ public class Dash extends javax.swing.JFrame {
             jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel7Layout.createSequentialGroup()
                 .addContainerGap(183, Short.MAX_VALUE)
-                .addComponent(jLabel23, javax.swing.GroupLayout.PREFERRED_SIZE, 615, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(WelcomingMess, javax.swing.GroupLayout.PREFERRED_SIZE, 615, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(136, 136, 136))
         );
         jPanel7Layout.setVerticalGroup(
             jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel7Layout.createSequentialGroup()
                 .addGap(23, 23, 23)
-                .addComponent(jLabel23, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(WelcomingMess, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(22, Short.MAX_VALUE))
         );
 
@@ -485,38 +484,51 @@ public class Dash extends javax.swing.JFrame {
         jLabel30.setText("Currency Convertor");
 
         from.setForeground(new java.awt.Color(0, 102, 102));
-        from.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "USD", " " }));
+        from.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "USD", "EGP","EURO" }));
+        from.addItemListener(new java.awt.event.ItemListener() {
+            public void itemStateChanged(java.awt.event.ItemEvent evt) {
+                fromItemStateChanged(evt);
+            }
+        });
 
         to.setForeground(new java.awt.Color(0, 102, 102));
-        to.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "EGP", " " }));
+        to.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "EGP","EURO" }));
 
         jLabel28.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jLabel28.setForeground(new java.awt.Color(0, 102, 102));
         jLabel28.setText("TO");
 
-        from_text.setBackground(new Color(0,0,0,0));
-        from_text.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 2, 0, new java.awt.Color(0, 102, 102)));
-        from_text.setDisabledTextColor(new java.awt.Color(204, 204, 0));
-        from_text.setSelectedTextColor(new java.awt.Color(242, 242, 242));
-        from_text.addActionListener(new java.awt.event.ActionListener() {
+        from_amount.setBackground(new Color(0,0,0,0));
+        from_amount.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 2, 0, new java.awt.Color(0, 102, 102)));
+        from_amount.setDisabledTextColor(new java.awt.Color(204, 204, 0));
+        from_amount.setSelectedTextColor(new java.awt.Color(242, 242, 242));
+        from_amount.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                from_textActionPerformed(evt);
-            }
-        });
-
-        to_text.setBackground(new Color(0,0,0,0));
-        to_text.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 2, 0, new java.awt.Color(0, 102, 102)));
-        to_text.setDisabledTextColor(new java.awt.Color(204, 204, 0));
-        to_text.setSelectedTextColor(new java.awt.Color(242, 242, 242));
-        to_text.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                to_textActionPerformed(evt);
+                from_amountActionPerformed(evt);
             }
         });
 
         jLabel31.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Logo/Money motivation-bro (1).png"))); // NOI18N
 
         jLabel32.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Logo/Coins-pana (1).png"))); // NOI18N
+
+        convert.setText("Convert");
+        convert.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                convertMouseClicked(evt);
+            }
+        });
+
+        jLabel35.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        jLabel35.setForeground(new java.awt.Color(0, 102, 102));
+        jLabel35.setText("Amount");
+
+        deposit.setText("deposit");
+        deposit.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                depositMouseClicked(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel_DashLayout = new javax.swing.GroupLayout(jPanel_Dash);
         jPanel_Dash.setLayout(jPanel_DashLayout);
@@ -528,51 +540,53 @@ public class Dash extends javax.swing.JFrame {
                 .addGroup(jPanel_DashLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel_DashLayout.createSequentialGroup()
                         .addComponent(jPanel_visa, javax.swing.GroupLayout.PREFERRED_SIZE, 507, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addGap(0, 0, Short.MAX_VALUE))
                     .addGroup(jPanel_DashLayout.createSequentialGroup()
-                        .addGroup(jPanel_DashLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                        .addGroup(jPanel_DashLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel_DashLayout.createSequentialGroup()
+                                .addGap(24, 24, 24)
+                                .addComponent(jLabel24))
+                            .addGroup(jPanel_DashLayout.createSequentialGroup()
+                                .addGap(12, 12, 12)
                                 .addGroup(jPanel_DashLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addGroup(jPanel_DashLayout.createSequentialGroup()
-                                        .addGap(12, 12, 12)
-                                        .addGroup(jPanel_DashLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addGroup(jPanel_DashLayout.createSequentialGroup()
-                                                .addComponent(jLabel25)
-                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                                .addComponent(depo, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                            .addComponent(jLabel26, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                                    .addGroup(jPanel_DashLayout.createSequentialGroup()
-                                        .addGap(24, 24, 24)
-                                        .addComponent(jLabel24)))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addGroup(jPanel_DashLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(jPanel_DashLayout.createSequentialGroup()
-                                        .addComponent(from, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(jLabel25)
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(jLabel28)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(to, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel_DashLayout.createSequentialGroup()
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 9, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGroup(jPanel_DashLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel_DashLayout.createSequentialGroup()
-                                                .addGroup(jPanel_DashLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                                    .addComponent(to_text, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                    .addComponent(from_text, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                                .addGap(17, 17, 17))
-                                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel_DashLayout.createSequentialGroup()
-                                                .addGroup(jPanel_DashLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                                    .addComponent(jLabel31, javax.swing.GroupLayout.PREFERRED_SIZE, 163, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                    .addComponent(jLabel30))
-                                                .addGap(3, 3, 3))))))
-                            .addGroup(jPanel_DashLayout.createSequentialGroup()
-                                .addGap(0, 0, Short.MAX_VALUE)
-                                .addComponent(jLabel32, javax.swing.GroupLayout.PREFERRED_SIZE, 238, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(117, 117, 117)
+                                        .addComponent(depo, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGap(29, 29, 29)
+                                        .addComponent(deposit, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addComponent(jLabel26, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jLabel35)
+                        .addGap(31, 31, 31)
+                        .addGroup(jPanel_DashLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel_DashLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                .addGroup(jPanel_DashLayout.createSequentialGroup()
+                                    .addComponent(from, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                    .addComponent(jLabel28)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                    .addComponent(to, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGroup(jPanel_DashLayout.createSequentialGroup()
+                                    .addGroup(jPanel_DashLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                        .addComponent(jLabel31, javax.swing.GroupLayout.PREFERRED_SIZE, 163, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(jLabel30))
+                                    .addGap(3, 3, 3))
                                 .addGroup(jPanel_DashLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                     .addComponent(jLabel27, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(accType))))
-                        .addGap(66, 66, 66))))
+                                    .addComponent(accType, javax.swing.GroupLayout.PREFERRED_SIZE, 149, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addGroup(jPanel_DashLayout.createSequentialGroup()
+                                .addGap(6, 6, 6)
+                                .addComponent(from_amount, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(67, 67, 67))
+                    .addGroup(jPanel_DashLayout.createSequentialGroup()
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addComponent(jLabel32, javax.swing.GroupLayout.PREFERRED_SIZE, 238, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(332, 332, 332))))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel_DashLayout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(convert, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(140, 140, 140))
             .addGroup(jPanel_DashLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel_DashLayout.createSequentialGroup()
                     .addContainerGap(680, Short.MAX_VALUE)
@@ -587,8 +601,20 @@ public class Dash extends javax.swing.JFrame {
                 .addComponent(jLabel24, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jPanel_visa, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 12, Short.MAX_VALUE)
-                .addGroup(jPanel_DashLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(jPanel_DashLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel_DashLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                        .addGroup(jPanel_DashLayout.createSequentialGroup()
+                            .addComponent(jLabel26, javax.swing.GroupLayout.PREFERRED_SIZE, 138, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                            .addGroup(jPanel_DashLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                .addComponent(jLabel25)
+                                .addComponent(depo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(deposit, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGap(69, 69, 69))
+                        .addGroup(jPanel_DashLayout.createSequentialGroup()
+                            .addComponent(jLabel32, javax.swing.GroupLayout.PREFERRED_SIZE, 206, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGap(158, 158, 158)))
                     .addGroup(jPanel_DashLayout.createSequentialGroup()
                         .addComponent(jLabel27)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -603,26 +629,17 @@ public class Dash extends javax.swing.JFrame {
                             .addComponent(to, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel28))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(from_text, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(16, 16, 16)
-                        .addComponent(to_text, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(33, 33, 33))
-                    .addGroup(jPanel_DashLayout.createSequentialGroup()
-                        .addGroup(jPanel_DashLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jLabel26, javax.swing.GroupLayout.PREFERRED_SIZE, 138, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(jPanel_DashLayout.createSequentialGroup()
-                                .addComponent(jLabel32, javax.swing.GroupLayout.PREFERRED_SIZE, 206, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(53, 53, 53)))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(jPanel_DashLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel25)
-                            .addComponent(depo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(74, 74, 74))))
+                            .addComponent(from_amount, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel35))
+                        .addGap(18, 18, 18)
+                        .addComponent(convert, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addContainerGap())))
             .addGroup(jPanel_DashLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(jPanel_DashLayout.createSequentialGroup()
                     .addGap(162, 162, 162)
                     .addComponent(jLabel29, javax.swing.GroupLayout.PREFERRED_SIZE, 203, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addContainerGap(366, Short.MAX_VALUE)))
+                    .addContainerGap(360, Short.MAX_VALUE)))
         );
 
         jPanel_Transaction.setBackground(new java.awt.Color(255, 255, 255));
@@ -888,7 +905,7 @@ public class Dash extends javax.swing.JFrame {
                         .addGap(18, 18, 18)
                         .addComponent(LockCard, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 794, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(80, Short.MAX_VALUE))
+                .addContainerGap(78, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel_CardsLayout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jPanel5, javax.swing.GroupLayout.PREFERRED_SIZE, 443, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -1394,7 +1411,7 @@ public class Dash extends javax.swing.JFrame {
     public void ShowDash()
     {
         showPanel(jPanel_Dash);
-        UpdateCardsTable();
+       // UpdateCardsTable();
     }
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
@@ -1417,7 +1434,7 @@ public class Dash extends javax.swing.JFrame {
         String qq = null;
          try {
                     Class.forName("com.mysql.cj.jdbc.Driver");
-                    Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/BankDatabase?serverTimezone=UTC", "root", "1212");
+                    Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/BankDatabase?serverTimezone=UTC", "root", "123456");
                     String sqlCommand = "select * from cards where Locked=?";
                     PreparedStatement pstmt = con.prepareStatement(sqlCommand);
                     pstmt.setString(1, "1");
@@ -1463,7 +1480,7 @@ public class Dash extends javax.swing.JFrame {
         ResultSet rs=null;
         try{
         Class.forName("com.mysql.cj.jdbc.Driver");
-        Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/BankDatabase?serverTimezone=UTC", "root", "1212");
+        Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/BankDatabase?serverTimezone=UTC", "root", "123456");
         Statement stmt = con.createStatement();
         String sqlCommand ="select * from transaction_details where from_acc=? OR to_acc=?;";
         PreparedStatement pstmt = con.prepareStatement(sqlCommand);
@@ -1578,7 +1595,7 @@ public class Dash extends javax.swing.JFrame {
 
         try {
             Class.forName("com.mysql.cj.jdbc.Driver");
-            Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/BankDatabase?serverTimezone=UTC", "root", "1212");
+            Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/BankDatabase?serverTimezone=UTC", "root", "123456");
 
             String sqlCommand = "SELECT a.balance AS Bal, c.fname fn, a.card_number AS cn FROM customers AS c JOIN account AS a ON c.national_id = a.national_no WHERE c.national_id = ?";
             PreparedStatement pstmt = con.prepareStatement(sqlCommand);   
@@ -1663,7 +1680,7 @@ public class Dash extends javax.swing.JFrame {
         // TODO add your handling code here:
         try{
             Class.forName("com.mysql.cj.jdbc.Driver");
-            Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/BankDatabase?serverTimezone=UTC", "root", "1212");
+            Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/BankDatabase?serverTimezone=UTC", "root", "123456");
             Statement stmt = con.createStatement();
             String sqlCommand ="delete from transaction_details where from_acc=? OR to_acc=?;";
             PreparedStatement pstmt = con.prepareStatement(sqlCommand);
@@ -1731,7 +1748,7 @@ public class Dash extends javax.swing.JFrame {
             
            try {
                 Class.forName("com.mysql.cj.jdbc.Driver");
-                Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/BankDatabase?serverTimezone=UTC", "root", "1212");
+                Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/BankDatabase?serverTimezone=UTC", "root", "123456");
 
                 String sqlCommand = "DELETE FROM transaction_details WHERE Trans_no=? AND from_acc=? AND to_acc=? AND amount=? AND balance=? AND date=?";
                 PreparedStatement pstmt = con.prepareStatement(sqlCommand);
@@ -1765,7 +1782,7 @@ public class Dash extends javax.swing.JFrame {
             ResultSet rs=null;
             try{
             Class.forName("com.mysql.cj.jdbc.Driver");
-            Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/BankDatabase?serverTimezone=UTC", "root", "1212");
+            Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/BankDatabase?serverTimezone=UTC", "root", "123456");
             Statement stmt = con.createStatement();
             String sqlCommand ="select * from transaction_details where from_acc=? OR to_acc=?;";
             PreparedStatement pstmt = con.prepareStatement(sqlCommand);
@@ -1834,7 +1851,7 @@ public class Dash extends javax.swing.JFrame {
             try
             {
                 Class.forName("com.mysql.cj.jdbc.Driver");
-                Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/BankDatabase?serverTimezone=UTC", "root", "1212");
+                Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/BankDatabase?serverTimezone=UTC", "root", "123456");
                 Statement stmt = con.createStatement();
                 String sqlCommand = "UPDATE customers set fname=?,lname=?,email=? where national_id=?;";
                 PreparedStatement pstmt = con.prepareStatement(sqlCommand);
@@ -1892,7 +1909,7 @@ public class Dash extends javax.swing.JFrame {
             try
             {
                 Class.forName("com.mysql.cj.jdbc.Driver");
-                Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/BankDatabase?serverTimezone=UTC", "root", "1212");
+                Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/BankDatabase?serverTimezone=UTC", "root", "123456");
                 Statement stmt = con.createStatement();
                 String sqlCommand = "UPDATE account set acc_pass=? where national_no=?;";
                 PreparedStatement pstmt = con.prepareStatement(sqlCommand);
@@ -1981,8 +1998,8 @@ public class Dash extends javax.swing.JFrame {
             try {
                 // Use a PreparedStatement to insert the new card details into the database
                 Class.forName("com.mysql.cj.jdbc.Driver");
-                Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/BankDatabase?serverTimezone=UTC", "root", "1212");
-                String sqlCommand = "INSERT INTO cards (card_no, cvv, national_no, atm_pin, expire_date, balance) VALUES ( ?, ?, ?, ?, ?, ?);";
+                Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/BankDatabase?serverTimezone=UTC", "root", "123456");
+                String sqlCommand = "INSERT INTO cards (card_no, cvv, national_no, atm_pin, expire_date, balance,locked) VALUES ( ?,?, ?, ?, ?, ?, ?);";
                 PreparedStatement pstmt = con.prepareStatement(sqlCommand);
 
                 String accType = new String();
@@ -1993,6 +2010,7 @@ public class Dash extends javax.swing.JFrame {
                 pstmt.setString(4, atmPin);
                 pstmt.setObject(5, formattedDate);
                 pstmt.setString(6, "0");
+                pstmt.setString(7, "0");
 
                 pstmt.executeUpdate();
 
@@ -2037,7 +2055,7 @@ public class Dash extends javax.swing.JFrame {
 
                try {
                     Class.forName("com.mysql.cj.jdbc.Driver");
-                    Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/BankDatabase?serverTimezone=UTC", "root", "1212");
+                    Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/BankDatabase?serverTimezone=UTC", "root", "123456");
 
                     String sqlCommand = "DELETE FROM cards WHERE card_no=? AND national_no=?";
                     PreparedStatement pstmt = con.prepareStatement(sqlCommand);
@@ -2103,7 +2121,7 @@ public class Dash extends javax.swing.JFrame {
                 
                 try{
                 Class.forName("com.mysql.cj.jdbc.Driver");
-                Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/BankDatabase?serverTimezone=UTC", "root", "1212");
+                Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/BankDatabase?serverTimezone=UTC", "root", "123456");
                 Statement stmt = con.createStatement();
                 String sqlCommand ="select atm_pin from cards where card_no=?;";
                 PreparedStatement pstmt = con.prepareStatement(sqlCommand);
@@ -2149,7 +2167,7 @@ public class Dash extends javax.swing.JFrame {
                         try{
 
                        Class.forName("com.mysql.cj.jdbc.Driver");
-                        Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/BankDatabase?serverTimezone=UTC", "root", "1212");
+                        Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/BankDatabase?serverTimezone=UTC", "root", "123456");
 
                         String sqlCommand = "UPDATE cards SET atm_pin=? where card_no=?";
                         PreparedStatement pstmt = con.prepareStatement(sqlCommand);
@@ -2228,7 +2246,7 @@ public class Dash extends javax.swing.JFrame {
                 
                try {
                     Class.forName("com.mysql.cj.jdbc.Driver");
-                    Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/BankDatabase?serverTimezone=UTC", "root", "1212");
+                    Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/BankDatabase?serverTimezone=UTC", "root", "123456");
                     String sqlCommand = "select Locked from cards where Locked=?";
                     PreparedStatement pstmt = con.prepareStatement(sqlCommand);
                     pstmt.setString(1, "1");
@@ -2238,7 +2256,7 @@ public class Dash extends javax.swing.JFrame {
                     if (rs.next()) {
                         try {
                             Class.forName("com.mysql.cj.jdbc.Driver");
-                            Connection con2 = DriverManager.getConnection("jdbc:mysql://localhost:3306/BankDatabase?serverTimezone=UTC", "root", "1212");
+                            Connection con2 = DriverManager.getConnection("jdbc:mysql://localhost:3306/BankDatabase?serverTimezone=UTC", "root", "123456");
 
                             String sqlCommand2 = "UPDATE cards SET Locked=? where Locked=?";
                             PreparedStatement pstmt2 = con2.prepareStatement(sqlCommand2);
@@ -2291,7 +2309,7 @@ public class Dash extends javax.swing.JFrame {
                 try{
 
                     Class.forName("com.mysql.cj.jdbc.Driver");
-                     Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/BankDatabase?serverTimezone=UTC", "root", "1212");
+                     Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/BankDatabase?serverTimezone=UTC", "root", "123456");
 
                      String sqlCommand = "UPDATE cards SET Locked=? where card_no= ?";
                      PreparedStatement pstmt = con.prepareStatement(sqlCommand);
@@ -2327,7 +2345,7 @@ public class Dash extends javax.swing.JFrame {
         }
          try {
                     Class.forName("com.mysql.cj.jdbc.Driver");
-                    Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/BankDatabase?serverTimezone=UTC", "root", "1212");
+                    Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/BankDatabase?serverTimezone=UTC", "root", "123456");
                     String sqlCommand = "select * from cards where Locked=?";
                     PreparedStatement pstmt = con.prepareStatement(sqlCommand);
                     pstmt.setString(1, "1");
@@ -2384,13 +2402,179 @@ public class Dash extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_accTypeActionPerformed
 
-    private void from_textActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_from_textActionPerformed
+    private void from_amountActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_from_amountActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_from_textActionPerformed
+    }//GEN-LAST:event_from_amountActionPerformed
 
-    private void to_textActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_to_textActionPerformed
+    private void depositMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_depositMouseClicked
         // TODO add your handling code here:
-    }//GEN-LAST:event_to_textActionPerformed
+       String amounto=depo.getText();
+       String current=null;
+       double finala=0;
+       try {
+            Class.forName("com.mysql.cj.jdbc.Driver");
+            Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/BankDatabase?serverTimezone=UTC", "root", "123456");
+            String sqlCommand = "select balance from account where card_number=?";
+            PreparedStatement pstmt = con.prepareStatement(sqlCommand);
+            
+            pstmt.setString(1, this.Acc_cardno);
+            
+            ResultSet rs = pstmt.executeQuery();
+            
+             if (rs.next()) { // Move the cursor to the first row
+                current = rs.getString("balance");
+                if (current != null) { // Add null check
+                    current = current.trim(); // Call trim() method only if current is not null
+                } else {
+                    // Handle case where balance is null
+                    // For example, set a default value or display an error message
+                    current = "0.00"; // Default value
+                }
+            } else {
+                // Handle case where ResultSet is empty
+                // For example, set a default value or display an error message
+                current = "0.00"; // Default value
+            }
+
+            rs.close();
+            pstmt.close();
+            con.close();
+        } catch (ClassNotFoundException | SQLException e) {
+            // Handle exception
+             e.printStackTrace(); // Log exception details for debugging
+            Mess mass2 = new Mess(this);
+            mass2.showMessage("Deposit", "An error occurred while fetching balance. Please try again later.");
+            mass2.setVisible(true);
+            if (mass2.confirmed) {
+                mass2.setVisible(false);
+                mass2.dispose();
+            }
+        }
+       finala=Double.parseDouble(current)+Double.parseDouble(amounto);
+       if(Long.parseLong(amounto)>0)
+       {
+            try{
+
+                   Class.forName("com.mysql.cj.jdbc.Driver");
+                    Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/BankDatabase?serverTimezone=UTC", "root", "123456");
+
+                    String sqlCommand = "UPDATE account SET balance=? where card_number= ?";
+                    PreparedStatement pstmt = con.prepareStatement(sqlCommand);
+
+                    pstmt.setString(1, Double.toString(finala));
+                    pstmt.setString(2, this.Acc_cardno);
+
+                    int ms= pstmt.executeUpdate();
+                    
+                    Mess3 masss=new Mess3(this);
+                    masss.showMessage("deposit successfuly","your new balance is "+Double.toString(finala));
+                    depo.setText(" ");
+                    cardbal.setText(Double.toString(finala));
+                    masss.setVisible(true);
+                    if(masss.confirmed==true)
+                    {
+                        masss.setVisible(false);
+                        masss.dispose();
+                    }
+                   }
+                catch(ClassNotFoundException | SQLException e)
+                {
+                    Mess masss=new Mess(this);
+                    masss.showMessage("problem in database",e.getMessage());
+                    masss.setVisible(true);
+                    if(masss.confirmed==true)
+                    {
+                        masss.setVisible(false);
+                        masss.dispose();
+                    }
+                }
+       }
+    }//GEN-LAST:event_depositMouseClicked
+
+    private void convertMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_convertMouseClicked
+        // TODO add your handling code here:
+        String fromo =(String)from.getSelectedItem();
+        String too   =(String)to.getSelectedItem();
+        
+        Double famount=Double.parseDouble(from_amount.getText());
+        
+        String output=null;
+        
+
+        switch (fromo) {
+            case "USD" -> {
+                if(too.equals("EURO"))
+                {
+                    output = Double.toString(famount*0.93);
+                }
+                else if(too.equals("EGP"))
+                {
+                    output = Double.toString(famount*47.07 );
+                }
+            }
+            case "EURO" -> {
+                if(too.equals("USD"))
+                {
+                    output = Double.toString(famount*1.08);
+                }
+                else if(too.equals("EGP"))
+                {
+                    output = Double.toString(famount*50.7774);
+                }
+            }
+            case "EGP" -> {
+                if(too.equals("USD"))
+                {
+                    output = Double.toString(famount*0.021);
+                }
+                else if(too.equals("EURO"))
+                {
+                    output = Double.toString(famount*0.020);
+                }
+            }
+        }
+        
+        Mess3 masss=new Mess3(this);
+        masss.showMessage(famount.toString()+" "+fromo+" to "+too," equals "+Double.parseDouble(output));
+        masss.setVisible(true);
+        if(masss.confirmed==true)
+        {
+            masss.setVisible(false);
+            masss.dispose();
+        }
+    }//GEN-LAST:event_convertMouseClicked
+
+    private void fromItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_fromItemStateChanged
+        // TODO add your handling code here:
+        if (evt.getStateChange() == ItemEvent.SELECTED) {
+            String selectedOption = (String)from.getSelectedItem();
+           
+            if(selectedOption.equals("USD"))
+            {   
+                 while (to.getItemCount() > 0) {
+                    to.removeAllItems(); // Remove the item at index 0
+                }
+                to.addItem("EGP");
+                to.addItem("EURO");
+            }
+            else if(selectedOption.equals("EGP"))
+            {
+                while (to.getItemCount() > 0) {
+                    to.removeAllItems(); // Remove the item at index 0
+                }
+                to.addItem("USD");
+                to.addItem("EURO");
+            }
+            else if(selectedOption.equals("EURO"))
+            {
+                while (to.getItemCount() > 0) {
+                    to.removeAllItems(); // Remove the item at index 0
+                }
+                to.addItem("USD");
+                to.addItem("EGP");
+            }
+         }
+    }//GEN-LAST:event_fromItemStateChanged
 
     /**
      *
@@ -2451,19 +2635,22 @@ public class Dash extends javax.swing.JFrame {
     private javax.swing.JButton SupportButton;
     private javax.swing.JTable TransTable;
     private com.k33ptoo.components.KButton Transfer;
-    private javax.swing.JTextField accType;
-    private javax.swing.JLabel cardCvv;
-    private javax.swing.JLabel cardNum;
+    public javax.swing.JLabel WelcomingMess;
+    public javax.swing.JTextField accType;
+    public javax.swing.JLabel cardNumoo;
+    public javax.swing.JLabel cardbal;
+    public javax.swing.JLabel cardcvv;
     private javax.swing.JLabel cc;
+    private com.k33ptoo.components.KButton convert;
     private javax.swing.JLabel cs;
     private javax.swing.JLabel cvv;
     private javax.swing.JTextField depo;
+    private com.k33ptoo.components.KButton deposit;
     private javax.swing.JTextField eemail;
-    private javax.swing.JLabel exp;
-    private javax.swing.JLabel exp1;
+    public javax.swing.JLabel expo;
     private javax.swing.JTextField ffname;
     private javax.swing.JComboBox<String> from;
-    private javax.swing.JTextField from_text;
+    private javax.swing.JTextField from_amount;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
@@ -2486,7 +2673,6 @@ public class Dash extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel20;
     private javax.swing.JLabel jLabel21;
     private javax.swing.JLabel jLabel22;
-    private javax.swing.JLabel jLabel23;
     private javax.swing.JLabel jLabel24;
     private javax.swing.JLabel jLabel25;
     private javax.swing.JLabel jLabel26;
@@ -2497,6 +2683,7 @@ public class Dash extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel30;
     private javax.swing.JLabel jLabel31;
     private javax.swing.JLabel jLabel32;
+    private javax.swing.JLabel jLabel35;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
@@ -2529,9 +2716,7 @@ public class Dash extends javax.swing.JFrame {
     private javax.swing.JPasswordField passs1;
     private com.k33ptoo.components.KButton print;
     private javax.swing.JComboBox<String> to;
-    private javax.swing.JTextField to_text;
     private javax.swing.JToggleButton togbtn1;
     private javax.swing.JToggleButton togbtn2;
-    private javax.swing.JLabel totalBalance;
     // End of variables declaration//GEN-END:variables
 }

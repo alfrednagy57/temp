@@ -905,7 +905,7 @@ public class SignUp extends javax.swing.JFrame {
             else if(!VerifiedEmail)
             {
                  Mess mass=new Mess(this);
-            mass.showMessage("mail","You must verify your mail firstly");
+                 mass.showMessage("mail","You must verify your mail firstly");
             }
             else if(!confirmedpassword)
             {
@@ -961,6 +961,7 @@ public class SignUp extends javax.swing.JFrame {
                 }
                 catch (ClassNotFoundException | SQLException e)
                 {
+                   
                     JOptionPane.showMessageDialog(this,e);
                     System.out.println(e.getMessage());
                     System.out.println("first");
@@ -976,7 +977,7 @@ public class SignUp extends javax.swing.JFrame {
                         Class.forName("com.mysql.cj.jdbc.Driver");
                         Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/BankDatabase?serverTimezone=UTC", "root", "123456");
                         Statement stmt = con.createStatement();
-                        String sqlCommand = "INSERT INTO account (card_number, cvv, national_no, acc_pass, atm_pin, acc_category, expire_date, balance) VALUES (?, ?, ?, ?, ?, ?, ?, ?);";
+                        String sqlCommand = "INSERT INTO account (card_number, cvv, national_no, acc_pass, atm_pin, acc_category, expire_date, balance) VALUES (?, ?, ?, ?, ?, ?, ?,?);";
                         PreparedStatement pstmt = con.prepareStatement(sqlCommand);
 
                         String accType=new String();
@@ -1025,34 +1026,77 @@ public class SignUp extends javax.swing.JFrame {
                         System.out.println(e.getMessage());
                         System.out.println("second");
                     }
-                    
-                     try{
+                    if(tt){
+                        try{
+                          Class.forName("com.mysql.cj.jdbc.Driver");
+                        Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/BankDatabase?serverTimezone=UTC", "root", "123456");
+                        String sqlCommand = "INSERT INTO cards (card_no, cvv, national_no, atm_pin, expire_date, balance,locked) VALUES ( ?,?, ?, ?, ?, ?, ?);";
+                        PreparedStatement pstmt = con.prepareStatement(sqlCommand);
+
+                        String accType = new String();
+
+                        pstmt.setString(1, Card_no);
+                        pstmt.setString(2, Cvv);
+                        pstmt.setString(3, Nation_no);
+                        pstmt.setString(4, AtmPin);
+                        pstmt.setObject(5, expireDateString);
+                        pstmt.setString(6, "0");
+                        pstmt.setString(7, "0");
+
+                        pstmt.executeUpdate();
+                        
+                        // Close resources
+                        pstmt.close();
+                        con.close();
+
+                           JOptionPane.showMessageDialog(this,"Signed up successfully");
+
+                       }
+                       catch(HeadlessException | ClassNotFoundException | SQLException e)
+                       {
+                           JOptionPane.showMessageDialog(this,e);
+                           System.out.println(e.getMessage());
+                           System.out.println("third");
+                       }
+                    }
+                    else
+                    {
+                         try{
                         Class.forName("com.mysql.cj.jdbc.Driver");
                         Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/BankDatabase?serverTimezone=UTC", "root", "123456");
                         Statement stmt = con.createStatement();
-                        String sqlCommand ="insert into cards(national_no,card_no,cvv,atm_pin,expire_date,balance,Locked) VALUES(?,?,?,?,?,?,?);";
+                        String sqlCommand ="delete from cards where national_no=?;";
                         PreparedStatement pstmt = con.prepareStatement(sqlCommand);
-                        
-                        
                         pstmt.setString(1, Nation_no);
-                        pstmt.setString(2, Card_no);
-                        pstmt.setString(3, Cvv);
-                        pstmt.setString(4, AtmPin);
-                        pstmt.setString(5,expireDateString);
-                        pstmt.setString(6, "0");
-                        pstmt.setString(7, "1");
-                        
-                        JOptionPane.showMessageDialog(this,"Signed up successfully");
-
-                    }
-                    catch(HeadlessException | ClassNotFoundException | SQLException e)
-                    {
-                        JOptionPane.showMessageDialog(this,e);
-                        System.out.println(e.getMessage());
-                        System.out.println("third");
+                        int rsss=pstmt.executeUpdate();
+                        }
+                        catch (ClassNotFoundException | SQLException ex)
+                         {
+                             JOptionPane.showMessageDialog(this,ex);
+                            System.out.println(ex.getMessage());
+                            System.out.println("first");
+                         }
                     }
                     
-                }                    
+                }
+                else
+                {
+                  try{
+                Class.forName("com.mysql.cj.jdbc.Driver");
+                Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/BankDatabase?serverTimezone=UTC", "root", "123456");
+                Statement stmt = con.createStatement();
+                String sqlCommand ="delete from customers where national_id=?;";
+                PreparedStatement pstmt = con.prepareStatement(sqlCommand);
+                pstmt.setString(1, Nation_no);
+                int rss=pstmt.executeUpdate();
+                }
+                catch (ClassNotFoundException | SQLException ex)
+                 {
+                     JOptionPane.showMessageDialog(this,ex);
+                    System.out.println(ex.getMessage());
+                    System.out.println("first");
+                 }   
+                }
                        this.dispose();
                        Login LoginFrame = new Login();
                        LoginFrame.setVisible(true);

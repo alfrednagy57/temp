@@ -81,7 +81,7 @@ public class ValMail {
             Transport.send(message);
 
             System.out.println("Email sent successfully.");
-
+            System.out.println(body);
         } catch (MessagingException e) {
             e.printStackTrace();
         }

@@ -301,7 +301,7 @@ public class Login extends javax.swing.JFrame {
             Class.forName("com.mysql.cj.jdbc.Driver");
             Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/BankDatabase?serverTimezone=UTC", "root", "123456");
             Statement stmt = con.createStatement();  
-            String sqlCommand = "SELECT email, national_id,fname,lname, acc_pass,balance as Bal,card_number,acc_category as ac FROM customers JOIN account ON customers.national_id = account.national_no WHERE email = ?";
+            String sqlCommand = "SELECT email,cvv as ccc,national_id,fname,lname, acc_pass,balance as Bal,card_number,expire_date as eee,acc_category as ac FROM customers JOIN account ON customers.national_id = account.national_no WHERE email = ?";
             PreparedStatement pstmt = con.prepareStatement(sqlCommand);   
             pstmt.setString(1, email);
             ResultSet rs = pstmt.executeQuery();
@@ -319,14 +319,57 @@ public class Login extends javax.swing.JFrame {
                     this.dispose();
                     Dash DashFrame= new Dash();
                     DashFrame.setVisible(true);
-                    //DashFrame.WelcomingMess.setText("Welcome "+WelcomeUserName+"!");
-                   // DashFrame.WelcomeMess.
+                    DashFrame.WelcomingMess.setText("Welcome "+WelcomeUserName+"!");
                     DashFrame.Acc_fname=WelcomeUserName;
                     DashFrame.Acc_cardno=rs.getString("card_number");
                     DashFrame.National_no=rs.getString("national_id");
                     DashFrame.ball=rs.getNString("Bal");
                     DashFrame.acc_pass=rs.getString("acc_pass");
+                    
+                    DashFrame.acc_cvv=rs.getString("ccc");
+                    String exppp=rs.getString("eee");
+                    exppp=exppp.substring(0,7);
+                    String month = null,year = null;
+                    StringTokenizer da=new StringTokenizer(exppp,"-",false);
+                    if(da.hasMoreTokens())
+                    {
+                        year=da.nextToken().substring(2);
+                    }
+                    if(da.hasMoreTokens())
+                    {
+                        month=da.nextToken();
+                    }
+                    String sss=DashFrame.acc_cvv;
+                    String mm=DashFrame.Acc_cardno;
+                    String nn=DashFrame.ball;
+                    DashFrame.expo.setText(month+"/"+year);
+                    DashFrame.acc_exp=month+"/"+year;
+                    DashFrame.cardcvv.setText(sss);
+                    DashFrame.cardNumoo.setText(mm);
+                    DashFrame.cardbal.setText(nn);
                     DashFrame.acc_Cat=rs.getString("ac");
+
+                    if(DashFrame.acc_Cat.equals("s"))
+                    {
+                        DashFrame.accType.setText("Saving Account");
+                        DashFrame.acc_Cat="Saving Account";
+                    }
+                    else if(DashFrame.acc_Cat.equals("f"))
+                    {
+                        DashFrame.accType.setText("Fixed Deposit Account");
+                        DashFrame.acc_Cat="Fixed Deposit Account";
+                    }
+                    else if(DashFrame.acc_Cat.equals("c"))
+                    {
+                        DashFrame.accType.setText("Current Account");
+                        DashFrame.acc_Cat="Current Account";
+                    }
+                    else if(DashFrame.acc_Cat.equals("r"))
+                    {
+                        DashFrame.acc_Cat="recurring Deposit Account";
+                        DashFrame.accType.setText("recurring Deposit Account");
+                    }
+                    
                     DashFrame.ShowDash();
                     break;
                 } else {
@@ -352,8 +395,8 @@ public class Login extends javax.swing.JFrame {
             catch (Exception e)
             {
                  Mess2 mass=new Mess2(this);
-                    mass.showMessage(e.getMessage(),"");
-             System.out.println(e.getMessage());
+                 mass.showMessage(e.getMessage()+"  login"," ");
+                 System.out.println(e.getMessage());
             }
 
     }//GEN-LAST:event_kButton1MouseClicked
