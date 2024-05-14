@@ -49,6 +49,7 @@ public class Login extends javax.swing.JFrame {
         passwordLogo = new javax.swing.JLabel();
         kButton1 = new com.k33ptoo.components.KButton();
         togbtn1 = new javax.swing.JToggleButton();
+        jLabel9 = new javax.swing.JLabel();
 
         jTextField1.setText("jTextField1");
 
@@ -165,14 +166,12 @@ public class Login extends javax.swing.JFrame {
             }
         });
 
+        jLabel9.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Logo/Wallet-pana12.png"))); // NOI18N
+
         javax.swing.GroupLayout leftttLayout = new javax.swing.GroupLayout(lefttt);
         lefttt.setLayout(leftttLayout);
         leftttLayout.setHorizontalGroup(
             leftttLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, leftttLayout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18))
             .addGroup(leftttLayout.createSequentialGroup()
                 .addGroup(leftttLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(leftttLayout.createSequentialGroup()
@@ -182,24 +181,32 @@ public class Login extends javax.swing.JFrame {
                             .addComponent(passwordLogo, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(6, 6, 6)
                         .addGroup(leftttLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(Email, javax.swing.GroupLayout.PREFERRED_SIZE, 292, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel3)
-                            .addGroup(leftttLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                .addGroup(javax.swing.GroupLayout.Alignment.LEADING, leftttLayout.createSequentialGroup()
-                                    .addComponent(kButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 88, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addGap(141, 141, 141)
-                                    .addComponent(togbtn1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                                .addComponent(Pass, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 292, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(leftttLayout.createSequentialGroup()
-                                .addComponent(jLabel4)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jXHyperlink1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                                .addComponent(kButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 88, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(141, 141, 141)
+                                .addComponent(togbtn1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                            .addGroup(leftttLayout.createSequentialGroup()
+                                .addGroup(leftttLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(Email, javax.swing.GroupLayout.PREFERRED_SIZE, 292, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jLabel3)
+                                    .addComponent(Pass, javax.swing.GroupLayout.PREFERRED_SIZE, 292, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addGroup(leftttLayout.createSequentialGroup()
+                                        .addComponent(jLabel4)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addGroup(leftttLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addComponent(jLabel9)
+                                            .addComponent(jXHyperlink1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                                .addGap(0, 0, Short.MAX_VALUE))))
                     .addGroup(leftttLayout.createSequentialGroup()
                         .addGap(114, 114, 114)
                         .addComponent(jLabel1)
                         .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap(22, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, leftttLayout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18))
         );
         leftttLayout.setVerticalGroup(
             leftttLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -230,7 +237,9 @@ public class Login extends javax.swing.JFrame {
                 .addGroup(leftttLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel4)
                     .addComponent(jXHyperlink1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(89, Short.MAX_VALUE))
+                .addGap(18, 18, 18)
+                .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
         );
 
         Left.add(lefttt);
@@ -310,7 +319,7 @@ public class Login extends javax.swing.JFrame {
                     this.dispose();
                     Dash DashFrame= new Dash();
                     DashFrame.setVisible(true);
-                    DashFrame.WelcomingMess.setText("Welcome "+WelcomeUserName+"!");
+                    //DashFrame.WelcomingMess.setText("Welcome "+WelcomeUserName+"!");
                    // DashFrame.WelcomeMess.
                     DashFrame.Acc_fname=WelcomeUserName;
                     DashFrame.Acc_cardno=rs.getString("card_number");
@@ -407,6 +416,7 @@ public class Login extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel9;
     private javax.swing.JTextField jTextField1;
     private org.jdesktop.swingx.JXHyperlink jXHyperlink1;
     private com.k33ptoo.components.KButton kButton1;
